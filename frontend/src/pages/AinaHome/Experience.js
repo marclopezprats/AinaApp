@@ -39,6 +39,17 @@ const ExperiencePosts = ({ accessToken }) => {
     setBtn(!btn);
   };
 
+  // Divide reseñas into 3 columns
+  const getColumnizedReseñas = (reseñas, columns) => {
+    const columnized = Array.from({ length: columns }, () => []);
+    reseñas.forEach((reseña, index) => {
+      columnized[index % columns].push(reseña);
+    });
+    return columnized;
+  };
+
+  const reseñasColumnized = getColumnizedReseñas(reseñas.slice(0, isMobileDevice() ? btn ? 10 : 3 : 10), 3);
+
   return (
     <Container>
       <Box mb={4} textAlign="center">
@@ -48,38 +59,38 @@ const ExperiencePosts = ({ accessToken }) => {
         </MKTypography>
       </Box>
       <Box mb={12}>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '20px',
-        }}>
-          {reseñas.slice(0, isMobileDevice() ? btn ? 10 : 3 : 10).map((reseña, index) => (
-            <Card key={index} style={{ margin: '10px', padding: '20px' }}>
-              <Grid container>
-                <Grid item>
-                  <MKAvatar alt={reseña.user.name} src={reseña.user.thumbnail || '/default-avatar.png'} style={{ width: '50px', height: '50px', marginRight: '15px' }} />
-                </Grid>
-                <Grid item xs>
-                  <Grid container direction="column">
+        <Grid container spacing={3}>
+          {reseñasColumnized.map((column, colIndex) => (
+            <Grid item xs={12} sm={6} md={4} key={colIndex}>
+              {column.map((reseña, index) => (
+                <Card key={index} style={{ margin: '10px', padding: '20px' }}>
+                  <Grid container>
                     <Grid item>
-                      <MKTypography variant="body2" fontWeight="bold" color="text">
-                        {reseña.user.name}
+                      <MKAvatar alt={reseña.user.name} src={reseña.user.thumbnail || '/default-avatar.png'} style={{ width: '50px', height: '50px', marginRight: '15px' }} />
+                    </Grid>
+                    <Grid item xs>
+                      <Grid container direction="column">
+                        <Grid item>
+                          <MKTypography variant="body2" fontWeight="bold" color="text">
+                            {reseña.user.name}
+                          </MKTypography>
+                        </Grid>
+                        <Grid item>
+                          <Rating style={{ marginBottom: '5px' }} name="read-only" value={reseña.rating} readOnly />
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKTypography variant="body2" color="text">
+                        {reseña.snippet}
                       </MKTypography>
                     </Grid>
-                    <Grid item>
-                      <Rating style={{ marginBottom: '5px' }} name="read-only" value={reseña.rating} readOnly />
-                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid item xs={12}>
-                  <MKTypography variant="body2" color="text">
-                    {reseña.snippet}
-                  </MKTypography>
-                </Grid>
-              </Grid>
-            </Card>
+                </Card>
+              ))}
+            </Grid>
           ))}
-        </div>
+        </Grid>
       </Box>
       {isMobileDevice() && (
         <MKButton
