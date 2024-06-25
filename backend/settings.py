@@ -10,7 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
+import environ
+from datetime import timedelta
+
+# Inicializar variables de entorno
+env = environ.Env()
+environ.Env.read_env()
+
 from pathlib import Path
+import dj_database_url  # Asegúrate de tener dj-database-url instalado
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +28,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s2&xps$w+lfbm-n*!c&$r*%q=1h1yl_r$df5wy(0pk5&s_(t+1'
+SECRET_KEY = env('SECRET_KEY_ENV')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG_ENV')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ainaapp.onrender.com', '127.0.0.1:8000', 'localhost', '127.0.0.1', 'localhost:3000']
 
 
 # Application definition
@@ -37,13 +45,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
+    'backend.api',
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
+
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True 
 
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'OPTIONS'
+]
+
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'authorization'
+]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -54,9 +76,23 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   
     
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -86,10 +122,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT', default='5432'),
     }
 }
+
 
 
 # Password validation
@@ -127,10 +168,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
+
+# MEDIA FILES
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
