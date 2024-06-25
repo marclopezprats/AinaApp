@@ -1,0 +1,405 @@
+import React, { useState, useEffect } from 'react';
+import {  Card, CardContent, Button, Stepper, Step, StepLabel, Box, Pagination } from '@mui/material';
+import SliderPrice from '@mui/material/Slider';
+import MKTypography from "components/MKTypography";
+import MKButton from 'components/MKButton';
+import axios from 'axios';
+import { useTheme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
+import MKBox from "components/MKBox";
+import scenic from "assets/images/scenic-config.jpg";
+
+
+function valuetext(value) {
+  return `${value}°C`;
+}
+
+const styles = {
+  root: {
+    backgroundColor: 'transparent',
+  },
+};
+
+function VistaArbol({ onSearchResult, onReset }) {
+
+  
+  const theme = useTheme();
+
+  const CustomStepper = styled(Stepper)({
+    marginBottom: '20px',
+    backgroundColor: '#000000',
+    boxShadow: 'none',
+  });
+
+  const CustomStepLabel = styled(StepLabel)({
+    color: '#ffffff',
+  });
+
+  const [productos, setProductos] = useState([]);
+  const [data, setData] = useState([]);
+  const [expandedParent, setExpandedParent] = useState(null);
+  const [selectedModel, setSelectedModel] = useState(null);
+  const [selectedVersions, setSelectedVersions] = useState([]);
+  const [selectedColors, setSelectedColors] = useState([]);
+
+  const [searchResult, setSearchResult] = useState('');
+  const [value, setValue] = useState([20, 37]);
+  const [activeStep, setActiveStep] = useState(0);
+  const [page, setPage] = useState(1);
+  const itemsPerPage = 1;
+  const steps = ['Modelo', 'Versión', 'Color', 'Precio'];
+
+  const [showPagination, setShowPagination] = useState(true);
+
+  const handleNext = () => {
+    console.log("Siguiente paso:", activeStep);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+  
+  const handleBack = () => {
+    console.log("Paso anterior:", activeStep);
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  useEffect(() => {
+    const obtenerProductos = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/productos');
+        if (response.data.productos && response.data.productos.length > 0) {
+          setProductos(response.data.productos);
+        } else {
+          console.error('La respuesta del backend no contiene productos válidos.');
+        }
+      } catch (error) {
+        console.error('Error al obtener los productos:', error);
+      }
+    };
+  
+    obtenerProductos();
+  }, []);
+
+  useEffect(() => {
+    if (productos && productos.length > 0) {
+      const modelosUnicos = [...new Set(productos.map(producto => producto.Modelo))];
+      console.log("Modelos únicos:", modelosUnicos);
+      const newData = [
+        {
+          parent: 'Modelo',
+          children: modelosUnicos.map((modelo, index) => ({ id: index + 1, name: modelo, img: require(`assets/images/${modelo}.jpg`) }))
+          
+        },
+        {
+          parent: 'Version',
+          children: []
+        },
+        {
+          parent: 'Color',
+          children: []
+        }
+      ];
+      setData(newData);
+    }  
+  }, [productos]);
+
+  useEffect(() => {
+    if (productos && selectedModel !== null) {
+      const versionesUnicas = [...new Set(productos.filter(producto => producto.Modelo === selectedModel).map(producto => producto.Version))];
+      console.log("Versiones únicos:", versionesUnicas);
+  
+      const coloresUnicos = [...new Set(productos.filter(producto => producto.Modelo === selectedModel).map(producto => producto.Color))];
+      console.log("Colores únicos:", coloresUnicos);
+  
+      const versionesData = {
+        parent: 'Version',
+        children: versionesUnicas.map((version, index) => ({ id: index + 4, name: version, img: scenic }))
+      };
+      const coloresData = {
+        parent: 'Color',
+        children: coloresUnicos.map((color, index) => ({ id: index + 7, name: color, img: scenic }))
+      };
+  
+  
+      setData(prevData => {
+        const newData = [...prevData];
+        const existingVersionIndex = newData.findIndex(item => item.parent === 'Version');
+        const existingColorIndex = newData.findIndex(item => item.parent === 'Color');
+  
+        if (existingVersionIndex !== -1) {
+          newData.splice(existingVersionIndex, 1, versionesData);
+        } else {
+          newData.push(versionesData);
+        }
+  
+        if (existingColorIndex !== -1) {
+          newData.splice(existingColorIndex, 1, coloresData);
+        } else {
+          newData.push(coloresData);
+        }
+  
+        return newData;
+      });
+    } else {
+      // Si no se selecciona un modelo, restablecer datos de versiones y colores
+      setData(prevData => {
+        const newData = [...prevData];
+        const existingVersionIndex = newData.findIndex(item => item.parent === 'Version');
+        const existingColorIndex = newData.findIndex(item => item.parent === 'Color');
+  
+        if (existingVersionIndex !== -1) {
+          newData.splice(existingVersionIndex, 1, { parent: 'Version', children: [] });
+        }
+  
+        if (existingColorIndex !== -1) {
+          newData.splice(existingColorIndex, 1, { parent: 'Color', children: [] });
+        }
+  
+        return newData;
+      });
+    }
+  }, [productos, selectedModel]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleParentClick = (index) => {
+    setExpandedParent(index === expandedParent ? null : index);
+  };
+
+  const handleCardSelect = (parent, childId) => {
+    console.log("Elemento seleccionado:", parent, childId);
+    if (parent === 'Modelo') {
+      setSelectedModel(data[0].children.find(modelo => modelo.id === childId).name);
+      setSelectedVersions([]);
+      setSelectedColors([]); // Restablecer los colores seleccionados cuando se selecciona un nuevo modelo
+    } else if (parent === 'Version') {
+      setSelectedVersions(prevSelectedVersions => {
+        if (prevSelectedVersions.includes(childId)) {
+          return prevSelectedVersions.filter(id => id !== childId);
+        } else {
+          return [...prevSelectedVersions, childId];
+        }
+      });
+      
+      // Filtrar los colores disponibles según la versión seleccionada
+      const selectedVersionName = data[1].children.find(version => version.id === childId)?.name;
+      const colorsForSelectedVersion = productos
+        .filter(producto => producto.Modelo === selectedModel && producto.Version === selectedVersionName)
+        .map(producto => producto.Color);
+      
+      const uniqueColorsForSelectedVersion = [...new Set(colorsForSelectedVersion)];
+      const coloresData = {
+        parent: 'Color',
+        children: uniqueColorsForSelectedVersion.map((color, index) => ({ id: index + 7, name: color, img: productos.find(
+          producto => producto.Modelo === selectedModel && producto.Color === color
+        )?.ImagenColor || 'motor-config.jpg'}))
+      };
+      
+      setData(prevData => {
+        const newData = [...prevData];
+        const existingColorIndex = newData.findIndex(item => item.parent === 'Color');
+        
+        if (existingColorIndex !== -1) {
+          newData.splice(existingColorIndex, 1, coloresData);
+        } else {
+          newData.push(coloresData);
+        }
+        
+        return newData;
+      });
+    } else if (parent === 'Color') {
+      setSelectedColors(prevSelectedColors => {
+        if (prevSelectedColors.includes(childId)) {
+          return prevSelectedColors.filter(id => id !== childId);
+        } else {
+          return [...prevSelectedColors, childId];
+        }
+      });
+    }
+  };
+  
+  const handleSearch = () => {
+    console.log("Búsqueda realizada");
+    
+    // Verificar si data tiene algún valor
+    if (data && data.length > 0) {
+      const selectedOptions = data.map(item => {
+        const resultItem = {};
+        if (item.parent === 'Modelo') {
+          resultItem[item.parent] = selectedModel ? [selectedModel] : [];
+        } else if (item.parent === 'Version') {
+          resultItem[item.parent] = selectedVersions.map(versionId => {
+            const version = item.children.find(child => child.id === versionId);
+            return version ? version.name : '';
+          });
+        } else if (item.parent === 'Color') {
+          resultItem[item.parent] = selectedColors.map(colorId => {
+            const color = item.children.find(child => child.id === colorId);
+            return color ? color.name : '';
+          });
+        }
+        return resultItem;
+      });
+    
+      const resultString = JSON.stringify(selectedOptions);
+      console.log("Resultado de búsqueda:", resultString);
+      setSearchResult(resultString);
+      onSearchResult(resultString); // Llamar a la función onSearchResult con el resultado de la búsqueda
+    } else {
+      console.error("Error: No hay datos disponibles para realizar la búsqueda.");
+    }
+  };
+  
+
+  const handleResetFilter = () => {
+    setData(prevData => {
+      return prevData.map(item => ({
+        ...item,
+        children: item.children.map(child => ({
+          ...child,
+          isSelected: false
+        }))
+      }));
+    });
+    setSelectedModel(null);
+    setSelectedVersions([]);
+    setSelectedColors([]);
+    setValue([20, 37]);
+    setActiveStep(0);
+  };
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const filteredData = data[activeStep]?.children || [];
+  const pageCount = Math.ceil(filteredData.length / itemsPerPage);
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  useEffect(() => {
+    setShowPagination(activeStep !== steps.length - 1);
+  }, [activeStep]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [activeStep]);
+
+
+  const [resetButtonClicked, setResetButtonClicked] = useState(false);
+  const resetButtonColor = resetButtonClicked ? "error" : "error";
+  const resetButtonText = resetButtonClicked ? "Limpiar?" : "Anular Filtros";
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <CustomStepper activeStep={activeStep} alternativeLabel style={styles.root}>
+        {steps.map((label) => (
+          <Step key={label}>
+            <CustomStepLabel>{label}</CustomStepLabel>
+          </Step>
+        ))}
+      </CustomStepper>
+      {activeStep === steps.length ? (
+        <div>
+        </div>
+      ) : (
+        <div>
+          <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '20px' }}>
+            {filteredData.slice(startIndex, endIndex).map((child) => (
+              <Card key={child.id} style={{
+                margin: '10px',
+                width: '250px',
+                height: '250px',
+                backgroundImage: `linear-gradient(190deg, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0) 100%), url(${child.parent === 'Color' ? child.img : child.img})`,
+
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-end'
+              }}>
+                <CardContent style={{ padding: '16px', paddingTop: '24px' }}>
+                  <MKTypography variant="h6" color="white" textAlign="Left" style={{ marginLeft: '10px' }}>{child.name}</MKTypography>
+                  <MKBox style={{ textAlign: 'center' }}>
+                  <MKButton
+                    variant={
+                      activeStep === 0
+                      ? selectedModel === child.name
+                          ? 'contained'
+                          : 'outlined'
+                      : activeStep === 1 && selectedVersions.includes(child.id)
+                      ? 'contained'
+                      : activeStep === 2 && selectedColors.includes(child.id)
+                      ? 'contained'
+                      : 'outlined'
+                    }  color={
+                      activeStep === 0
+                      ? selectedModel === child.name
+                          ? 'success'
+                          : 'white'
+                      : activeStep === 1 && selectedVersions.includes(child.id)
+                      ? 'success'
+                      : activeStep === 2 && selectedColors.includes(child.id)
+                      ? 'success'
+                      : 'white'
+                    }
+                      onClick={() => handleCardSelect(data[activeStep].parent, child.id)}
+                      style={{ width: '100%', marginTop: '10px' }}
+                      size='small'
+                    >
+                      {activeStep === 0 ? (selectedModel === child.name ? 'Seleccionado' : 'Seleccionar') : (activeStep === 1 && selectedVersions.includes(child.id) ? 'Seleccionado' : 'Seleccionar')} {/* Cambiar el texto del botón en función del paso activo y si el modelo/versión está seleccionado */}
+                    </MKButton>
+                  </MKBox>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          {showPagination && (
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+              <Pagination count={pageCount} page={page} onChange={handlePageChange} />
+            </div>
+          )}
+          {activeStep === steps.length - 1 && (
+            <div>
+              <MKTypography ml={2} mt={2} variant="caption" lineHeight={1} fontWeight="regular" color="info">Selecciona el rango de precios</MKTypography>
+              <Box mt={4} mb={4}>
+                <SliderPrice
+                  getAriaLabel={() => 'Temperature range'}
+                  value={value}
+                  onChange={handleChange}
+                  valueLabelDisplay="auto"
+                  getAriaValueText={valuetext}
+                />
+              </Box>
+            </div>
+          )}
+        </div>
+      )}
+      <Box mt={2} display="flex" justifyContent="space-between">
+        <Button disabled={activeStep === 0} onClick={handleBack}>Atrás</Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            if (activeStep === steps.length - 1) {
+              handleSearch();
+            } else {
+              handleNext();
+            }
+          }}
+        >
+          {activeStep === steps.length - 1 ? 'Buscar' : 'Siguiente'}
+        </Button>
+        <MKButton variant="text" color={resetButtonColor} onClick={() => {
+            handleResetFilter(); 
+            handleSearch(); 
+            setResetButtonClicked(!resetButtonClicked);
+            }}
+            
+        >{resetButtonText}</MKButton>
+      </Box>
+    </div>
+  );
+}
+
+export default VistaArbol;

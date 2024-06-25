@@ -1,0 +1,774 @@
+import * as React from 'react';
+import { useState, useEffect, useRef } from 'react';
+// @mui material components
+import Container from "@mui/material/Container";
+import Card from "@mui/material/Card";
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+// Material Kit 2 React components
+import MKBox from "components/MKBox";
+import MKTypography from "components/MKTypography";
+import MKButton from "components/MKButton";
+import MKAvatar from "components/MKAvatar";
+import typography from 'assets/theme/base/typography';
+import Modal from '@mui/material/Modal';
+// Material Kit 2 React examples
+import DefaultNavbar from "examples/Navbars/DefaultNavbar";
+// Routesimport Drawer from '@mui/material/Drawer';
+import { useParams } from 'react-router-dom';
+import back from "assets/images/backgroundAina.jpg";
+import Slide from '@mui/material/Slide';
+
+import CardContent from '@mui/material/CardContent';
+import './Carousel.css';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import IconButton from '@mui/material/IconButton';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'; 
+import MKInput from "components/MKInput";
+import DefaultFooter from "examples/Footers/DefaultFooter";
+import Breadcrumbs from "examples/Breadcrumbs";
+import routes from "routes";
+import footerRoutes from "footer.routes";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import bgImage from "assets/images/bg-presentation-renault-2.jpg";
+import Divider from '@mui/material/Divider';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MKBadge from "components/MKBadge";
+import LogoSVG from "assets/images/kode_logo.svg";
+import abstract from "assets/images/abstract.svg";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import CenteredBlogCardEquip from "examples/Cards/BlogCards/CenteredBlogCardEquip";
+import Pagination from '@mui/material/Pagination';
+import axios from 'axios';
+import car from "assets/images/car.png";
+import siete from "assets/images/24.png";
+import truck from "assets/images/truck.png";
+import Rating from '@mui/material/Rating';
+import { maxWidth } from '@mui/system';
+import InstagramPosts from './InstagramPosts';
+import DrawerComponent from './Drawer';
+import MyStickyNavbar from './Navbar';
+import ResponsiveAppBar from './NavbarTest'
+import MaxWidthDialog from './PopUp'
+
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import './fonts.css'; // Archivo que contiene la declaración @font-face
+
+function AinaHome() {
+  const [buttonHeight, setButtonHeight] = useState(0);
+  const masonryRef = useRef(null); // Declaración de masonryRef
+  const accessToken = 'IGQWRPNWNlaGdsT0RzTld5UGU0MHdzRWJFN1l3QlRnZAl9qY2tLTHpaVVotOVdiRndXWEgzTEJrY3RLMDE4WjZAQNlJZAVlY1LXp3TUVkYkE5MFN2VTNFTlJta3pqLTVSckQtSmxHaHFsWlJNX1VqWno1Q1h5eE5iQjQZD';
+  const buttonRef = useRef(null);
+  const [formData, setFormData] = useState({
+    nombre: '',
+    telefono: '',
+    email: '',
+    modelo: '',
+    horario: '',
+    provincia: ''
+  });
+
+  const [reseñas, setReseñas] = useState([]);
+
+  const obtenerReseñas = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/reseñas');
+      console.log('Respuesta del backend:', response.data); // Mensaje de depuración
+  
+      if (response.data && response.data.Reseñas) { // Cambio aquí
+        setReseñas(response.data.Reseñas); // Cambio aquí
+      } else {
+        console.error('La respuesta de la API no contiene reseñas:', response.data);
+      }
+    } catch (error) {
+      console.error('Error al obtener las reseñas:', error);
+    }
+  };
+  
+
+  useEffect(() => {
+    obtenerReseñas();
+  }, []);
+
+  const styles = {
+    masonryGrid: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+      gap: '20px',
+    },
+    masonryGridItem: {
+      marginBottom: '20px',
+    },
+  };
+
+  const ajustarAlturas = () => {
+    const masonryItems = Array.from(masonryRef.current.children);
+    const columnHeights = Array.from({ length: 3 }, () => 0);
+
+    masonryItems.forEach(item => {
+      const columnIndex = columnHeights.indexOf(Math.min(...columnHeights));
+      item.style.gridColumnStart = columnIndex + 1;
+      const contentHeight = item.offsetHeight;
+      columnHeights[columnIndex] += contentHeight;
+    });
+  };
+  
+  const settings = {
+    centerMode: true,
+  centerPadding: '0px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        dots: true,
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        dots: true,
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 1
+      }
+    }
+  ]
+};
+
+  const images = [
+    'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png',
+    'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-monovolumenes.png',
+    'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png',
+  ];
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:8000/api/contact_form/', formData);
+      alert('Mensaje enviado exitosamente');
+      setFormData({
+        nombre: '',
+        telefono: '',
+        email: '',
+        modelo: '',
+        horario: '',
+        provincia: ''
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error al enviar el mensaje');
+    }
+  };
+
+
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleDrawer = () => {
+      setIsOpen(!isOpen);
+    };
+  
+    const closeDrawer = () => {
+      setIsOpen(false);
+    };
+
+
+  const ButtonConfig = isOpen ? "40%" : "0%" ;
+
+  useEffect(() => {
+    // Obteniendo la altura del botón
+    if (buttonRef.current) {
+      const height = buttonRef.current.clientHeight;
+      // Dividiendo la altura por 2 y estableciéndola en el estado
+      setButtonHeight(height );
+    }
+  }, [isOpen]); // Asegúrate de que se vuelva a calcular cuando el estado isOpen cambie
+
+
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  const onSlideChanged = (splide) => {
+    setCurrentSlideIndex(splide.index);
+  };
+
+  const getSlideStyle = (index) => {
+    const scaleFactor = index === currentSlideIndex ? 1.2 : 0.8; // Escala diferente para el slide actual
+    const margin = '0.4rem'; // Margen entre los slides
+    return {
+      transform: `scale(${scaleFactor})`, // Aplicar la escala al tamaño del slide
+      marginRight: margin, // Agregar margen a la derecha para separar los slides
+    };
+  };
+
+  const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
+
+  const whyAinaCarRef = useRef(null);
+
+  const handleScrollToWhyAinaCar = () => {
+    scrollToRef(whyAinaCarRef);
+  };
+
+  const [valorHijo, setValorHijo] = useState('');
+
+  const manejarCambio = (nuevoValor) => {
+    setValorHijo(nuevoValor);
+    console.log(nuevoValor)
+  };
+  
+
+  return (
+    <>
+
+    <MaxWidthDialog/>
+
+    <DrawerComponent isOpen={isOpen} toggleDrawer={toggleDrawer} />
+
+
+      <MKBox bgColor="#d6061e" zIndex={2} position="relative">
+        <MKTypography style={{ padding: '6px' }} color="white" textAlign="center" variant="h6">SERVICIO DE RECOGIDA 24/7</MKTypography>
+      </MKBox>
+
+      {/* Barra de navegación */}
+      <Box style={{ position: 'sticky', top: valorHijo ? '15px' : '60px',
+            transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out',  zIndex: 3 }}>
+      
+      <ResponsiveAppBar onCambio={manejarCambio}/>
+
+      </Box>
+      
+      <Box
+        sx={{
+          minHeight: "93vh", // Altura total de la ventana menos la altura de la barra de navegación (64px en el ejemplo)
+          width: "100%",
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${back})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex", // Usar display flex
+          justifyContent: "center", // Centrar horizontalmente el contenido
+          alignItems: "center", // Centrar verticalmente el contenido
+          marginTop: '-75px', // Ajusta esto al tamaño real de tu navbar
+
+        }}
+      >
+        <MKBox sx={{ justifyContent: "bottom", display: "flex", flexDirection: "column", position: "relative" }}>
+          <Container>
+            <Grid container justifyContent="center">
+              <Grid item xs={12} sm={3.5}>
+                <Card>
+                  <MKBox position="relative" mx={0} mt={0} overflow="hidden">
+                    <div style={{ overflow: 'hidden', borderTopLeftRadius: '10px', borderTopRightRadius: '10px', textAlign: "center" }}>
+                      <MKBox p={3} style={{ borderRadius: '0', objectFit: 'cover', height: '15vh', textAlign: "center", display: 'flex', alignItems: 'center', justifyContent: 'center' }} bgColor="info">
+                        <MKTypography color="white" variant="h4">
+                          <span  style={{ fontWeight: 'Regular', fontWeight: 300 }}>¡Entra en la familia</span >
+                          <span style={{ fontWeight: 'bold' }}> AinaCar</span>
+                          <span style={{ fontWeight: 'Regular' , fontWeight: 300 }}> y recibe un </span>
+                          <span style={{ fontWeight: 'bold' }}>10% en tu primer alquiler!</span>
+                        </MKTypography>
+                      </MKBox>
+                    </div>
+                  </MKBox>
+
+                  <Box sx={{ p: 4, mx: { lg: 1 }, mb: 0 }}>
+                    <form onSubmit={handleSubmit}>
+                      <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                          <MKInput
+                            fullWidth
+                            label="Nombre"
+                            name="nombre"
+                            value={formData.nombre}
+                            onChange={handleChange}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <MKInput
+                            fullWidth
+                            label="Apellidos"
+                            name="Apellidos"
+                            value={formData.telefono}
+                            onChange={handleChange}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <MKInput
+                            fullWidth
+                            label="Email"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <MKInput
+                            fullWidth
+                            label="Teléfono"
+                            name="teléfonto"
+                            type="teléfono"
+                            value={formData.modelo}
+                            onChange={handleChange}
+                          />
+                        </Grid>
+                        <Grid item xs={12}>
+                          <Box mt={2} textAlign="center">
+                            {/* Botón colocado al final de la tarjeta */}
+                            <MKButton type="submit" variant="contained" color="info" fullWidth>
+                              inscribirme
+                            </MKButton>
+                          </Box>
+                        </Grid>
+                      </Grid>
+                    </form>
+                  </Box>
+                </Card>
+              </Grid>
+              <Grid item xs={12} sm={8.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+  <MKBox ml={7} sx={{  maxWidth: '100%' }}>
+    <MKTypography  color="white" sx={{ fontFamily: 'Rodina-Regular', fontSize: "7rem", textAlign: 'left', lineHeight: 1 }}>
+      ¡Todo buen viaje empieza en AinaCar!
+    </MKTypography>
+  </MKBox>
+</Grid>
+            </Grid>
+          </Container>
+        </MKBox>
+      </Box>
+        <MKBox
+        bgColor="info"
+        zIndex={2}
+        style={{ minHeight: "3vh" }}
+        >
+       <MKBox textAlign="center"
+        position="relative"
+        display="flex"        // Agregar la propiedad display:flex
+        alignItems="center"   // Centrar verticalmente los elementos
+        justifyContent="center" 
+        onClick={handleScrollToWhyAinaCar}
+        style={{cursor: 'pointer'}}
+        >
+        <MKTypography style={{ padding: '6px' }} color="white" variant="h6">
+          Más información
+        </MKTypography>
+        <IconButton variant="contained" >
+      <ExpandMoreIcon style={{ color:'white' }} /> 
+      </IconButton>
+      </MKBox>
+      </MKBox>
+      <MKBox ref={whyAinaCarRef} bgColor="info" sx={{ width:'100%', paddingY: '80px'}}>
+  <Box sx={{ width: { xs: '100%', sm: '70%', lg: '70%', margin: '0 auto' } }}>
+    <MKBox mb={5}>
+      <MKTypography color="white" variant="h2" align="center" gutterBottom >
+        ¿POR QUÉ AINACAR?
+      </MKTypography>
+    </MKBox>
+    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'top', flexWrap: 'wrap', paddingY: '20px' }}>
+      {/* Columna 1 */}
+      <Box sx={{ width: '30%', margin: '10px', textAlign: 'center', paddingY: '20px', position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column' }}>
+  <Box sx={{ position: 'relative', zIndex: 1, flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <img src={car} alt="Imagen 1" style={{ width: '50%', borderRadius: '10px' }} />
+    <MKTypography color="white" display="block" variant="h5" fontWeight="bold">
+      1. Elige
+    </MKTypography>
+    <MKTypography variant="body2" color="white" fontWeight="regular" sx={{ alignSelf: 'flex-start' }}>
+      Elige el tipo y tamaño del Turismo, Furgoneta o Camión que necesites.
+    </MKTypography>
+  </Box>
+  <Box
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: 0,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <MKTypography color="white" fontWeight="bold" sx={{ fontSize: "25rem", opacity: "10%" }}>1</MKTypography>
+  </Box>
+</Box>
+
+      {/* Columna 2 */}
+      <Box sx={{ width: '30%', margin: '10px', textAlign: 'center', paddingY: '20px', position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column' }}>
+  <Box sx={{ position: 'relative', zIndex: 1, flex: 1, display: 'flex', flexDirection: 'column',  alignItems: 'center' }}>
+    <img src={siete} alt="Imagen 1" style={{ width: '50%', borderRadius: '15px' }} />
+    <MKTypography color="white" display="block" variant="h5" fontWeight="bold">
+    Recogida 24/7
+    </MKTypography>
+    <MKTypography  variant="body2" color="white" fontWeight="regular" sx={{ alignSelf: 'flex-start' }}>
+    Recoge y devuelve tu vehículo de alquiler fuera del horario de atención depositando las llaves en nuestras taquillas inteligentes.    </MKTypography>
+  </Box>
+  <Box
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: 0,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <MKTypography color="white" fontWeight="bold" sx={{fontSize:"25rem", opacity: "10%" }}>2</MKTypography>
+  </Box>
+</Box>
+      {/* Columna 3 */}
+      <Box sx={{ width: '30%', margin: '10px', textAlign: 'center', paddingY: '20px', position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column' }}>
+  <Box sx={{ top: '0' , position: 'relative', zIndex: 1, flex: 1, display: 'flex', flexDirection: 'column',  alignItems: 'center' }}>
+    <img src={truck} alt="Imagen 1" style={{ width: '50%', borderRadius: '10px' }} />
+    <MKTypography  color="white" display="block" variant="h5" fontWeight="bold">
+    Empieza tu viaje
+        </MKTypography>
+    <MKTypography  variant="body2" color="white" fontWeight="regular" sx={{ alignSelf: 'flex-start' }}>
+    Check in online. Sin colas. Sin esperas. Sin costes adicionales. Solo condúcelo.
+        </MKTypography>
+  </Box>
+  <Box
+    sx={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      zIndex: 0,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <MKTypography color="white" fontWeight="bold" sx={{fontSize:"25rem", opacity: "10%" }}>3</MKTypography>
+  </Box>
+</Box>
+      
+    </Box>
+  </Box>
+</MKBox>
+
+      <MKBox component="section" p={0} pt={12} mb={12} mt={3}>
+      <Container>
+        <Grid
+          container
+          item
+          xs={12}
+          lg={8}
+          justifyContent="center"
+          sx={{ mx: "auto", textAlign: "center" }}
+        >
+          <MKTypography variant="h2">UNA FLOTA VARIADA Y RENOVADA</MKTypography>
+         
+          <MKTypography variant="body1" color="text" mb={2}>
+            Nuestra oferta de vehículos te ofrece la posibilidad de elegir el tipo y tamaño del Turismo, Furgoneta o Camión que necesites ¡Compruébalo!
+          </MKTypography>
+        </Grid>
+        <Splide
+      options={{
+        type: 'loop', // Configura el tipo de slider como carrusel
+        perPage: 3, // Define cuántos elementos mostrar por página
+        perMove: 1,
+        focus: 'center',
+        gap: '1rem', // Define el espacio entre los elementos
+        autoplay: true, // Activa la reproducción automática
+        pauseOnHover: false // Desactiva la pausa al pasar el mouse
+      }}
+      onMoved={onSlideChanged}
+    >
+      {images.map((image, index) => (
+        <SplideSlide key={index} >
+          <img src={image} alt={`Slide ${index}`} />
+        </SplideSlide>
+      ))}
+    </Splide>
+          </Container>
+    </MKBox>
+    <MKBox bgColor="info" sx={{ width: '100%'}}>
+    <MKBox>
+        <MKBox component="section" p={0} pt={8} pb={8} >
+          <Container>
+            <Grid
+              container
+              item
+              xs={12}
+              lg={8}
+              justifyContent="center"
+              sx={{ mx: "auto", textAlign: "center" }}
+              mb={4}
+            >
+              <MKTypography color="white" variant="h2">NUESTRAS REDES</MKTypography>
+            </Grid>
+            <InstagramPosts accessToken={accessToken} />
+            </Container>
+            </MKBox>
+            </MKBox>
+            </MKBox>
+    <MKBox bgColor="white" sx={{ width: '100%' }}>
+      <MKBox >
+        <MKBox component="section" p={0} pt={12} mb={12} >
+          <Container>
+            <Grid
+              container
+              item
+              xs={12}
+              lg={8}
+              justifyContent="center"
+              sx={{ mx: "auto", textAlign: "center" }}
+              mb={4}
+            >
+              <MKTypography variant="h2">EXPERIENCIA AINACAR</MKTypography>
+              <MKTypography variant="body1" color="text" mb={2}>
+                Nuestra oferta de vehículos te ofrece la posibilidad de elegir el tipo y tamaño del Turismo, Furgoneta o Camión que necesites ¡Compruébalo!
+              </MKTypography>
+            </Grid>
+            <div ref={masonryRef} style={{ columnCount: 3, columnGap: '20px' }}>
+              {reseñas.map((reseña, index) => (
+                <div key={index} style={{ marginBottom: '20px', breakInside: 'avoid' }}>
+                <Card style={{ margin: '10px', padding: '20px' }}>
+      <Grid container>
+        <Grid item>
+          <MKAvatar alt={reseña.nombre} src={reseña.foto_perfil || '/default-avatar.png'} style={{ width: '50px', height: '50px', marginRight: '15px' }} />
+        </Grid>
+        
+        <Grid item xs>
+          <Grid container direction="column">
+            <Grid item>
+              <MKTypography variant="body2" fontWeight="bold" color="text">
+                {reseña.nombre}
+              </MKTypography>
+            </Grid>
+            <Grid item>
+              <Rating style={{ marginBottom: '5px' }} name="read-only" value={reseña.puntuacion} readOnly />
+            </Grid>
+          </Grid>
+          </Grid>
+          <Grid item mt={2}>
+            <MKTypography variant="body2" color="text">
+              {reseña.texto}
+            </MKTypography>
+          </Grid>
+        </Grid>
+      
+    </Card>
+                </div>
+              ))}
+            </div>
+            
+          </Container>
+        </MKBox>
+        <MKButton  onClick={() => window.open('https://www.google.es/maps/place/Aina+Car+-+Alquiler+de+Coches,+Furgonetas,+Camiones+en+Sabadell+-+Barcelona/@41.5466653,2.0941462,17z/data=!4m8!3m7!1s0x12a494fa1d0d956b:0xd5d94ad413be721c!8m2!3d41.5466613!4d2.0967211!9m1!1b1!16s%2Fg%2F1txr5m5p?entry=ttu', '_blank')} variant="contained" color="primary" style={{  bottom: '30px', left: '50%', transform: 'translateX(-50%)' }}>
+          ¡Dejanos tu reseña!
+        </MKButton>
+      </MKBox>
+    </MKBox>
+
+
+
+
+    <MKBox  sx={{width:'100%', background: '#d6061e', paddingY: '100px'}}>
+    <Grid
+          container
+          item
+          xs={12}
+          lg={8}
+          justifyContent="center"
+          sx={{ mx: "auto", textAlign: "center" }}
+        >
+          <MKTypography color="white" variant="h2">PUNTOS DE RECOGIDA Y DEVOLUCIÓN AINACAR</MKTypography>
+         
+          <MKTypography  color="white" variant="body1" mt={3} mb={2}>
+Disponemos de 2 oficinas y 4 puntos de recogida (Meet&Greet) en la provincia de Barcelona: Sabadell, Parets del Vallès, Sant Cugat, Aeropuerto Josep Tarradellas Barcelona - El Prat y en Barcelona Ciudad.          </MKTypography>
+        
+<Grid item sx={{ margin:'10px' }} xs={2}>
+<Card sx={{ height: '100%' }}>
+      <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <LocationOnIcon fontSize="large" color="primary" />
+          </Box>
+          <Box sx={{ textAlign: 'center', marginTop: 1 }}>
+            <MKTypography variant="h5" gutterBottom>
+              Sabadell
+            </MKTypography>
+            <MKTypography variant="body2" fontWeight="regular" color="text" gutterBottom>
+              C/ de Joaquín Costa, 50. 08206 Sabadell (BCN)
+            </MKTypography>
+          </Box>
+        </Box>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ width: '100%', marginBottom: 1 }}>
+            <MKButton variant="contained" color="primary" fullWidth>
+              CONTACTAR
+            </MKButton>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <MKButton variant="contained" color="info" fullWidth>
+              VER EN GOOGLE MAPS
+            </MKButton>
+          </Box>
+        </Box>
+      </Box>
+    </Card>
+  </Grid>
+  
+  {/* Elemento 2 */}
+  <Grid item sx={{ margin:'10px' }} xs={2}>
+    <Card sx={{ height: '100%' }}>
+      <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <LocationOnIcon fontSize="large" color="primary" />
+          </Box>
+          <Box sx={{ textAlign: 'center', marginTop: 1 }}>
+            <MKTypography variant="h5" gutterBottom>
+              Parets
+            </MKTypography>
+            <MKTypography variant="body2" fontWeight="regular" color="text" gutterBottom>
+              Carrer Impremta, 5. 08150 Parets del Vallès (BCN)
+            </MKTypography>
+          </Box>
+        </Box>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ width: '100%', marginBottom: 1 }}>
+            <MKButton variant="contained" color="primary" fullWidth>
+              CONTACTAR
+            </MKButton>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <MKButton variant="contained" color="info" fullWidth>
+              VER EN GOOGLE MAPS
+            </MKButton>
+          </Box>
+        </Box>
+      </Box>
+    </Card>
+  </Grid>
+  
+  {/* Elemento 3 */}
+  <Grid item sx={{ margin:'10px' }} xs={2}>
+    <Card sx={{ height: '100%' }}>
+      <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <LocationOnIcon fontSize="large" color="primary" />
+          </Box>
+          <Box sx={{ textAlign: 'center', marginTop: 1 }}>
+            <MKTypography variant="h5" gutterBottom>
+              Barcelona ciudad
+            </MKTypography>
+            <MKTypography variant="body2" fontWeight="regular" color="text" gutterBottom>
+              C/ de Caracas, 50. 08030 Barcelona (BCN)
+            </MKTypography>
+          </Box>
+        </Box>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ width: '100%', marginBottom: 1 }}>
+            <MKButton variant="contained" color="primary" fullWidth>
+              CONTACTAR
+            </MKButton>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <MKButton variant="contained" color="info" fullWidth>
+              VER EN GOOGLE MAPS
+            </MKButton>
+          </Box>
+        </Box>
+      </Box>
+    </Card>
+  </Grid>
+  
+  {/* Elemento 4 */}
+  <Grid item sx={{ margin:'10px' }} xs={2}>
+    <Card sx={{ height: '100%' }}>
+      <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <LocationOnIcon fontSize="large" color="primary" />
+          </Box>
+          <Box sx={{ textAlign: 'center', marginTop: 1 }}>
+            <MKTypography variant="h5" gutterBottom>
+              Aeropuerto BCN
+            </MKTypography>
+            <MKTypography variant="body2" fontWeight="regular" color="text" gutterBottom>
+              Parking Park&Fly 08840 Viladecans (BCN)
+            </MKTypography>
+          </Box>
+        </Box>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ width: '100%', marginBottom: 1 }}>
+            <MKButton variant="contained" color="primary" fullWidth>
+              CONTACTAR
+            </MKButton>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <MKButton variant="contained" color="info" fullWidth>
+              VER EN GOOGLE MAPS
+            </MKButton>
+          </Box>
+        </Box>
+      </Box>
+    </Card>
+  </Grid>
+  
+  {/* Elemento 5 */}
+  <Grid item sx={{ margin:'10px' }} xs={2}>
+    <Card sx={{ height: '100%' }}>
+      <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <LocationOnIcon fontSize="large" color="primary" />
+          </Box>
+          <Box sx={{ textAlign: 'center', marginTop: 1 }}>
+            <MKTypography variant="h5" gutterBottom>
+              Sant Cugat del Vallès
+            </MKTypography>
+            <MKTypography variant="body2" fontWeight="regular" color="text" gutterBottom>
+              Av.Corts Caralanes,5. 08173 Sant Cugat del Vallès (BCN)
+            </MKTypography>
+          </Box>
+        </Box>
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ width: '100%', marginBottom: 1 }}>
+            <MKButton variant="contained" color="primary" fullWidth>
+              CONTACTAR
+            </MKButton>
+          </Box>
+          <Box sx={{ width: '100%' }}>
+            <MKButton variant="contained" color="info" fullWidth>
+              VER EN GOOGLE MAPS
+            </MKButton>
+          </Box>
+        </Box>
+      </Box>
+    </Card>
+
+    </Grid>
+        </Grid>
+      </MKBox>
+    
+      <MKBox bgColor="info">
+      <MKBox>
+        <DefaultFooter pt={6} px={1} content={footerRoutes} />
+        </MKBox>
+
+      </MKBox>
+    </>
+  );
+}
+
+export default AinaHome;
