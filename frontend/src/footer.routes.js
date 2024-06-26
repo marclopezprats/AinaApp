@@ -41,10 +41,10 @@ export default {
     {
       name: "Contacto",
       items: [
-        { name: "about us", href: "" },
-        { name: "freebies", href: "" },
-        { name: "premium tools", href: "" },
-        { name: "blog", href: "" },
+        { name: "C/ de Joaquim Costa,50.", href: "" },
+        { name: "08206 Sabadell (BCN)", href: "" },
+        { name: "Tlf. 937 273 907", href: "" },
+      
       ],
     },
     {

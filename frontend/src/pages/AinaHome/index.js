@@ -20,6 +20,7 @@ import 'flag-icons/css/flag-icons.min.css';
 import Whatsapp from './whatsapp';
 import Divider from '@mui/material/Divider';
 import KarveIframe from './ReservationWidget';
+import Footer from './footer';
 
 const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 const InstagramPosts = lazy(() => import('./InstagramPosts'));
@@ -269,13 +270,9 @@ function AinaHome() {
           <Recogida />
         </Suspense>
       </MKBox>
-      <MKBox bgColor="info">
-        <MKBox>
-          <Suspense fallback={<div>Loading...</div>}>
-            <DefaultFooter pt={6} px={1} content={footerRoutes} />
-          </Suspense>
+        <MKBox sx={{ width: '100%' }}>
+            <Footer pt={6} content={footerRoutes} />
         </MKBox>
-      </MKBox>
     </>
   );
 }
