@@ -1,56 +1,51 @@
-// src/components/ReservationWidget.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const ReservationWidget = ({ margin }) => {
   const { i18n } = useTranslation();
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
     const loadScript = (src, id, dataset) => {
-        return new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = src;
-            if (id) script.id = id;
-            if (dataset) {
-                for (const key in dataset) {
-                    script.dataset[key] = dataset[key];
-                }
-            }
-            script.onload = () => resolve(script);
-            script.onerror = () => reject(new Error(`Script load error for ${src}`));
-            document.body.appendChild(script);
-        });
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        if (id) script.id = id;
+        if (dataset) {
+          for (const key in dataset) {
+            script.dataset[key] = dataset[key];
+          }
+        }
+        script.onload = () => resolve(script);
+        script.onerror = () => reject(new Error(`Script load error for ${src}`));
+        document.body.appendChild(script);
+      });
     };
 
     const removeScript = (src) => {
-        const existingScript = document.querySelector(`script[src="${src}"]`);
-        if (existingScript) {
-            document.body.removeChild(existingScript);
-        }
+      const existingScript = document.querySelector(`script[src="${src}"]`);
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
     };
 
-    // Ruta del script
     const communicationScriptSrc = 'https://iframes.karveinformatica.com/AinacarIframe/js/iframe-comunication-parent.js';
 
     const init = async () => {
-        try {
-            // Eliminar el script si ya existe
-            removeScript(communicationScriptSrc);
-
-            // Añadir el script de nuevo
-            await loadScript(communicationScriptSrc, 'karve-comunication-script', { minheight: '500' });
-        } catch (error) {
-            console.error(error);
-        }
+      try {
+        removeScript(communicationScriptSrc);
+        await loadScript(communicationScriptSrc, 'karve-comunication-script', { minheight: '500' });
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     init();
 
     return () => {
-        removeScript(communicationScriptSrc);
+      removeScript(communicationScriptSrc);
     };
-}, []);
-
+  }, [i18n.language]);
 
   return (
     <div style={{ 
@@ -61,7 +56,7 @@ const ReservationWidget = ({ margin }) => {
       height: '100%', 
       display: 'flex', 
       justifyContent: 'center', 
-      alignItems: 'center', 
+      alignItems: 'center',
     }}>
       <iframe
         style={{
@@ -77,8 +72,9 @@ const ReservationWidget = ({ margin }) => {
         scrolling="no"
         src={`https://iframes.karveinformatica.com/AinacarIframe/views/home.php?lang=${i18n.language}`}
         data-src-loading="https://iframes.karveinformatica.com/AinacarIframe/views/loading.php"
-        onLoad={() => console.log('Iframe cargado')}
+        onLoad={() => setIframeLoaded(true)}
       ></iframe>
+      {!iframeLoaded && <div>Loading...</div>}
     </div>
   );
 };

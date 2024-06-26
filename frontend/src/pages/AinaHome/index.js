@@ -9,11 +9,11 @@ import './Carousel.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import IconButton from '@mui/material/IconButton';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'; 
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import footerRoutes from "footer.routes";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import ResponsiveAppBar from './NavbarTest'
+import ResponsiveAppBar from './NavbarTest';
 import './fonts.css';
 import { useTranslation } from 'react-i18next';
 import 'flag-icons/css/flag-icons.min.css';
@@ -68,6 +68,8 @@ function AinaHome() {
 
   const [appBarHeight, setAppBarHeight] = useState(0);
   const appBarRef = useRef(null);
+  const iframeRef = useRef(null);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
     if (appBarRef.current) {
@@ -86,13 +88,45 @@ function AinaHome() {
 
   const { t, i18n } = useTranslation();
 
+  const handleIframeLoad = () => {
+    setIframeLoaded(true);
+    const scrollPosition = window.scrollY;
+    window.scrollTo(0, scrollPosition);
+  };
+
+  useEffect(() => {
+    const iframe = iframeRef.current;
+
+    const handleScroll = (event) => {
+      if (iframe && !iframeLoaded) {
+        event.preventDefault();
+        window.scrollTo(0, 0);
+      }
+    };
+
+    if (iframe) {
+      window.addEventListener('scroll', handleScroll);
+      iframe.addEventListener('load', handleIframeLoad);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+        iframe.removeEventListener('load', handleIframeLoad);
+      };
+    }
+  }, [iframeLoaded]);
+
+  // Recargar el iframe cuando el idioma cambie
+  useEffect(() => {
+    setIframeLoaded(false);
+  }, [i18n.language]);
+
   return (
     <>
       <Whatsapp />
-      <MKBox bgColor="#d6061e" sx={{ minHeight: "5vh", textAlign: "center", justifyContent: "center", alignItems: "center", display: "flex" }} zIndex={2}>
+      <MKBox bgColor="#d6061e" sx={{ minHeight: "5vh", textAlign: "center", justifyContent: "center", alignItems: "center", display: "flex" }} zIndex={991}>
         <MKTypography color="white" sx={{}} variant="h6">{t('recogida247')}</MKTypography>
       </MKBox>
-      <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '60px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 3 }}>
+      <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '60px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 990 }}>
         <ResponsiveAppBar toggleDrawer={toggleDrawer} onCambio={manejarCambio} />
       </Box>
       <Box
@@ -105,7 +139,7 @@ function AinaHome() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: `-${appBarHeight}px`
+          marginTop: `-${appBarHeight}px`,
         }}>
         <MKBox sx={{ justifyContent: "bottom", display: "flex", flexDirection: "column", position: "relative", padding: { xs: "20px 0", sm: "40px 0" } }}>
           <Container>
@@ -153,7 +187,7 @@ function AinaHome() {
 
               <Grid item xs={12} sm={12} md={12} xl={4.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
                 <Suspense fallback={<div>Loading...</div>}>
-                  <KarveIframe sx={{ marginTop: { xs: '30px', sm: '30px' }, marginBottom: { xs: '20px', sm: '30px' } }} />
+                  <KarveIframe margin={30} />
                 </Suspense>
               </Grid>
             </Grid>

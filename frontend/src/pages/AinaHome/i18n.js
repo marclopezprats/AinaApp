@@ -34,7 +34,7 @@ i18n
   });
 
 i18n.on('languageChanged', () => {
-  window.scrollTo(0, 0); // Scroll immediately to top after language change
+  //window.scrollTo(0, 0); // Scroll immediately to top after language change
 });
 
 export default i18n;
