@@ -21,6 +21,7 @@ function ResponsiveAppBar({ onCambio, toggleDrawer }) {
 
   const pages = [
     { name: t('nuestra_compania'), path: '/company' }, 
+    { name: t('alquiler_vehiculos'), path: '/' }, 
     { name: t('flota_vehiculos'), path: '/fleet' }, 
     { name: t('ainacar_protect'), path: '/protect' }, 
     { name: t('venta_vehiculos'), path: '/sales' }

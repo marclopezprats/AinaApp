@@ -24,48 +24,49 @@ const InstagramPosts = ({ accessToken }) => {
     fetchPosts();
   }, [accessToken]);
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+
+  const isMobileDevice = window.innerWidth <= 1268;
 
   return (
     <>
       <Divider sx={{ margin: '0', marginBottom: '50px' }} />
 
-      <Container sx={{ display: 'flex', justifyContent: 'center', alignItems:'center' }}> {/* Centrar contenido dentro del Container */}
-        <Grid container spacing={0} justifyContent="center"> {/* Centrar el grid principal */}
-          <Grid item xs={12} md={4} container justifyContent="center" alignItems="center"> {/* Centrar este grid */}
-          <Box
-            height="100%"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="right"
-            textAlign="left" // Añadido para centrar el texto
-          >
-            
-            <Box display="flex" alignItems="flex-start" marginBottom={0}>
-              <MKTypography
-                fontWeight="bold"
-                gutterBottom
-                sx={{ fontSize: '3.75rem', textAlign: 'left', color: '#d6061e', lineHeight: 0.9 }}
-              >
-                {t('nuestras_redes')}
-              </MKTypography>
-            </Box>
-
-            <Box display="inline-flex" alignItems="flex-start" marginBottom={4} >
-            <Box p={1} sx={{ backgroundColor: '#f3f3f3', borderRadius: '8px' }}>
-  <MKTypography variant="h6" fontWeight="regular" color="info" >
-    @ainacar_rentacar
-  </MKTypography>
-</Box>
-
-            </Box>
-<Box sx={{width:'70%'}}>
-              <MKTypography variant="h5" color="text" fontWeight="regular" >
-                {t('insta_ainacar_novedades')}
-              </MKTypography>
+      <Container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid container spacing={0} justifyContent="center">
+          <Grid item xs={12} md={4} container justifyContent="center" alignItems="center">
+            <Box
+              height="100%"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems={isMobileDevice ? 'center' : 'flex-start'} // Align items based on screen size
+              textAlign={isMobileDevice ? 'center' : 'left'}
+            >
+              <Box display="flex" alignItems="center" marginBottom={0}>
+                <MKTypography
+                  fontWeight="bold"
+                  gutterBottom
+                  sx={{ fontSize: '3.75rem', color: '#d6061e', lineHeight: 0.9 }}
+                >
+                  {t('nuestras_redes')}
+                </MKTypography>
               </Box>
-              <Box marginTop={4}>
+
+              <Box display="flex" alignItems="center" justifyContent={isMobileDevice ? 'center' : 'flex-start'} marginBottom={4}>
+                <Box p={1} sx={{ backgroundColor: '#f3f3f3', borderRadius: '8px' }}>
+                  <MKTypography variant="h6" fontWeight="regular" color="info">
+                    @ainacar_rentacar
+                  </MKTypography>
+                </Box>
+              </Box>
+
+              <Box sx={{ width: isMobileDevice ? '100%' : '70%', textAlign: isMobileDevice ? 'center' : 'left' }}>
+                <MKTypography variant="h5" color="text" fontWeight="regular">
+                  {t('insta_ainacar_novedades')}
+                </MKTypography>
+              </Box>
+              <Box marginTop={4} textAlign={isMobileDevice ? 'center' : 'left'}>
                 <MKButton
                   variant="contained"
                   color="primary"
@@ -79,7 +80,7 @@ const InstagramPosts = ({ accessToken }) => {
             </Box>
           </Grid>
           <Grid item xs={12} md={8} p={4}>
-            <Grid container spacing={2}> {/* Añadir spacing aquí */}
+            <Grid container spacing={2}>
               {posts.map(post => (
                 <Grid item key={post.id} xs={6} sm={6} md={4} p={0.1}>
                   <Card>

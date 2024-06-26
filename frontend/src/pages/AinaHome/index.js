@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
-import back from "assets/images/backgroundAina.jpg";
+import back from "assets/images/backgroundAina2.webp";
 import './Carousel.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
@@ -21,6 +21,7 @@ import Whatsapp from './whatsapp';
 import Divider from '@mui/material/Divider';
 import KarveIframe from './ReservationWidget';
 import Footer from './footer';
+import Karve02 from './karve02';
 
 const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 const InstagramPosts = lazy(() => import('./InstagramPosts'));
@@ -120,8 +121,10 @@ function AinaHome() {
     setIframeLoaded(false);
   }, [i18n.language]);
 
+
   return (
     <>
+    <Karve02 isOpen={isOpen} toggleDrawer={toggleDrawer}/>
       <Whatsapp />
       <MKBox bgColor="#d6061e" sx={{ minHeight: "5vh", textAlign: "center", justifyContent: "center", alignItems: "center", display: "flex" }} zIndex={991}>
         <MKTypography color="white" sx={{}} variant="h6">{t('recogida247')}</MKTypography>
@@ -187,7 +190,9 @@ function AinaHome() {
 
               <Grid item xs={12} sm={12} md={12} xl={4.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
                 <Suspense fallback={<div>Loading...</div>}>
-                  <KarveIframe margin={30} />
+                  {//<KarveIframe margin={30} />
+              
+                  }
                 </Suspense>
               </Grid>
             </Grid>

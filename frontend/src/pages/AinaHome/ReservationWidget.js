@@ -53,21 +53,19 @@ const ReservationWidget = ({ margin }) => {
       top: `${margin}px`,
       left: '0px', 
       width: '100%', 
-      height: '100%', 
+      height: '20%', 
       display: 'flex', 
       justifyContent: 'center', 
       alignItems: 'center',
     }}>
       <iframe
         style={{
-          height: "100%",
           width: "100%",
           borderRadius: '12px',
           border: 'none',
         }}
         id="karve-iframe"
         width="100%"
-        height="100%"
         frameBorder="0"
         scrolling="no"
         src={`https://iframes.karveinformatica.com/AinacarIframe/views/home.php?lang=${i18n.language}`}
