@@ -60,9 +60,9 @@ const Karve02 = ({ isOpenReservation, reservationDrawer }) => {
 
   return (
     <>
-    {isMobileDevice() ? (<Box sx={{ position: 'fixed', top: '90%', left: ButtonConfig, transform: `translate(-50%, -50%) rotate(90deg)`, zIndex: '1001', transition: '0.15s linear' }}>
+    {isMobileDevice() ? (<Box sx={{ position: 'fixed', top: '90%', left: '0', transform: `translate(-50%, -50%) rotate(90deg)`, zIndex: '1001', opacity: ButtonConfig2 }}>
         <MKButton ref={buttonRef} onClick={() => {reservationDrawer()}} variant="contained" color="primary" style={{ borderBottomLeftRadius: '0', borderBottomRightRadius: '0', boxShadow: 'none', padding: '8px 16px', width: 'max-content', marginBottom: buttonHeight }}>
-          {isOpenReservation ? '' : 'Ver Tarifas'}
+          {isOpenReservation ? '' : 'Reservar'}
         </MKButton>
       </Box>) : (null)}
       {isOpenReservation && (
