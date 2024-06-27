@@ -30,6 +30,8 @@ import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import boxShadow from 'assets/theme/functions/boxShadow';
+import KarveCompany from './karveCompany';
+
 const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 
 const toggleDrawer = () => {};
@@ -156,6 +158,11 @@ function AinaCompany() {
   const appBarRef = useRef(null);
   const { t, i18n } = useTranslation();
 
+  const [isOpenReservation, setIsOpenReservation] = useState(false);
+  const reservationDrawer = () => {
+    setIsOpenReservation(!isOpenReservation);
+  };
+
   useEffect(() => {
     if (appBarRef.current) {
       setAppBarHeight(appBarRef.current.clientHeight);
@@ -171,6 +178,7 @@ function AinaCompany() {
     return window.innerWidth <= 1000;
   };
 
+  
   const back = AinaCarRentACAR; // Assuming back is the background image
 
   const images = [
@@ -180,6 +188,8 @@ function AinaCompany() {
 
   return (
     <>
+      <KarveCompany isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer} />
+
       <Box sx={{ backgroundColor: '#FFFFFF', minHeight: '100vh', }}>
         <Whatsapp />
         {/* Barra de navegación */}
@@ -192,8 +202,8 @@ function AinaCompany() {
             zIndex: 3
           }}
         >
-          <ResponsiveAppBar toggleDrawer={toggleDrawer} onCambio={manejarCambio} />
-        </Box>
+          {<ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />}
+          </Box>
         <Box
           sx={{
             minHeight: "69vh",

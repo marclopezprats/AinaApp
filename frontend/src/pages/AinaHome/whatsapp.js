@@ -16,8 +16,8 @@ const Whatsapp = () => {
       <Box 
       onClick={handleClick}
       sx={{
-        width: 65, // Ancho del círculo
-        height: 65, // Altura del círculo
+        width: {xs:40, md: 40, lg:55}, // Ancho del círculo
+        height: {xs:40, md: 40, lg:55}, // Altura del círculo
         borderRadius: '50%', // Esto hace que el Box sea circular
         display: 'flex',
         justifyContent: 'center',
@@ -26,8 +26,8 @@ const Whatsapp = () => {
         cursor: 'pointer'
       }}
     >
-      <WhatsAppIcon style={{ color: 'white', width: 45, // Ancho del círculo
-        height: 45, // Altura del círculo
+      <WhatsAppIcon style={{ color: 'white', width: '60%', // Ancho del círculo
+        height: '60%', // Altura del círculo
          }} />
     </Box>
       </Box>

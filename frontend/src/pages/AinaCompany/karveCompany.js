@@ -2,12 +2,12 @@ import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import { useNavigate } from 'react-router-dom';
-import KarveIframe from './ReservationWidget';
-import { Card, CardContent, Typography, Grid, TextField, Button, Box } from '@mui/material';
+import KarveIframe from '../AinaHome/ReservationWidget';
+import { Card, CardContent, Typography, Grid, TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 
-const Karve02 = ({ isOpenReservation, reservationDrawer }) => {
+const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
   const navigate = useNavigate();
   const buttonRef = useRef(null);
   const [buttonHeight, setButtonHeight] = useState(0);
@@ -60,11 +60,6 @@ const Karve02 = ({ isOpenReservation, reservationDrawer }) => {
 
   return (
     <>
-    {isMobileDevice() ? (<Box sx={{ position: 'fixed', top: '90%', left: ButtonConfig, transform: `translate(-50%, -50%) rotate(90deg)`, zIndex: '1001', transition: '0.15s linear' }}>
-        <MKButton ref={buttonRef} onClick={() => {reservationDrawer()}} variant="contained" color="primary" style={{ borderBottomLeftRadius: '0', borderBottomRightRadius: '0', boxShadow: 'none', padding: '8px 16px', width: 'max-content', marginBottom: buttonHeight }}>
-          {isOpenReservation ? '' : 'Ver Tarifas'}
-        </MKButton>
-      </Box>) : (null)}
       {isOpenReservation && (
         <div style={{ 
           width: '100%', 
@@ -145,4 +140,4 @@ const Karve02 = ({ isOpenReservation, reservationDrawer }) => {
   );
 };
 
-export default Karve02;
+export default KarveCompany;

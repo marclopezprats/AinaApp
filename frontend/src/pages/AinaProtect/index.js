@@ -36,6 +36,8 @@ import CardContent from '@mui/material/CardContent';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import KarveProtect from './karveProtect';
+
 const DesktopDrawer = lazy(() => import('../AinaHome/DesktopDrawer'));
 const MobileDrawer = lazy(() => import('../AinaHome/MobileDrawer'));
 const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
@@ -52,6 +54,7 @@ const imagesBackground = [
 function CustomCard({ title, description, route_link }) {
   return (
     <>
+    
       <Divider sx={{ margin: '0', marginTop: '0px' }} />
       <Card sx={{ backgroundColor:'#031b27', boxShadow: 'none', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', p: 2 }}>
         <CardContent sx={{ flex: '1 0 auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', textAlign: 'center' }}>
@@ -179,19 +182,27 @@ function AinaProtect() {
     return window.innerWidth <= 1000;
   };
 
+  const [isOpenReservation, setIsOpenReservation] = useState(false);
+  const reservationDrawer = () => {
+    setIsOpenReservation(!isOpenReservation);
+  };
+
   return (
     <>
+    <KarveProtect isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer}/>
+
       <Suspense fallback={<div>Loading...</div>}>
         {/* <MaxWidthDialog /> */}
       </Suspense>
       {isMobileDevice() ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <MobileDrawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
+          {<MobileDrawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
+          }
         </Suspense>
       ) : (
         <Suspense fallback={<div>Loading...</div>}>
-          <DesktopDrawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
-        </Suspense>
+{          <DesktopDrawer isOpen={isOpen} toggleDrawer={toggleDrawer} />
+}        </Suspense>
       )}
       <Box sx={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
         <Whatsapp />
@@ -202,10 +213,10 @@ function AinaProtect() {
             position: 'sticky',
             top: valorHijo ? '15px' : '20px',
             transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out',
-            zIndex: 3
+            zIndex: 3 
           }}
         >
-          <ResponsiveAppBar toggleDrawer={toggleDrawer} onCambio={manejarCambio} />
+          {<ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />}
         </Box>
         <Box
           sx={{

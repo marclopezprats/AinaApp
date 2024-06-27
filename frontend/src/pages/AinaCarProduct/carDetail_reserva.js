@@ -71,7 +71,7 @@ function CarDetail_reserva() {
     justifyContent="center"
   >
     <MKTypography style={{ padding: '6px' }} color="white" variant="h6">
-      Detalles del vehículo seleccionado
+      
     </MKTypography>
   </MKBox>
 </MKBox>
@@ -85,23 +85,30 @@ function CarDetail_reserva() {
 
     ) : (  //################################################################################################################################
     <>
-    <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '10px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 3 }}>
-          <ResponsiveAppBar onCambio={manejarCambio} />
+    <div style={{ backgroundColor: 'white', minHeight: '100vh', width: '100%' }}>
+      <Box
+        ref={appBarRef}
+        style={{
+          position: 'sticky',
+          top: valorHijo ? '15px' : '10px',
+          transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out',
+          zIndex: 3
+        }}
+      >
+        <ResponsiveAppBar onCambio={manejarCambio} />
       </Box>
 
       <MKBox
-              bgColor="primary"
-
+        bgColor="primary"
         sx={{
-          minHeight: "12vh",
-          width: "100%",
-          //backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${back})`,
-          backgroundColor: "primary",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          minHeight: '12vh',
+          width: '100%',
+          backgroundColor: 'primary',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           marginTop: '-95px',
         }}
       ></MKBox>
@@ -109,23 +116,31 @@ function CarDetail_reserva() {
       <MKBox
         bgColor="info"
         zIndex={2}
-        style={{ minHeight: "3vh" , borderBottomLeftRadius: '0px', // Rounded bottom-left corner
-        borderBottomRightRadius: '0px', // Rounded bottom-right corner
-      }}
+        style={{
+          minHeight: '3vh',
+          borderBottomLeftRadius: '0px',
+          borderBottomRightRadius: '0px',
+        }}
       >
-        <MKBox textAlign="center"
+        <MKBox
+          textAlign="center"
           position="relative"
           display="flex"
           alignItems="center"
           justifyContent="center"
-          style={{ }}
+          style={{}}
         >
           <MKTypography style={{ padding: '6px' }} color="white" variant="h6">
-            Detalles del vehículo seleccionado
           </MKTypography>
         </MKBox>
       </MKBox>
-      <ReservationWidget  />
+
+
+
+      
+{          <ReservationWidget />
+} 
+    </div>
 
 
       </>) }

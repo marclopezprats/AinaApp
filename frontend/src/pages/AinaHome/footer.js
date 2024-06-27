@@ -45,7 +45,6 @@ const Footer = () => {
         <Typography  mb={2}variant="h6" sx={{ color: '#FFFFFF', fontWeight: 'bold' }}>GRUPO AINACAR</Typography>
 
           {[
-            "Aina Car Wash",
             "Aina Car Protect",
             "FAQ. Preguntas frecuentes",
             "Aviso Legal",

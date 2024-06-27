@@ -56,6 +56,11 @@ function AinaHome() {
     setIsOpen(!isOpen);
   };
 
+  const [isOpenReservation, setIsOpenReservation] = useState(false);
+  const reservationDrawer = () => {
+    setIsOpenReservation(!isOpenReservation);
+  };
+
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const onSlideChanged = (splide) => {
     setCurrentSlideIndex(splide.index);
@@ -124,13 +129,13 @@ function AinaHome() {
 
   return (
     <>
-    <Karve02 isOpen={isOpen} toggleDrawer={toggleDrawer}/>
+    <Karve02 isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer}/>
       <Whatsapp />
       <MKBox bgColor="#d6061e" sx={{ minHeight: "5vh", textAlign: "center", justifyContent: "center", alignItems: "center", display: "flex" }} zIndex={991}>
         <MKTypography color="white" sx={{}} variant="h6">{t('recogida247')}</MKTypography>
       </MKBox>
       <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '60px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 990 }}>
-        <ResponsiveAppBar toggleDrawer={toggleDrawer} onCambio={manejarCambio} />
+        <ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />
       </Box>
       <Box
         sx={{

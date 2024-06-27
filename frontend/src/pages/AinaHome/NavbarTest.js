@@ -11,7 +11,7 @@ import 'flag-icons/css/flag-icons.min.css';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar({ onCambio, toggleDrawer }) {
+function ResponsiveAppBar({ onCambio, reservationDrawer }) {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const [anchorElLanguage, setAnchorElLanguage] = useState(null);
@@ -24,7 +24,7 @@ function ResponsiveAppBar({ onCambio, toggleDrawer }) {
     { name: t('alquiler_vehiculos'), path: '/' }, 
     { name: t('flota_vehiculos'), path: '/fleet' }, 
     { name: t('ainacar_protect'), path: '/protect' }, 
-    { name: t('venta_vehiculos'), path: '/sales' }
+    { name: t('venta_vehiculos'), path: 'https://www.coches.net/concesionario/kodecarsmarket/default/' }
   ];
 
   useEffect(() => {
@@ -60,6 +60,15 @@ function ResponsiveAppBar({ onCambio, toggleDrawer }) {
     }
   };
 
+  const handleNavigation = (page) => {
+    if (page.path === '/') {
+      reservationDrawer();
+    } else {
+      navigate(page.path);
+    }
+    handleCloseNavMenu();
+  };
+
   return (
     <AppBar
       position="static"
@@ -93,7 +102,7 @@ function ResponsiveAppBar({ onCambio, toggleDrawer }) {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.path} onClick={() => { handleCloseNavMenu(); navigate(page.path); }}>
+                <MenuItem key={page.path} onClick={() => handleNavigation(page)}>
                   <Typography color="inherit" textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
@@ -121,7 +130,7 @@ function ResponsiveAppBar({ onCambio, toggleDrawer }) {
           ></Typography>
           <Box sx={{ alignItems: 'center', textAlign: 'center', justifyContent: 'center', flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page.path} onClick={() => { handleCloseNavMenu(); navigate(page.path); }} sx={{ my: 2, color: '#ffffff', display: 'block' }}>
+              <Button key={page.path} onClick={() => handleNavigation(page)} sx={{ my: 2, color: '#ffffff', display: 'block' }}>
                 {page.name}
               </Button>
             ))}
