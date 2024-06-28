@@ -48,3 +48,16 @@ def reseñas_list(request):
 
     # Return reviews as JSON response
     return JsonResponse({'Reseñas': reviews})
+
+
+def set_cookie_view(request):
+    response = JsonResponse({"message": "Cookie has been set"})
+    response.set_cookie(
+        key='my_cookie', 
+        value='cookie_value', 
+        max_age=3600,  # Expira en 1 hora
+        httponly=True, 
+        secure=True, 
+        samesite='Lax'
+    )
+    return response

@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
+import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import back from "assets/images/backgroundAina2.webp";
 import './Carousel.css';
@@ -153,44 +154,65 @@ function AinaHome() {
           <Container>
             <Grid sx={{ marginTop: { xs: `${appBarHeight * 2}px`, sm: `${appBarHeight * 2}px`, md: `${appBarHeight * 2}px`, lg: `${appBarHeight}px` } }} container justifyContent="center">
               <Grid item xs={12} sm={12} md={12} xl={7.5} sx={{ display: 'flex', alignItems: 'center', padding: { xs: '0 10px' } }}>
-                <MKBox sx={{ maxWidth: '100%' }}>
-                  <MKTypography
-                    color="white"
-                    variant="h1"
-                    sx={{
-                      fontFamily: 'Rodina-Regular',
-                      textAlign: 'left',
-                      lineHeight: 1,
-                      fontSize: {
-                        xs: '2.5rem',
-                        sm: '3rem',
-                        md: '4rem',
-                        lg: '5rem'
-                      },
-                      marginTop: { xs: '20px', sm: '30px' } // Mueve el título hacia abajo en móvil
-                    }}
-                  >
-                    {t('welcome')}
-                  </MKTypography>
-                  <MKTypography
-                    color="white"
-                    variant="h3"
-                    sx={{
-                      marginBottom: { xs: '30px', sm: '30px' },
-                      fontFamily: 'Rodina-Regular',
-                      textAlign: 'left',
-                      lineHeight: 1.5,
-                      fontSize: {
-                        xs: '1.5rem',
-                        sm: '2rem',
-                        md: '2rem',
-                        lg: '2.5rem'
-                      }
-                    }}
-                  >
-                    {t('welcome2')}
-                  </MKTypography>
-                </MKBox>
+              <MKBox sx={{ maxWidth: '100%' }}>
+  <MKTypography
+    color="white"
+    variant="h1"
+    sx={{
+      fontFamily: 'Rodina-Regular',
+      textAlign: 'left',
+      lineHeight: 1,
+      fontSize: {
+        xs: '2.8rem',
+        sm: '3.3rem',
+        md: '4.3rem',
+        lg: '5.5rem'
+      },
+      marginTop: { xs: '20px', sm: '30px' } // Mueve el título hacia abajo en móvil
+    }}
+  >
+    {t('welcome')}
+  </MKTypography>
+  <MKBox
+    sx={{
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo con color y transparencia
+      padding: { xs: '10px', sm: '15px' }, // Padding para el contenedor
+      display: 'inline-flex', // Para ajustar el tamaño del fondo al contenido
+      alignItems: 'center', // Para centrar verticalmente
+      borderRadius: '10px', // Bordes redondeados
+      mt: 2 // Margen superior
+    }}
+  >
+    <MKTypography
+      color="white"
+      variant="h3"
+      sx={{
+        fontFamily: 'Rodina-Regular',
+        textAlign: 'left',
+        lineHeight: 1.5,
+        fontSize: {
+          xs: '1.5rem',
+          sm: '2rem',
+          md: '2rem',
+          lg: '2.0rem'
+        },
+        marginRight: '20px' // Separación entre el texto y el botón
+      }}
+    >
+      {t('welcome2')}
+    </MKTypography>
+    <MKButton
+      variant="contained"
+      color="primary"
+      onClick={reservationDrawer} // Añade onClick aquí para el botón también
+
+    >
+      ¡Reserva ya!
+    </MKButton>
+  </MKBox>
+</MKBox>
+
+
               </Grid>
 
               <Grid item xs={12} sm={12} md={12} xl={4.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>

@@ -67,6 +67,10 @@ CORS_ALLOW_HEADERS = [
     'authorization'
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "ainaappfrontend.onrender.com",
+]
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
