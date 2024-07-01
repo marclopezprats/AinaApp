@@ -1,4 +1,4 @@
-import React, {lazy, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
@@ -11,9 +11,8 @@ import CircleIcon from './CircleIcon';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const ReservationWidget = lazy(() => import('./ReservationWidget'));
 
-const steps = ['Seleccionar vehículo', 'Seleccionar tipo', 'Seleccionar modelo', 'Detalles del alquiler', 'Confirmación'];
+//const steps = ['Seleccionar vehículo', 'Seleccionar tipo', 'Seleccionar modelo', 'Detalles del alquiler', 'Confirmación'];
 
 const vehicleTypes = [
   { 

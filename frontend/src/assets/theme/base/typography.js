@@ -6,11 +6,12 @@ import pxToRem from "assets/theme/functions/pxToRem";
 
 const { dark } = colors;
 
-// Añadir la fuente Rodina-Regular
 const rodinaFont = {
-  fontFamily: "Rodina-Regular",
-  src: `url('./assets/fonts/Rodina-Regular.woff2') format('woff2'), url('./assets/fonts/Rodina-Regular.woff') format('woff')`
+  fontFamily: 'Rodina-Regular',
+  src: `url('./assets/fonts/Rodina-Regular.woff2') format('woff2'), url('./assets/fonts/Rodina-Regular.woff') format('woff')`,
+  fontDisplay: 'swap',
 };
+
 
 const baseProperties = {
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',

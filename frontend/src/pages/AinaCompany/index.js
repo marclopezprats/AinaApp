@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { lazy, Suspense, useState, useEffect, useRef } from 'react';
+import {  Suspense, useState, useEffect, useRef } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
+import React, {  Suspense, useState, useEffect, useRef } from 'react';
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { styled } from '@mui/material/styles';
 
 
 const KarveAntes = ({ isOpenReservation, reservationDrawer }) => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const buttonRef = useRef(null);
   const [buttonHeight, setButtonHeight] = useState(0);
   const [currentStep, setCurrentStep] = useState('');

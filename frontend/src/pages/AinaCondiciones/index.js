@@ -1,26 +1,21 @@
 import * as React from 'react';
-import { lazy, Suspense, useState, useEffect, useRef } from 'react';
+import {  Suspense, useState, useEffect, useRef } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
-import Button from '@mui/material/Button';
 import MKTypography from "components/MKTypography";
 import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
-import AinaCarRentACAR from "assets/images/familia2.webp";
+import AinaCarRentACAR from "assets/images/atencion.webp";
 import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
 
 import footerRoutes from "footer.routes";
 import Container from '@mui/material/Container';
 import Whatsapp from '../AinaHome/whatsapp';
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Modal from '@mui/material/Modal';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+
 import KarveCompany from './karveCompany';
-import InfoIcon from '@mui/icons-material/Info';
 import Footer from '../AinaHome/footer';
 
 

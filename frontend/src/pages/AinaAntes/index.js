@@ -3,15 +3,11 @@ import { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
-import Button from '@mui/material/Button';
 import MKTypography from "components/MKTypography";
 import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
 import AinaCarRentACAR from "assets/images/atencion.webp";
-import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
-import Wash from "assets/images/wash-protect.png";
-import ubicacio from "assets/images/ubicacio.png";
-import ubicacioParets from "assets/images/img-4317-1080x825.jpeg";
+
 import instalacion1 from "assets/images/instalacio-1.png";
 import instalacion2 from "assets/images/instalacio-2.png";
 import instalacion3 from "assets/images/instalacio-3.png";
@@ -24,140 +20,14 @@ import footerRoutes from "footer.routes";
 import Container from '@mui/material/Container';
 import Whatsapp from '../AinaHome/whatsapp';
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
-import Modal from '@mui/material/Modal';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import boxShadow from 'assets/theme/functions/boxShadow';
+
 import KarveAntes from './karveAntes';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+
 import InfoIcon from '@mui/icons-material/Info';
 import Chip from '@mui/material/Chip';
 
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
-
-const toggleDrawer = () => {};
-
-function CustomCardButton({ image, title, description, contactLink, mapsLink }) {
-  return (
-    <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', p: 2 }}>
-      <CardMedia
-        component="img"
-        image={image}
-        alt={title}
-        sx={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: 2, margin: '0' }}
-      />
-      <CardContent sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <MKTypography mt={3} mb={3} gutterBottom variant="h5" component="div">
-          {title}
-        </MKTypography>
-        <MKTypography variant="body2" color="text">
-          {description}
-        </MKTypography>
-        <Box sx={{ mt: 2, width: '100%' }}>
-          <Button variant="contained" color="primary" sx={{ mb: 1, width: '100%', color:'#FFFFFF' }} href={contactLink}>
-            Contact
-          </Button>
-          <Button variant="contained" color="white" sx={{ width: '100%', backgroundColor:'#d6061e', color:'#FFFFFF' }} href={mapsLink} target="_blank">
-            Maps
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
-  );
-}
-
-function CustomCard({ image, title, description, route, label }) {
-  return (
-    <Card
-      sx={{
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        boxShadow:'none',
-        borderRadius: '0px',
-        background:'none'
-      }}
-    >
-      <CardContent
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          textAlign: 'center',
-        }}
-      >
-        <MKTypography mt={3} mb={3} gutterBottom variant="h5" component="div">
-          {title}
-        </MKTypography>
-        <MKTypography variant="body2" color="text">
-          {description}
-        </MKTypography>
-      </CardContent>
-    </Card>
-  );
-}
-
-function ImageGrid({ images }) {
-  const [open, setOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
-
-  const handleOpen = (image) => {
-    setCurrentImage(image);
-    setOpen(true);
-  };
-
-  const handleClose = () => setOpen(false);
-
-  return (
-    <>
-      <Grid container spacing={2}>
-        {images.map((image, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Box
-              component="img"
-              src={image}
-              alt={`Image ${index + 1}`}
-              sx={{
-                width: '100%',
-                height: 'auto',
-                cursor: 'pointer',
-                borderRadius: 2
-              }}
-              onClick={() => handleOpen(image)}
-            />
-          </Grid>
-        ))}
-      </Grid>
-      <Modal open={open} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Box sx={{ position: 'relative', outline: 'none' }}>
-          <IconButton
-            sx={{ position: 'absolute', top: 0, right: 0 }}
-            onClick={handleClose}
-          >
-            <CloseIcon style={{ color: 'white' }} />
-          </IconButton>
-          <Box
-            component="img"
-            src={currentImage}
-            alt="Expanded Image"
-            sx={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 2 }}
-          />
-        </Box>
-      </Modal>
-    </>
-  );
-}
+import Footer from '../AinaHome/footer';
 
 
 const CustomTable = ({ columns, data = [] }) => {
@@ -267,9 +137,9 @@ function AinaAntes() {
     console.log(nuevoValor);
   };
 
-  const isMobileDevice = () => {
+  /*const isMobileDevice = () => {
     return window.innerWidth <= 1000;
-  };
+  };*/
 
   const back = AinaCarRentACAR; // Assuming back is the background image
 
@@ -395,7 +265,7 @@ function AinaAntes() {
         <MKBox bgColor="info" sx={{ mt: 4}}>
           <MKBox>
             <Suspense fallback={<div>Loading...</div>}>
-              <DefaultFooter pt={6} px={1} content={footerRoutes} />
+              <Footer pt={6} px={1} content={footerRoutes} />
             </Suspense>
           </MKBox>
         </MKBox>

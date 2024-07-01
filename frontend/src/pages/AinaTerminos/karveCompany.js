@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
+import React, {  Suspense, useState, useEffect, useRef } from 'react';
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import { useNavigate } from 'react-router-dom';

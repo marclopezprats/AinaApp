@@ -3,5 +3,7 @@
     font-family: 'Rodina-Regular';
     src: url('../../assets/fonts/rodina-regular.woff.ttf') format('woff2'), /* primeramente intenta con WOFF2, que es más eficiente */
          url('../../assets/fonts/rodina-regular.woff.ttf') format('woff'); /* si WOFF2 no es soportado, intenta con WOFF */
+    font-display: swap;
+
   }
   

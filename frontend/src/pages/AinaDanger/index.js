@@ -7,19 +7,9 @@ import Button from '@mui/material/Button';
 import MKTypography from "components/MKTypography";
 import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
-import AinaCarRentACAR from "assets/images/familia2.webp";
+import AinaCarRentACAR from "assets/images/atencion.webp";
 import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
-import Wash from "assets/images/wash-protect.png";
-import ubicacio from "assets/images/ubicacio.png";
-import ubicacioParets from "assets/images/img-4317-1080x825.jpeg";
-import instalacion1 from "assets/images/instalacio-1.png";
-import instalacion2 from "assets/images/instalacio-2.png";
-import instalacion3 from "assets/images/instalacio-3.png";
-import instalacion4 from "assets/images/instalacio-4.png";
-import instalacion5 from "assets/images/instalacio-5.png";
-import instalacion6 from "assets/images/instalacio-6.png";
-import instalacion7 from "assets/images/instalacio-7.png";
-import instalacion8 from "assets/images/instalacio-8.png";
+
 import footerRoutes from "footer.routes";
 import Container from '@mui/material/Container';
 import Whatsapp from '../AinaHome/whatsapp';
@@ -29,42 +19,8 @@ import CardContent from '@mui/material/CardContent';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import boxShadow from 'assets/theme/functions/boxShadow';
 import KarveCompany from './karveCompany';
 import Footer from '../AinaHome/footer';
-
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
-
-const toggleDrawer = () => {};
-
-function CustomCardButton({ image, title, description, contactLink, mapsLink }) {
-  return (
-    <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', p: 2 }}>
-      <CardMedia
-        component="img"
-        image={image}
-        alt={title}
-        sx={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: 2, margin: '0' }}
-      />
-      <CardContent sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <MKTypography mt={3} mb={3} gutterBottom variant="h5" component="div">
-          {title}
-        </MKTypography>
-        <MKTypography variant="body2" color="text">
-          {description}
-        </MKTypography>
-        <Box sx={{ mt: 2, width: '100%' }}>
-          <Button variant="contained" color="primary" sx={{ mb: 1, width: '100%', color:'#FFFFFF' }} href={contactLink}>
-            Contact
-          </Button>
-          <Button variant="contained" color="white" sx={{ width: '100%', backgroundColor:'#d6061e', color:'#FFFFFF' }} href={mapsLink} target="_blank">
-            Maps
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
-  );
-}
 
 function CustomCard({ image, title, description, route, label }) {
   return (
@@ -102,56 +58,6 @@ function CustomCard({ image, title, description, route, label }) {
   );
 }
 
-function ImageGrid({ images }) {
-  const [open, setOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
-
-  const handleOpen = (image) => {
-    setCurrentImage(image);
-    setOpen(true);
-  };
-
-  const handleClose = () => setOpen(false);
-
-  return (
-    <>
-      <Grid container spacing={2}>
-        {images.map((image, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Box
-              component="img"
-              src={image}
-              alt={`Image ${index + 1}`}
-              sx={{
-                width: '100%',
-                height: 'auto',
-                cursor: 'pointer',
-                borderRadius: 2
-              }}
-              onClick={() => handleOpen(image)}
-            />
-          </Grid>
-        ))}
-      </Grid>
-      <Modal open={open} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Box sx={{ position: 'relative', outline: 'none' }}>
-          <IconButton
-            sx={{ position: 'absolute', top: 0, right: 0 }}
-            onClick={handleClose}
-          >
-            <CloseIcon style={{ color: 'white' }} />
-          </IconButton>
-          <Box
-            component="img"
-            src={currentImage}
-            alt="Expanded Image"
-            sx={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 2 }}
-          />
-        </Box>
-      </Modal>
-    </>
-  );
-}
 function DamagePolicy() {
   const [valorHijo, setValorHijo] = useState('');
   const [appBarHeight, setAppBarHeight] = useState(0);

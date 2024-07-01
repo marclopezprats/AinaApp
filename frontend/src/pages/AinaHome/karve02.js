@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
+import React, {  Suspense, useState, useEffect, useRef } from 'react';
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import { useNavigate } from 'react-router-dom';
@@ -8,11 +8,11 @@ import { styled } from '@mui/material/styles';
 
 
 const Karve02 = ({ isOpenReservation, reservationDrawer }) => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const buttonRef = useRef(null);
   const [buttonHeight, setButtonHeight] = useState(0);
-  const [currentStep, setCurrentStep] = useState('');
-  const [nextStep, setNextStep] = useState('');
+  //const [currentStep, setCurrentStep] = useState('');
+  //const [nextStep, setNextStep] = useState('');
 
   useEffect(() => {
     if (buttonRef.current) {
@@ -21,12 +21,12 @@ const Karve02 = ({ isOpenReservation, reservationDrawer }) => {
     }
   }, [isOpenReservation]);
 
-  const handleStepChange = ({ currentStep, nextStep }) => {
-    setCurrentStep(currentStep);
-    setNextStep(nextStep);
-    // Aquí puedes agregar la lógica que necesites cuando los pasos cambian
-    console.log('Step changed:', { currentStep, nextStep });
-  };
+  //const handleStepChange = ({ currentStep, nextStep }) => {
+  //  setCurrentStep(currentStep);
+  //  setNextStep(nextStep);
+  //  // Aquí puedes agregar la lógica que necesites cuando los pasos cambian
+  //  console.log('Step changed:', { currentStep, nextStep });
+  //};
 
   const ButtonConfig = isOpenReservation ? "100%" : "0%";
   const ButtonConfig2 = isOpenReservation ? "0%" : "100%";

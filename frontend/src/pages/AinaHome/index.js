@@ -3,9 +3,7 @@ import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
-import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
-import back from "assets/images/backgroundAina2.webp";
 import './Carousel.css';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
@@ -19,32 +17,21 @@ import './fonts.css';
 import { useTranslation } from 'react-i18next';
 import 'flag-icons/css/flag-icons.min.css';
 import Whatsapp from './whatsapp';
-import Divider from '@mui/material/Divider';
-import KarveIframe from './ReservationWidget';
+import LazyBackgroundImage from './backgroundImage';
+
 import Footer from './footer';
 import Karve02 from './karve02';
 
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 const InstagramPosts = lazy(() => import('./InstagramPosts'));
 const Recogida = lazy(() => import('./recogida'));
 const ExperiencePosts = lazy(() => import('./Experience'));
-const DesktopDrawer = lazy(() => import('./DesktopDrawer'));
-const MobileDrawer = lazy(() => import('./MobileDrawer'));
-const MaxWidthDialog = lazy(() => import('./PopUp'));
+
 const WhyAinaCar_ = lazy(() => import('./PorQue'));
 
 function AinaHome() {
-  const masonryRef = useRef(null);
+  //const masonryRef = useRef(null);
   const accessToken = process.env.REACT_APP_INSTA_ACCESS_TOKEN;
-  const buttonRef = useRef(null);
-  const [formData, setFormData] = useState({
-    nombre: '',
-    telefono: '',
-    email: '',
-    modelo: '',
-    horario: '',
-    provincia: ''
-  });
+  //const buttonRef = useRef(null);
 
   const images = [
     { id: 1, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png' },
@@ -52,10 +39,10 @@ function AinaHome() {
     { id: 3, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png' },
   ];
 
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen);
-  };
+  //const [isOpen, setIsOpen] = useState(false);
+  //const toggleDrawer = () => {
+  //  setIsOpen(!isOpen);
+  //};
 
   const [isOpenReservation, setIsOpenReservation] = useState(false);
   const reservationDrawer = () => {
@@ -75,7 +62,7 @@ function AinaHome() {
 
   const [appBarHeight, setAppBarHeight] = useState(0);
   const appBarRef = useRef(null);
-  const iframeRef = useRef(null);
+  //const iframeRef = useRef(null);
   const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
@@ -84,9 +71,9 @@ function AinaHome() {
     }
   }, []);
 
-  const isMobileDevice = () => {
+  /*const isMobileDevice = () => {
     return window.innerWidth <= 1268;
-  };
+  };*/
 
   const whyAinaCarRef = useRef(null);
   const handleScrollToWhyAinaCar = () => {
@@ -95,32 +82,7 @@ function AinaHome() {
 
   const { t, i18n } = useTranslation();
 
-  const handleIframeLoad = () => {
-    setIframeLoaded(true);
-    const scrollPosition = window.scrollY;
-    window.scrollTo(0, scrollPosition);
-  };
-
-  useEffect(() => {
-    const iframe = iframeRef.current;
-
-    const handleScroll = (event) => {
-      if (iframe && !iframeLoaded) {
-        event.preventDefault();
-        window.scrollTo(0, 0);
-      }
-    };
-
-    if (iframe) {
-      window.addEventListener('scroll', handleScroll);
-      iframe.addEventListener('load', handleIframeLoad);
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-        iframe.removeEventListener('load', handleIframeLoad);
-      };
-    }
-  }, [iframeLoaded]);
+ 
 
   // Recargar el iframe cuando el idioma cambie
   useEffect(() => {
@@ -138,94 +100,12 @@ function AinaHome() {
       <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '60px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 990 }}>
         <ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />
       </Box>
-      <Box
-        sx={{
-          minHeight: "90vh",
-          width: "100%",
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${back})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: `-${appBarHeight}px`,
-        }}>
-        <MKBox sx={{ justifyContent: "bottom", display: "flex", flexDirection: "column", position: "relative", padding: { xs: "20px 0", sm: "40px 0" } }}>
-          <Container>
-            <Grid sx={{ marginTop: { xs: `${appBarHeight * 2}px`, sm: `${appBarHeight * 2}px`, md: `${appBarHeight * 2}px`, lg: `${appBarHeight}px` } }} container justifyContent="center">
-              <Grid item xs={12} sm={12} md={12} xl={7.5} sx={{ display: 'flex', alignItems: 'center', padding: { xs: '0 10px' } }}>
-              <MKBox sx={{ maxWidth: '100%' }}>
-  <MKTypography
-    color="white"
-    variant="h1"
-    sx={{
-      fontFamily: 'Rodina-Regular',
-      textAlign: 'left',
-      lineHeight: 1,
-      fontSize: {
-        xs: '2.8rem',
-        sm: '3.3rem',
-        md: '4.3rem',
-        lg: '5.5rem'
-      },
-      marginTop: { xs: '20px', sm: '30px' } // Mueve el título hacia abajo en móvil
-    }}
-  >
-    {t('welcome')}
-  </MKTypography>
-  <MKBox
-    sx={{
-      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo con color y transparencia
-      padding: { xs: '10px', sm: '15px' }, // Padding para el contenedor
-      display: 'inline-flex', // Para ajustar el tamaño del fondo al contenido
-      alignItems: 'center', // Para centrar verticalmente
-      borderRadius: '10px', // Bordes redondeados
-      mt: 2 // Margen superior
-    }}
-  >
-    <MKTypography
-      color="white"
-      variant="h3"
-      sx={{
-        fontFamily: 'Rodina-Regular',
-        textAlign: 'left',
-        lineHeight: 1.5,
-        fontSize: {
-          xs: '1.5rem',
-          sm: '2rem',
-          md: '2rem',
-          lg: '2.0rem'
-        },
-        marginRight: '20px' // Separación entre el texto y el botón
-      }}
-    >
-      {t('welcome2')}
-    </MKTypography>
-    <MKButton
-      variant="contained"
-      color="primary"
-      onClick={reservationDrawer} // Añade onClick aquí para el botón también
+  
+      <LazyBackgroundImage appBarHeight={appBarHeight} />
 
-    >
-      ¡Reserva ya!
-    </MKButton>
-  </MKBox>
-</MKBox>
-
-
-              </Grid>
-
-              <Grid item xs={12} sm={12} md={12} xl={4.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
-                <Suspense fallback={<div>Loading...</div>}>
-                  {//<KarveIframe margin={30} />
-              
-                  }
-                </Suspense>
-              </Grid>
-            </Grid>
-          </Container>
-        </MKBox>
-      </Box>
+       
+      {//</Box>
+      }
       <MKBox
         bgColor="info"
         zIndex={2}
@@ -235,7 +115,7 @@ function AinaHome() {
         alignItems="center"
         justifyContent="center"
         style={{ minHeight: "5vh", cursor: 'pointer' }}
-        //onClick={handleScrollToWhyAinaCar}
+        onClick={handleScrollToWhyAinaCar}
       >
         <MKTypography style={{}} color="white" variant="h6">
           {t('mas_info')}

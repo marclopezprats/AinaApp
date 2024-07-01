@@ -1,6 +1,5 @@
-import React, {lazy, useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
-import MKButton from "components/MKButton";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 

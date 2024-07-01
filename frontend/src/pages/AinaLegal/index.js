@@ -6,7 +6,7 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
-import AinaCarRentACAR from "assets/images/familia2.webp";
+import AinaCarRentACAR from "assets/images/atencion.webp";
 import footerRoutes from "footer.routes";
 import Container from '@mui/material/Container';
 import Whatsapp from '../AinaHome/whatsapp';
@@ -15,9 +15,6 @@ import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import Footer from '../AinaHome/footer';
 
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
-
-const toggleDrawer = () => {};
 
 function CustomCard({ title, description }) {
   return (

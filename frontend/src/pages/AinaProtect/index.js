@@ -9,11 +9,8 @@ import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
 import Divider from '@mui/material/Divider';
 
-import AinaCarRentACAR from "assets/images/protect.webp";
 import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
-import Wash from "assets/images/wash-protect.png";
-import ubicacio from "assets/images/ubicacio.png";
-import ubicacioParets from "assets/images/img-4317-1080x825.jpeg";
+
 import logoprotect from "assets/images/logoprotect.png";
 
 import protect1 from "assets/images/protect01.webp";
@@ -41,7 +38,6 @@ import Footer from '../AinaHome/footer';
 
 const DesktopDrawer = lazy(() => import('../AinaHome/DesktopDrawer'));
 const MobileDrawer = lazy(() => import('../AinaHome/MobileDrawer'));
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 
 const images = [
   imagenProtect01, imagenProtect02, imagenProtect03, imagenProtect04,
