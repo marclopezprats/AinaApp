@@ -31,6 +31,12 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import boxShadow from 'assets/theme/functions/boxShadow';
 import KarveCompany from './karveCompany';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Footer from '../AinaHome/footer';
 
 const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 
@@ -68,36 +74,33 @@ function CustomCardButton({ image, title, description, contactLink, mapsLink }) 
 function CustomCard({ image, title, description, route, label }) {
   return (
     <Card
-  sx={{
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxShadow:'none',
-    borderRadius: '0px',
-    background:'none'
-  }}
->
-
-  <CardContent
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      textAlign: 'center',
-  
-    }}
-  >
-    <MKTypography mt={3} mb={3} gutterBottom variant="h5" component="div">
-      {title}
-    </MKTypography>
-    <MKTypography variant="body2" color="text">
-      {description}
-    </MKTypography>
-  </CardContent>
-</Card>
-
+      sx={{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxShadow:'none',
+        borderRadius: '0px',
+        background:'none'
+      }}
+    >
+      <CardContent
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+        }}
+      >
+        <MKTypography mt={3} mb={3} gutterBottom variant="h5" component="div">
+          {title}
+        </MKTypography>
+        <MKTypography variant="body2" color="text">
+          {description}
+        </MKTypography>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -152,7 +155,7 @@ function ImageGrid({ images }) {
   );
 }
 
-function AinaCompany() {
+function AinaFAQ() {
   const [valorHijo, setValorHijo] = useState('');
   const [appBarHeight, setAppBarHeight] = useState(0);
   const appBarRef = useRef(null);
@@ -178,7 +181,6 @@ function AinaCompany() {
     return window.innerWidth <= 1000;
   };
 
-  
   const back = AinaCarRentACAR; // Assuming back is the background image
 
   const images = [
@@ -203,7 +205,7 @@ function AinaCompany() {
           }}
         >
           {<ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />}
-          </Box>
+        </Box>
         <Box
           sx={{
             minHeight: "69vh",
@@ -223,7 +225,6 @@ function AinaCompany() {
               display: "flex",
               flexDirection: "column",
               position: "relative",
-
             }}
           >
             <Container>
@@ -265,10 +266,9 @@ function AinaCompany() {
                           lg: '5rem'
                         },
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)'
-
                       }}
                     >
-                      {t('familia_ainacar')}
+                      {t('faqs_title')}
                     </MKTypography>
                     <MKTypography
                       color="white"
@@ -284,10 +284,10 @@ function AinaCompany() {
                           lg: '2.5rem'
                         },
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)'
-
                       }}
                     >
-                      {t('familia_ainacar_subtitle')}
+                      {//t('familia_ainacar_subtitle')
+                      }
                     </MKTypography>
                   </MKBox>
                 </Grid>
@@ -295,122 +295,130 @@ function AinaCompany() {
             </Container>
           </MKBox>
         </Box>
-        {
-          //<MKBox
-         // bgColor="info"
-         // zIndex={2}
-         // style={{ minHeight: "3vh", borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}
-       //</Box> >
-        // <MKBox textAlign="center" position="relative" display="flex" alignItems="center" justifyContent="center">
-            //<MKTypography style={{ padding: '6px' }} color="white" variant="h6">
-           // </MKTypography>
-          //</MKBox>
-          
-        //</MKBox>
-      }
 
         {/* Articles Section */}
         <Container sx={{ mt: -8, backgroundColor:'white' }}>
           <Grid container spacing={4} sx={{ mt: 2 }}>
             <Grid item xs={12} md={6}>
-              <CustomCard sx={{backgroundColor:'transparent'}}
-                image={AinaCarRent1}
-                title={t('unidad_ainacar')}
-                description={t('unidad_ainacar_description')}
-                route="/article-1"
-                label="Read More"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Box mb={2}>
-              <Card
-                sx={{
-                  height: { xs: 'auto', sm: 'auto' },
-                  backgroundColor: '#031b27',
-                  color: 'white',
-                  p: { xs: 1, sm: 2 },
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 2,
-                  flexDirection: { xs: 'column', sm: 'row' },
-                }}
-              >
-                <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, mx: { xs: 0, sm: 2 }, my: { xs: 2, sm: 0 } }}>
-                  <MKTypography
-                    color="white"
-                    sx={{
-                      fontStyle: 'italic',
-                      fontSize: { xs: '1rem', sm: '1.2rem' },
-                    }}
-                  >
-                    “{t('ceo_ainacar_description')}"
-                  </MKTypography>
-                  <MKTypography
-                    color="white"
-                    sx={{
-                      mt: 2,
-                      fontWeight: 'bold',
-                      fontSize: { xs: '0.9rem', sm: '1rem' },
-                    }}
-                  >
-                    (CEO Aina Car)
-                  </MKTypography>
-                </Box>
+            <Card sx={{boxShadow: '', width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion  defaultExpanded sx={{boxShadow: 'none', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_1')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_1_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
               </Card>
-              </Box>
-              <CustomCard
-                image={Wash}
-                title={t('grupo_ainacar')}
-                description={t('grupo_ainacar_description')}
-                route="/article-2"
-                label="Read More"
-              />
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion  defaultExpanded sx={{boxShadow: 'none', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_2')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_2_content')}
+                                    </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded  sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5"> {t('faq_3')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_3_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_4')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_4_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_5')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_5_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
             </Grid>
-          </Grid>
-        </Container>
-
-        {/* Image Grid Section */}
-        <Container sx={{ mt: 15 }}>
-          <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
-            <MKTypography variant="h2">{t('carousel_instalaciones')}</MKTypography>
-          </Grid>
-          <Box sx={{ mt: 5 }}>
-            <ImageGrid images={images} />
-          </Box>
-        </Container>
-
-        {/* Locations Section */}
-        <Container sx={{ mt: 15, mb: 8 }}>
-          <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
-            <MKTypography variant="h2">{t('nuestras_oficinas')}</MKTypography>
-          </Grid>
-          <Grid container spacing={4} sx={{ mt: 5 }}>
             <Grid item xs={12} md={6}>
-              <CustomCardButton
-                image={ubicacio}
-                title="Oficina Sabadell"
-                description="Carrer de l'Example, 45, Sabadell, Barcelona"
-                route="/oficina-sabadell"
-                label="Read More"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CustomCardButton
-                image={ubicacioParets}
-                title="Oficina Parets del Vallès"
-                description="Avinguda de la República, 12, Parets del Vallès, Barcelona"
-                route="/oficina-parets"
-                label="Read More"
-              />
+            <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_6')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_6_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_7')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_7_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_8')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                <Typography variant="body2">
+                {t('faq_8_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              <Card sx={{ width: '100%', overflow: 'hidden', margin:'10px', marginLeft: '0px'}}>
+            <Accordion defaultExpanded sx={{boxShadow: '', borderBottom:'none'}}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+                  <Typography variant="h5">{t('faq_9')}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2">
+                  {t('faq_9_content')}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+              </Card>
+              
             </Grid>
           </Grid>
         </Container>
 
-        <MKBox bgColor="info">
+        <MKBox bgColor="info" mt={10}>
           <MKBox>
             <Suspense fallback={<div>Loading...</div>}>
-              <DefaultFooter pt={6} px={1} content={footerRoutes} />
+              <Footer pt={6} px={1} content={footerRoutes} />
             </Suspense>
           </MKBox>
         </MKBox>
@@ -419,4 +427,4 @@ function AinaCompany() {
   );
 }
 
-export default AinaCompany;
+export default AinaFAQ;

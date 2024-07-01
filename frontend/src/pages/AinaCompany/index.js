@@ -29,12 +29,10 @@ import CardContent from '@mui/material/CardContent';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import boxShadow from 'assets/theme/functions/boxShadow';
 import KarveCompany from './karveCompany';
+import Footer from '../AinaHome/footer';
 
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 
-const toggleDrawer = () => {};
 
 function CustomCardButton({ image, title, description, contactLink, mapsLink }) {
   return (
@@ -174,9 +172,9 @@ function AinaCompany() {
     console.log(nuevoValor);
   };
 
-  const isMobileDevice = () => {
+  /*const isMobileDevice = () => {
     return window.innerWidth <= 1000;
-  };
+  };*/
 
   
   const back = AinaCarRentACAR; // Assuming back is the background image
@@ -410,7 +408,7 @@ function AinaCompany() {
         <MKBox bgColor="info">
           <MKBox>
             <Suspense fallback={<div>Loading...</div>}>
-              <DefaultFooter pt={6} px={1} content={footerRoutes} />
+              <Footer pt={6} px={1} content={footerRoutes} />
             </Suspense>
           </MKBox>
         </MKBox>

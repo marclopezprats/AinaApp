@@ -13,7 +13,13 @@ import CarDetail_reserva from "pages/AinaCarProduct/carDetail_reserva";
 import AinaCompany from "pages/AinaCompany";
 import AinaProtect from "pages/AinaProtect";
 import AinaAntes from "pages/AinaAntes";
-
+import AinaCondiciones from "pages/AinaCondiciones";
+import CookiesPolicy from "pages/AinaCookies";
+import PrivacyPolicy from "pages/AinaPrivacidad";
+import TermsAndConditions from "pages/AinaTerminos";
+import DamagePolicy from "pages/AinaDanger";
+import LegalNotice from "pages/AinaLegal";
+import AinaFAQ from "pages/AinaFAQ";
 import NotFoundPage from "pages/AinaHome/404";
 
 // Material Kit 2 React routes
@@ -110,6 +116,13 @@ export default function App() {
         <Route path="/company" element={<AinaCompany />} />
         <Route path="/protect" element={<AinaProtect />} />
         <Route path="/informacion-antes-de-alquilar" element={<AinaAntes />} />
+        <Route path="/terminos-y-condiciones-generales" element={<AinaCondiciones />} />
+        <Route path="/politica-cookies" element={<CookiesPolicy />} />
+        <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+        <Route path="/terminos-y-condiciones" element={<TermsAndConditions />} />
+        <Route path="/politica-gestion-de-danos" element={<DamagePolicy />} />
+        <Route path="/aviso-legal" element={<LegalNotice />} />
+        <Route path="/faqs" element={<AinaFAQ />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/" element={<Navigate to="/" />} />
       </Routes>

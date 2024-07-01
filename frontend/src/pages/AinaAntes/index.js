@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import MKTypography from "components/MKTypography";
 import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
-import AinaCarRentACAR from "assets/images/familia2.webp";
+import AinaCarRentACAR from "assets/images/atencion.webp";
 import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
 import Wash from "assets/images/wash-protect.png";
 import ubicacio from "assets/images/ubicacio.png";
@@ -30,7 +30,7 @@ import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import boxShadow from 'assets/theme/functions/boxShadow';
-import KarveCompany from './karveCompany';
+import KarveAntes from './karveAntes';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -162,13 +162,13 @@ function ImageGrid({ images }) {
 
 const CustomTable = ({ columns, data = [] }) => {
   return (
-    <Card sx={{ width: '100%', overflowX: 'auto', margin: '20px 0', boxShadow: 3 }}>
+    <Card sx={{ width: '100%', overflowX: 'auto', margin: '20px', boxShadow: 3 ,marginBottom: '100px', marginTop: '-60px'}}>
       <CardContent>
-        <Box sx={{ minWidth: 650, borderBottom: '1px solid #e0e0e0', borderRadius: 1 }}>
+        <Box sx={{ minWidth: 650,  borderRadius: 1 }}>
           {/* Table Header */}
           <Grid container sx={{ backgroundColor: '#f5f5f5', padding: '8px 0', borderRadius: '12px' }}>
             {columns.map((column, index) => (
-              <Grid item xs={12 / columns.length} key={index}>
+              <Grid item xs={12 / columns.length} key={index} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <MKTypography variant="subtitle1" align="center" sx={{ fontWeight: 'bold', color: '#333', borderRadius: '12px' }}>
                   {column.headerName}
                 </MKTypography>
@@ -195,12 +195,14 @@ const CustomTable = ({ columns, data = [] }) => {
                     backgroundColor: '#f9f9f9',
                     borderRadius: '12px',
                   },
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
                 mt={4}
               >
                 {columns.map((column, colIndex) => (
-                  <Grid item xs={12 / columns.length} key={colIndex}>
-                    <MKTypography variant="body2" align="center" sx={{ color: '#555' }}>
+                  <Grid item xs={12 / columns.length} key={colIndex} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <MKTypography variant="body2" align="center" sx={{ color: '#555' , fontWeight: colIndex === 0 ? 'bold':'regular'}}>
                       {row[column.field] === '' ? (<Chip label="Sin coste" sx={{color:'#FFFFFF',  backgroundColor:"#25D366"}} />) :(row[column.field])}
                     </MKTypography>
                   </Grid>
@@ -213,6 +215,7 @@ const CustomTable = ({ columns, data = [] }) => {
     </Card>
   );
 };
+
 
 
 
@@ -277,7 +280,7 @@ function AinaAntes() {
 
   return (
     <>
-      <KarveCompany isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer} />
+      <KarveAntes isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer} />
 
       <Box sx={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
         <Whatsapp />
@@ -355,7 +358,7 @@ function AinaAntes() {
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)',
                       }}
                     >
-                      {t('familia_ainacar')}
+                      {t('info_antes_de_alquilar')}
                     </MKTypography>
                     <MKTypography
                       color="white"
@@ -373,7 +376,7 @@ function AinaAntes() {
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)',
                       }}
                     >
-                      {t('familia_ainacar_subtitle')}
+                      {t('info_antes_de_alquilar_subtitle')}
                     </MKTypography>
                   </MKBox>
                 </Grid>
@@ -382,16 +385,14 @@ function AinaAntes() {
           </MKBox>
         </Box>
 
-        <Container sx={{ my: 4 }}>
+        <Container sx={{ my: 4}}>
           <MKTypography variant="h4" gutterBottom>
-            {//GUÍA DE TARIFAS DE CARGOS ADICIONALES
-            }
           </MKTypography>
                <CustomTable columns={columns} data={data} />
       
         </Container>
 
-        <MKBox bgColor="info">
+        <MKBox bgColor="info" sx={{ mt: 4}}>
           <MKBox>
             <Suspense fallback={<div>Loading...</div>}>
               <DefaultFooter pt={6} px={1} content={footerRoutes} />

@@ -31,6 +31,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import boxShadow from 'assets/theme/functions/boxShadow';
 import KarveCompany from './karveCompany';
+import Footer from '../AinaHome/footer';
 
 const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 
@@ -85,7 +86,7 @@ function CustomCard({ image, title, description, route, label }) {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      textAlign: 'center',
+      textAlign: 'left',
   
     }}
   >
@@ -152,11 +153,11 @@ function ImageGrid({ images }) {
   );
 }
 
-function AinaCompany() {
+function TermsAndConditions() {
   const [valorHijo, setValorHijo] = useState('');
   const [appBarHeight, setAppBarHeight] = useState(0);
   const appBarRef = useRef(null);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [isOpenReservation, setIsOpenReservation] = useState(false);
   const reservationDrawer = () => {
@@ -178,12 +179,76 @@ function AinaCompany() {
     return window.innerWidth <= 1000;
   };
 
-  
   const back = AinaCarRentACAR; // Assuming back is the background image
 
-  const images = [
-    instalacion1, instalacion2, instalacion3, instalacion4,
-    instalacion5, instalacion6, instalacion7, instalacion8,
+  const termsSections = [
+    {
+      id: "general_conditions",
+      title: t('terms_conditions.sections.general_conditions.title'),
+      content: t('terms_conditions.sections.general_conditions.content')
+    },
+    {
+      id: "included",
+      title: t('terms_conditions.sections.included.title'),
+      content: t('terms_conditions.sections.included.content')
+    },
+    {
+      id: "fuel",
+      title: t('terms_conditions.sections.fuel.title'),
+      content: t('terms_conditions.sections.fuel.content')
+    },
+    {
+      id: "not_included",
+      title: t('terms_conditions.sections.not_included.title'),
+      content: t('terms_conditions.sections.not_included.content')
+    },
+    {
+      id: "deposits_franchises",
+      title: t('terms_conditions.sections.deposits_franchises.title'),
+      content: t('terms_conditions.sections.deposits_franchises.content')
+    },
+    {
+      id: "repair_maintenance",
+      title: t('terms_conditions.sections.repair_maintenance.title'),
+      content: t('terms_conditions.sections.repair_maintenance.content')
+    },
+    {
+      id: "rental_requirements",
+      title: t('terms_conditions.sections.rental_requirements.title'),
+      content: t('terms_conditions.sections.rental_requirements.content'),
+      subsections: [
+        {
+          id: "payment_method",
+          title: t('terms_conditions.sections.payment_method.title'),
+          content: t('terms_conditions.sections.payment_method.content')
+        },
+        {
+          id: "age_restrictions",
+          title: t('terms_conditions.sections.age_restrictions.title'),
+          content: t('terms_conditions.sections.age_restrictions.content')
+        },
+        {
+          id: "behavior",
+          title: "Comportamiento no aceptable",
+          content: "La oficina de alquiler podrá negarse a alquilarle usted, al conductor o alguna persona de su grupo si se comporta de forma no aceptable, por ejemplo, si creen que el conductor se halla bajo las influencias del alcohol, de las drogas o alguna sustancia de similares características, o si usted, o cualquier persona de su grupo, muestra una conducta abusiva o amenazante hacia Aina Car, sus empleados u otros clientes."
+        }
+      ]
+    },
+    {
+      id: "cancellation",
+      title: t('terms_conditions.sections.cancellation.title'),
+      content: t('terms_conditions.sections.cancellation.content')
+    },
+    {
+      id: "personal_info_usage",
+      title: t('terms_conditions.sections.personal_info_usage.title'),
+      content: t('terms_conditions.sections.personal_info_usage.content')
+    },
+    {
+      id: "civil_liability",
+      title: t('terms_conditions.sections.civil_liability.title'),
+      content: t('terms_conditions.sections.civil_liability.content')
+    }
   ];
 
   return (
@@ -202,8 +267,10 @@ function AinaCompany() {
             zIndex: 3
           }}
         >
-          {<ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />}
-          </Box>
+          {
+            <ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />
+          }
+        </Box>
         <Box
           sx={{
             minHeight: "69vh",
@@ -223,7 +290,6 @@ function AinaCompany() {
               display: "flex",
               flexDirection: "column",
               position: "relative",
-
             }}
           >
             <Container>
@@ -265,29 +331,9 @@ function AinaCompany() {
                           lg: '5rem'
                         },
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)'
-
                       }}
                     >
-                      {t('familia_ainacar')}
-                    </MKTypography>
-                    <MKTypography
-                      color="white"
-                      variant="h3"
-                      sx={{
-                        fontFamily: 'Rodina-Regular',
-                        textAlign: 'center',
-                        lineHeight: 1.5,
-                        fontSize: {
-                          xs: '1.5rem',
-                          sm: '2rem',
-                          md: '2rem',
-                          lg: '2.5rem'
-                        },
-                        textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)'
-
-                      }}
-                    >
-                      {t('familia_ainacar_subtitle')}
+                      {t('terms_conditions.title')}
                     </MKTypography>
                   </MKBox>
                 </Grid>
@@ -295,122 +341,49 @@ function AinaCompany() {
             </Container>
           </MKBox>
         </Box>
-        {
-          //<MKBox
-         // bgColor="info"
-         // zIndex={2}
-         // style={{ minHeight: "3vh", borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}
-       //</Box> >
-        // <MKBox textAlign="center" position="relative" display="flex" alignItems="center" justifyContent="center">
-            //<MKTypography style={{ padding: '6px' }} color="white" variant="h6">
-           // </MKTypography>
-          //</MKBox>
-          
-        //</MKBox>
-      }
 
-        {/* Articles Section */}
-        <Container sx={{ mt: -8, backgroundColor:'white' }}>
-          <Grid container spacing={4} sx={{ mt: 2 }}>
-            <Grid item xs={12} md={6}>
-              <CustomCard sx={{backgroundColor:'transparent'}}
-                image={AinaCarRent1}
-                title={t('unidad_ainacar')}
-                description={t('unidad_ainacar_description')}
-                route="/article-1"
-                label="Read More"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Box mb={2}>
-              <Card
-                sx={{
-                  height: { xs: 'auto', sm: 'auto' },
-                  backgroundColor: '#031b27',
-                  color: 'white',
-                  p: { xs: 1, sm: 2 },
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 2,
-                  flexDirection: { xs: 'column', sm: 'row' },
-                }}
-              >
-                <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, mx: { xs: 0, sm: 2 }, my: { xs: 2, sm: 0 } }}>
-                  <MKTypography
-                    color="white"
-                    sx={{
-                      fontStyle: 'italic',
-                      fontSize: { xs: '1rem', sm: '1.2rem' },
-                    }}
-                  >
-                    “{t('ceo_ainacar_description')}"
-                  </MKTypography>
-                  <MKTypography
-                    color="white"
-                    sx={{
-                      mt: 2,
-                      fontWeight: 'bold',
-                      fontSize: { xs: '0.9rem', sm: '1rem' },
-                    }}
-                  >
-                    (CEO Aina Car)
-                  </MKTypography>
-                </Box>
-              </Card>
-              </Box>
-              <CustomCard
-                image={Wash}
-                title={t('grupo_ainacar')}
-                description={t('grupo_ainacar_description')}
-                route="/article-2"
-                label="Read More"
-              />
-            </Grid>
+        {/* Terms and Conditions Section */}
+        <Container sx={{ mt: 4, backgroundColor: 'white' }}>
+          <MKTypography
+            variant="h4"
+            sx={{
+              fontFamily: 'Rodina-Regular',
+              textAlign: 'center',
+              marginBottom: '20px'
+            }}
+          >
+          </MKTypography>
+          <Grid container spacing={4}>
+            {termsSections.map((section, index) => (
+              <Grid item xs={12} md={12} key={index}>
+                <CustomCard
+                  sx={{ backgroundColor: 'transparent' }}
+                  image={AinaCarRent1} // Use the appropriate image for each section if available
+                  title={section.title}
+                  description={section.content}
+                  route={`/section-${section.id}`}
+                  label="Read More"
+                />
+                {section.subsections && section.subsections.map((subSection, subIndex) => (
+                  <CustomCard
+                    key={`${index}-${subIndex}`}
+                    sx={{ backgroundColor: 'transparent' }}
+                    image={AinaCarRent1} // Use the appropriate image for each subsection if available
+                    title={subSection.title}
+                    description={subSection.content}
+                    route={`/section-${section.id}-${subSection.id}`}
+                    label="Read More"
+                  />
+                ))}
+              </Grid>
+            ))}
           </Grid>
         </Container>
 
-        {/* Image Grid Section */}
-        <Container sx={{ mt: 15 }}>
-          <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
-            <MKTypography variant="h2">{t('carousel_instalaciones')}</MKTypography>
-          </Grid>
-          <Box sx={{ mt: 5 }}>
-            <ImageGrid images={images} />
-          </Box>
-        </Container>
-
-        {/* Locations Section */}
-        <Container sx={{ mt: 15, mb: 8 }}>
-          <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
-            <MKTypography variant="h2">{t('nuestras_oficinas')}</MKTypography>
-          </Grid>
-          <Grid container spacing={4} sx={{ mt: 5 }}>
-            <Grid item xs={12} md={6}>
-              <CustomCardButton
-                image={ubicacio}
-                title="Oficina Sabadell"
-                description="Carrer de l'Example, 45, Sabadell, Barcelona"
-                route="/oficina-sabadell"
-                label="Read More"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CustomCardButton
-                image={ubicacioParets}
-                title="Oficina Parets del Vallès"
-                description="Avinguda de la República, 12, Parets del Vallès, Barcelona"
-                route="/oficina-parets"
-                label="Read More"
-              />
-            </Grid>
-          </Grid>
-        </Container>
-
-        <MKBox bgColor="info">
+        <MKBox bgColor="info" mt={4}>
           <MKBox>
             <Suspense fallback={<div>Loading...</div>}>
-              <DefaultFooter pt={6} px={1} content={footerRoutes} />
+              <Footer pt={6} px={1} content={footerRoutes} />
             </Suspense>
           </MKBox>
         </MKBox>
@@ -419,4 +392,4 @@ function AinaCompany() {
   );
 }
 
-export default AinaCompany;
+export default TermsAndConditions;

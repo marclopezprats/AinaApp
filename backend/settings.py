@@ -68,7 +68,7 @@ CORS_ALLOW_HEADERS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "ainaappfrontend.onrender.com",
+    env('CORS_ALLOWED_ORIGINS'),
 ]
 
 MIDDLEWARE = [

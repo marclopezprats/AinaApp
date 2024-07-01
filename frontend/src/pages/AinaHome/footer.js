@@ -37,17 +37,17 @@ const Footer = () => {
             <Box sx={{textAlign: "left" }}>
               <Typography mb={2} variant="h6" sx={{ color: '#FFFFFF', fontWeight: 'bold' }}>GRUPO AINACAR</Typography>
               {[
-                { text: "Aina Car Protect", href: "#" },
-                { text: "FAQ. Preguntas frecuentes", href: "#" },
-                { text: "Aviso Legal", href: "#" },
-                { text: "Política Gestión de daños", href: "#" },
-                { text: "Términos y Condiciones Generales", href: "#" },
-                { text: "Política de privacidad", href: "#" },
-                { text: "Política de cookies", href: "#" },
-                { text: "Condiciones generales de contratación", href: "#" },
-                { text: "Información antes del alquiler", href: "#" }
+                { text: "Aina Car Protect", href: "protect" },
+                { text: "FAQ. Preguntas frecuentes", href: "faqs" },
+                { text: "Aviso Legal", href: "/aviso-legal" },
+                { text: "Política Gestión de daños", href: "politica-gestion-de-danos" },
+                { text: "Términos y Condiciones Generales", href: "terminos-y-condiciones-generales" },
+                { text: "Política de privacidad", href: "politica-privacidad" },
+                { text: "Política de cookies", href: "politica-cookies" },
+                { text: "Condiciones generales de contratación", href: "terminos-y-condiciones-generales" },
+                { text: "Información antes del alquiler", href: "informacion-antes-de-alquilar" }
               ].map((item, index) => (
-                <Link key={index} href={item.href} color="inherit" sx={{ display: 'block', color: '#FFFFFF', mb: 1 }}>
+                <Link key={index} href={item.href} color="inherit" sx={{ display: 'block', color: '#FFFFFF', mb: 0 }}>
                   <Typography variant="h6" sx={{ color: '#FFFFFF', fontWeight: 'regular' }}>{item.text}</Typography>
                 </Link>
               ))}

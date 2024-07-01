@@ -37,6 +37,7 @@ import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import KarveProtect from './karveProtect';
+import Footer from '../AinaHome/footer';
 
 const DesktopDrawer = lazy(() => import('../AinaHome/DesktopDrawer'));
 const MobileDrawer = lazy(() => import('../AinaHome/MobileDrawer'));
@@ -380,7 +381,7 @@ function AinaProtect() {
       <MKBox bgColor="info" mt={5}>
         <MKBox>
           <Suspense fallback={<div>Loading...</div>}>
-            <DefaultFooter pt={6} px={1} content={footerRoutes} />
+            <Footer pt={6} px={1} content={footerRoutes} />
           </Suspense>
         </MKBox>
       </MKBox>

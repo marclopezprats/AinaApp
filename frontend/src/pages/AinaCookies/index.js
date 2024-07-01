@@ -4,22 +4,13 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Box from '@mui/material/Box';
 import MKBox from "components/MKBox";
 import Button from '@mui/material/Button';
+import { Link as MuiLink } from '@mui/material';
 import MKTypography from "components/MKTypography";
 import ResponsiveAppBar from '../AinaHome/NavbarTest';
 import { useTranslation } from 'react-i18next';
 import AinaCarRentACAR from "assets/images/familia2.webp";
 import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
-import Wash from "assets/images/wash-protect.png";
-import ubicacio from "assets/images/ubicacio.png";
-import ubicacioParets from "assets/images/img-4317-1080x825.jpeg";
-import instalacion1 from "assets/images/instalacio-1.png";
-import instalacion2 from "assets/images/instalacio-2.png";
-import instalacion3 from "assets/images/instalacio-3.png";
-import instalacion4 from "assets/images/instalacio-4.png";
-import instalacion5 from "assets/images/instalacio-5.png";
-import instalacion6 from "assets/images/instalacio-6.png";
-import instalacion7 from "assets/images/instalacio-7.png";
-import instalacion8 from "assets/images/instalacio-8.png";
+
 import footerRoutes from "footer.routes";
 import Container from '@mui/material/Container';
 import Whatsapp from '../AinaHome/whatsapp';
@@ -29,41 +20,10 @@ import CardContent from '@mui/material/CardContent';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import boxShadow from 'assets/theme/functions/boxShadow';
 import KarveCompany from './karveCompany';
+import Footer from '../AinaHome/footer';
 
-const DefaultFooter = lazy(() => import("examples/Footers/DefaultFooter"));
 
-const toggleDrawer = () => {};
-
-function CustomCardButton({ image, title, description, contactLink, mapsLink }) {
-  return (
-    <Card sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', p: 2 }}>
-      <CardMedia
-        component="img"
-        image={image}
-        alt={title}
-        sx={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: 2, margin: '0' }}
-      />
-      <CardContent sx={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-        <MKTypography mt={3} mb={3} gutterBottom variant="h5" component="div">
-          {title}
-        </MKTypography>
-        <MKTypography variant="body2" color="text">
-          {description}
-        </MKTypography>
-        <Box sx={{ mt: 2, width: '100%' }}>
-          <Button variant="contained" color="primary" sx={{ mb: 1, width: '100%', color:'#FFFFFF' }} href={contactLink}>
-            Contact
-          </Button>
-          <Button variant="contained" color="white" sx={{ width: '100%', backgroundColor:'#d6061e', color:'#FFFFFF' }} href={mapsLink} target="_blank">
-            Maps
-          </Button>
-        </Box>
-      </CardContent>
-    </Card>
-  );
-}
 
 function CustomCard({ image, title, description, route, label }) {
   return (
@@ -85,7 +45,7 @@ function CustomCard({ image, title, description, route, label }) {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      textAlign: 'center',
+      textAlign: 'left',
   
     }}
   >
@@ -101,62 +61,11 @@ function CustomCard({ image, title, description, route, label }) {
   );
 }
 
-function ImageGrid({ images }) {
-  const [open, setOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState('');
-
-  const handleOpen = (image) => {
-    setCurrentImage(image);
-    setOpen(true);
-  };
-
-  const handleClose = () => setOpen(false);
-
-  return (
-    <>
-      <Grid container spacing={2}>
-        {images.map((image, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Box
-              component="img"
-              src={image}
-              alt={`Image ${index + 1}`}
-              sx={{
-                width: '100%',
-                height: 'auto',
-                cursor: 'pointer',
-                borderRadius: 2
-              }}
-              onClick={() => handleOpen(image)}
-            />
-          </Grid>
-        ))}
-      </Grid>
-      <Modal open={open} onClose={handleClose} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Box sx={{ position: 'relative', outline: 'none' }}>
-          <IconButton
-            sx={{ position: 'absolute', top: 0, right: 0 }}
-            onClick={handleClose}
-          >
-            <CloseIcon style={{ color: 'white' }} />
-          </IconButton>
-          <Box
-            component="img"
-            src={currentImage}
-            alt="Expanded Image"
-            sx={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 2 }}
-          />
-        </Box>
-      </Modal>
-    </>
-  );
-}
-
-function AinaCompany() {
+function CookiesPolicy() {
   const [valorHijo, setValorHijo] = useState('');
   const [appBarHeight, setAppBarHeight] = useState(0);
   const appBarRef = useRef(null);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [isOpenReservation, setIsOpenReservation] = useState(false);
   const reservationDrawer = () => {
@@ -174,16 +83,152 @@ function AinaCompany() {
     console.log(nuevoValor);
   };
 
-  const isMobileDevice = () => {
+  /*const isMobileDevice = () => {
     return window.innerWidth <= 1000;
-  };
+  };*/
 
-  
   const back = AinaCarRentACAR; // Assuming back is the background image
 
-  const images = [
-    instalacion1, instalacion2, instalacion3, instalacion4,
-    instalacion5, instalacion6, instalacion7, instalacion8,
+  const cookieSections = [
+    {
+      id: "introduction",
+      title: t('cookies_policy.sections.introduction.title'),
+      content: t('cookies_policy.sections.introduction.content')
+    },
+    {
+      id: "accept_reject",
+      title: t('cookies_policy.sections.accept_reject.title'),
+      content: t('cookies_policy.sections.accept_reject.content')
+    },
+    {
+      id: "affected_cookies",
+      title: t('cookies_policy.sections.affected_cookies.title'),
+      content: t('cookies_policy.sections.affected_cookies.content')
+    },
+    {
+      id: "cookie_types",
+      title: t('cookies_policy.sections.cookie_types.title'),
+      subsections: [
+        {
+          id: "by_entity",
+          title: t('cookies_policy.sections.cookie_types.subsections.by_entity.title'),
+          content: t('cookies_policy.sections.cookie_types.subsections.by_entity.content')
+        },
+        {
+          id: "by_time",
+          title: t('cookies_policy.sections.cookie_types.subsections.by_time.title'),
+          content: t('cookies_policy.sections.cookie_types.subsections.by_time.content')
+        },
+        {
+          id: "by_purpose",
+          title: t('cookies_policy.sections.cookie_types.subsections.by_purpose.title'),
+          content: t('cookies_policy.sections.cookie_types.subsections.by_purpose.content')
+        }
+      ]
+    },
+    {
+      id: "cookies_used",
+      title: t('cookies_policy.sections.cookies_used.title'),
+      content: t('cookies_policy.sections.cookies_used.content'),
+      social_media_cookies: [
+        {
+          title: t('cookies_policy.sections.cookies_used.social_media_cookies.facebook'),
+          link: "https://www.facebook.com/policies/cookies/"
+        },
+        {
+          title: t('cookies_policy.sections.cookies_used.social_media_cookies.twitter'),
+          link: "https://twitter.com/en/privacy"
+        },
+        {
+          title: t('cookies_policy.sections.cookies_used.social_media_cookies.instagram'),
+          link: "https://help.instagram.com/1896641480634370"
+        },
+        {
+          title: t('cookies_policy.sections.cookies_used.social_media_cookies.linkedin'),
+          link: "https://www.linkedin.com/legal/cookie-policy"
+        },
+        {
+          title: t('cookies_policy.sections.cookies_used.social_media_cookies.pinterest'),
+          link: "https://policy.pinterest.com/cookies"
+        },
+        {
+          title: t('cookies_policy.sections.cookies_used.social_media_cookies.youtube'),
+          link: "https://policies.google.com/technologies/cookies"
+        }
+      ]
+    },
+    {
+      id: "revocation",
+      title: t('cookies_policy.sections.revocation.title'),
+      content: t('cookies_policy.sections.revocation.content'),
+      browsers: [
+        {
+          title: t('cookies_policy.sections.revocation.browsers.chrome.title'),
+          link: "https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=es"
+        },
+        {
+          title: t('cookies_policy.sections.revocation.browsers.ie.title'),
+          link: "https://support.microsoft.com/es-es/help/17442/windows-internet-explorer-delete-manage-cookies"
+        },
+        {
+          title: t('cookies_policy.sections.revocation.browsers.firefox.title'),
+          link: "https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias"
+        },
+        {
+          title: t('cookies_policy.sections.revocation.browsers.safari.title'),
+          link: "https://support.apple.com/kb/ph21411?locale=es_ES"
+        },
+        {
+          title: t('cookies_policy.sections.revocation.browsers.opera.title'),
+          link: "http://help.opera.com/Windows/12.00/es-ES/cookies.html"
+        }
+      ]
+    },
+    {
+      id: "policy_changes",
+      title: t('cookies_policy.sections.policy_changes.title'),
+      content: t('cookies_policy.sections.policy_changes.content')
+    },
+    {
+      id: "disable_cookies",
+      title: t('cookies_policy.sections.disable_cookies.title'),
+      content: t('cookies_policy.sections.disable_cookies.content')
+    },
+    {
+      id: "additional_info",
+      title: t('cookies_policy.sections.additional_info.title'),
+      content: t('cookies_policy.sections.additional_info.content')
+    },
+    {
+      id: "data_treatment",
+      title: t('cookies_policy.sections.data_treatment.title'),
+      content: t('cookies_policy.sections.data_treatment.content')
+    },
+    {
+      id: "use_personal_data",
+      title: t('cookies_policy.sections.use_personal_data.title'),
+      content: t('cookies_policy.sections.use_personal_data.content')
+    },
+    {
+      id: "legal_basis",
+      title: t('cookies_policy.sections.legal_basis.title'),
+      content: t('cookies_policy.sections.legal_basis.content')
+    },
+    {
+      id: "data_communication",
+      title: t('cookies_policy.sections.data_communication.title'),
+      content: t('cookies_policy.sections.data_communication.content')
+    },
+    {
+      id: "data_retention",
+      title: t('cookies_policy.sections.data_retention.title'),
+      content: t('cookies_policy.sections.data_retention.content')
+    },
+    {
+      id: "rights",
+      title: t('cookies_policy.sections.rights.title'),
+      content: t('cookies_policy.sections.rights.content')
+    }
   ];
 
   return (
@@ -203,7 +248,7 @@ function AinaCompany() {
           }}
         >
           {<ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />}
-          </Box>
+        </Box>
         <Box
           sx={{
             minHeight: "69vh",
@@ -223,7 +268,6 @@ function AinaCompany() {
               display: "flex",
               flexDirection: "column",
               position: "relative",
-
             }}
           >
             <Container>
@@ -265,11 +309,10 @@ function AinaCompany() {
                           lg: '5rem'
                         },
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)'
-
                       }}
                     >
-                      {t('familia_ainacar')}
-                    </MKTypography>
+            {t('cookies_policy.title')}
+            </MKTypography>
                     <MKTypography
                       color="white"
                       variant="h3"
@@ -284,10 +327,10 @@ function AinaCompany() {
                           lg: '2.5rem'
                         },
                         textShadow: '0px 2px 60px rgba(0, 0, 0, 0.999)'
-
                       }}
                     >
-                      {t('familia_ainacar_subtitle')}
+                      {//t('familia_ainacar_subtitle')
+                      }
                     </MKTypography>
                   </MKBox>
                 </Grid>
@@ -295,122 +338,79 @@ function AinaCompany() {
             </Container>
           </MKBox>
         </Box>
-        {
-          //<MKBox
-         // bgColor="info"
-         // zIndex={2}
-         // style={{ minHeight: "3vh", borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}
-       //</Box> >
-        // <MKBox textAlign="center" position="relative" display="flex" alignItems="center" justifyContent="center">
-            //<MKTypography style={{ padding: '6px' }} color="white" variant="h6">
-           // </MKTypography>
-          //</MKBox>
-          
-        //</MKBox>
-      }
 
-        {/* Articles Section */}
-        <Container sx={{ mt: -8, backgroundColor:'white' }}>
-          <Grid container spacing={4} sx={{ mt: 2 }}>
-            <Grid item xs={12} md={6}>
-              <CustomCard sx={{backgroundColor:'transparent'}}
-                image={AinaCarRent1}
-                title={t('unidad_ainacar')}
-                description={t('unidad_ainacar_description')}
-                route="/article-1"
-                label="Read More"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Box mb={2}>
-              <Card
-                sx={{
-                  height: { xs: 'auto', sm: 'auto' },
-                  backgroundColor: '#031b27',
-                  color: 'white',
-                  p: { xs: 1, sm: 2 },
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 2,
-                  flexDirection: { xs: 'column', sm: 'row' },
-                }}
-              >
-                <Box sx={{ textAlign: { xs: 'center', sm: 'left' }, mx: { xs: 0, sm: 2 }, my: { xs: 2, sm: 0 } }}>
-                  <MKTypography
-                    color="white"
-                    sx={{
-                      fontStyle: 'italic',
-                      fontSize: { xs: '1rem', sm: '1.2rem' },
-                    }}
-                  >
-                    “{t('ceo_ainacar_description')}"
-                  </MKTypography>
-                  <MKTypography
-                    color="white"
-                    sx={{
-                      mt: 2,
-                      fontWeight: 'bold',
-                      fontSize: { xs: '0.9rem', sm: '1rem' },
-                    }}
-                  >
-                    (CEO Aina Car)
-                  </MKTypography>
-                </Box>
-              </Card>
-              </Box>
-              <CustomCard
-                image={Wash}
-                title={t('grupo_ainacar')}
-                description={t('grupo_ainacar_description')}
-                route="/article-2"
-                label="Read More"
-              />
-            </Grid>
+        {/* Cookie Policy Section */}
+        <Container sx={{ mt: 4, backgroundColor: 'white' }}>
+          <MKTypography
+            variant="h4"
+            sx={{
+              fontFamily: 'Rodina-Regular',
+              textAlign: 'center',
+              marginBottom: '20px'
+            }}
+          >
+          </MKTypography>
+          <Grid container spacing={4}>
+            {cookieSections.map((section, index) => (
+              <Grid item xs={12} md={12} key={index}>
+                <CustomCard
+                  sx={{ backgroundColor: 'transparent' }}
+                  image={AinaCarRent1} // Use the appropriate image for each section if available
+                  title={section.title}
+                  description={section.content}
+                  route={`/section-${section.id}`}
+                  label="Read More"
+                />
+                {section.subsections && section.subsections.map((subSection, subIndex) => (
+                  <CustomCard
+                    key={`${index}-${subIndex}`}
+                    sx={{ backgroundColor: 'transparent' }}
+                    image={AinaCarRent1} // Use the appropriate image for each subsection if available
+                    title={subSection.title}
+                    description={subSection.content}
+                    route={`/section-${section.id}-${subSection.id}`}
+                    label="Read More"
+                  />
+                ))}
+                {section.social_media_cookies && section.social_media_cookies.map((cookie, cookieIndex) => (
+                  <CustomCard
+                    key={`${index}-cookie-${cookieIndex}`}
+                    sx={{ backgroundColor: 'transparent' }}
+                    image={AinaCarRent1} // Use the appropriate image for each subsection if available
+                    title={cookie.title}
+                    description={
+                      <MuiLink sx={{color:'#e2242b'}} href={cookie.link} target="_blank" rel="noopener noreferrer">
+                        {cookie.link}
+                      </MuiLink>
+                    }
+                    route={cookie.link}
+                    label="Read More"
+                  />
+                ))}
+                {section.browsers && section.browsers.map((browser, browserIndex) => (
+                  <CustomCard
+                    key={`${index}-browser-${browserIndex}`}
+                    sx={{ backgroundColor: 'transparent' }}
+                    image={AinaCarRent1} // Use the appropriate image for each subsection if available
+                    title={browser.title}
+                    description={
+                      <MuiLink sx={{color:'#e2242b'}} href={browser.link} target="_blank" rel="noopener noreferrer">
+                        {browser.link}
+                      </MuiLink>
+                    }
+                    route={browser.link}
+                    label="Read More"
+                  />
+                ))}
+              </Grid>
+            ))}
           </Grid>
         </Container>
 
-        {/* Image Grid Section */}
-        <Container sx={{ mt: 15 }}>
-          <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
-            <MKTypography variant="h2">{t('carousel_instalaciones')}</MKTypography>
-          </Grid>
-          <Box sx={{ mt: 5 }}>
-            <ImageGrid images={images} />
-          </Box>
-        </Container>
-
-        {/* Locations Section */}
-        <Container sx={{ mt: 15, mb: 8 }}>
-          <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
-            <MKTypography variant="h2">{t('nuestras_oficinas')}</MKTypography>
-          </Grid>
-          <Grid container spacing={4} sx={{ mt: 5 }}>
-            <Grid item xs={12} md={6}>
-              <CustomCardButton
-                image={ubicacio}
-                title="Oficina Sabadell"
-                description="Carrer de l'Example, 45, Sabadell, Barcelona"
-                route="/oficina-sabadell"
-                label="Read More"
-              />
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <CustomCardButton
-                image={ubicacioParets}
-                title="Oficina Parets del Vallès"
-                description="Avinguda de la República, 12, Parets del Vallès, Barcelona"
-                route="/oficina-parets"
-                label="Read More"
-              />
-            </Grid>
-          </Grid>
-        </Container>
-
-        <MKBox bgColor="info">
+        <MKBox bgColor="info" mt={4}>
           <MKBox>
             <Suspense fallback={<div>Loading...</div>}>
-              <DefaultFooter pt={6} px={1} content={footerRoutes} />
+              <Footer pt={6} px={1} content={footerRoutes} />
             </Suspense>
           </MKBox>
         </MKBox>
@@ -419,4 +419,4 @@ function AinaCompany() {
   );
 }
 
-export default AinaCompany;
+export default CookiesPolicy;

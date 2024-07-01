@@ -7,7 +7,7 @@ import { Card, CardContent, Typography, Grid, TextField, Button } from '@mui/mat
 import { styled } from '@mui/material/styles';
 
 
-const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
+const KarveAntes = ({ isOpenReservation, reservationDrawer }) => {
   const navigate = useNavigate();
   const buttonRef = useRef(null);
   const [buttonHeight, setButtonHeight] = useState(0);
@@ -140,4 +140,4 @@ const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
   );
 };
 
-export default KarveCompany;
+export default KarveAntes;
