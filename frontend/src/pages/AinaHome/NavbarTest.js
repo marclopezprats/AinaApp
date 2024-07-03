@@ -76,7 +76,7 @@ function ResponsiveAppBar({ onCambio, reservationDrawer }) {
         width: { xs: '95%', sm: '100%', md: '95%', lg: '80%' },
         margin: 'auto',
         borderRadius: '20px',
-        backgroundColor: isScrolled ? 'rgba(3,27,39, 0.8)' : 'transparent',
+        backgroundColor: isScrolled ? '#1a1a1a ' : 'transparent',
         backdropFilter: isScrolled ? 'saturate(200%) blur(30px)' : 'none',
         transition: 'background-color 1.0s ease, backdrop-filter 1.0s ease',
       }}

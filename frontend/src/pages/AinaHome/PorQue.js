@@ -10,14 +10,15 @@ import siete from 'assets/images/24.png';
 import truck from 'assets/images/truck.png';
 import './fonts.css'; // Archivo que contiene la declaración @font-face
 import { useTranslation } from 'react-i18next';
+import boxShadow from 'assets/theme/functions/boxShadow';
 
 const WhyAinaCar_ = ({ refe }) => {
   const { t, i18n } = useTranslation();
 
   return (
-    <MKBox ref={refe} bgColor="info" sx={{ width: '100%', py: 8 }}>
+    <MKBox ref={refe} bgColor="#1a1a1a" sx={{ width: '90%', py: 3 , borderRadius:'12px', boxShadow: 20}}>
       <Box sx={{ width: { xs: '100%', sm: '70%', lg: '70%' }, mx: 'auto' }}>
-        <MKBox mb={5}>
+        <MKBox mb={0}>
           <MKTypography color="white" variant="h2" align="center" gutterBottom>
             {t('porque_ainacar')}
           </MKTypography>
@@ -76,7 +77,7 @@ const WhyAinaCar_ = ({ refe }) => {
                   alignItems: 'center',
                 }}
               >
-                <MKTypography color="white" fontWeight="bold" sx={{ fontSize: '25rem', opacity: '10%' }}>
+                <MKTypography color="white" fontWeight="bold" sx={{ fontSize: '20rem', opacity: '10%' }}>
                   1
                 </MKTypography>
               </Box>
@@ -135,7 +136,7 @@ const WhyAinaCar_ = ({ refe }) => {
                   alignItems: 'center',
                 }}
               >
-                <MKTypography color="white" fontWeight="bold" sx={{ fontSize: '25rem', opacity: '10%' }}>
+                <MKTypography color="white" fontWeight="bold" sx={{ fontSize: '20rem', opacity: '10%' }}>
                   2
                 </MKTypography>
               </Box>
@@ -194,7 +195,7 @@ const WhyAinaCar_ = ({ refe }) => {
                   alignItems: 'center',
                 }}
               >
-                <MKTypography color="white" fontWeight="bold" sx={{ fontSize: '25rem', opacity: '10%' }}>
+                <MKTypography color="white" fontWeight="bold" sx={{ fontSize: '20rem', opacity: '10%' }}>
                   3
                 </MKTypography>
               </Box>

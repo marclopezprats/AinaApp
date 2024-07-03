@@ -17,32 +17,23 @@ import './fonts.css';
 import { useTranslation } from 'react-i18next';
 import 'flag-icons/css/flag-icons.min.css';
 import Whatsapp from './whatsapp';
+import Comp247 from './247';
 import LazyBackgroundImage from './backgroundImage';
-
 import Footer from './footer';
 import Karve02 from './karve02';
 
 const InstagramPosts = lazy(() => import('./InstagramPosts'));
 const Recogida = lazy(() => import('./recogida'));
 const ExperiencePosts = lazy(() => import('./Experience'));
-
 const WhyAinaCar_ = lazy(() => import('./PorQue'));
 
 function AinaHome() {
-  //const masonryRef = useRef(null);
   const accessToken = process.env.REACT_APP_INSTA_ACCESS_TOKEN;
-  //const buttonRef = useRef(null);
-
   const images = [
     { id: 1, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png' },
     { id: 2, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-monovolumenes.png' },
     { id: 3, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png' },
   ];
-
-  //const [isOpen, setIsOpen] = useState(false);
-  //const toggleDrawer = () => {
-  //  setIsOpen(!isOpen);
-  //};
 
   const [isOpenReservation, setIsOpenReservation] = useState(false);
   const reservationDrawer = () => {
@@ -62,7 +53,6 @@ function AinaHome() {
 
   const [appBarHeight, setAppBarHeight] = useState(0);
   const appBarRef = useRef(null);
-  //const iframeRef = useRef(null);
   const [iframeLoaded, setIframeLoaded] = useState(false);
 
   useEffect(() => {
@@ -71,10 +61,6 @@ function AinaHome() {
     }
   }, []);
 
-  /*const isMobileDevice = () => {
-    return window.innerWidth <= 1268;
-  };*/
-
   const whyAinaCarRef = useRef(null);
   const handleScrollToWhyAinaCar = () => {
     scrollToRef(whyAinaCarRef);
@@ -82,53 +68,74 @@ function AinaHome() {
 
   const { t, i18n } = useTranslation();
 
- 
-
-  // Recargar el iframe cuando el idioma cambie
   useEffect(() => {
     setIframeLoaded(false);
   }, [i18n.language]);
 
-
   return (
     <>
-    <Karve02 isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer}/>
+      <Karve02 isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer} sx={{ zIndex: 1002 }} />
       <Whatsapp />
-      <MKBox bgColor="#d6061e" sx={{ minHeight: "5vh", textAlign: "center", justifyContent: "center", alignItems: "center", display: "flex" }} zIndex={991}>
-        <MKTypography color="white" sx={{}} variant="h6">{t('recogida247')}</MKTypography>
-      </MKBox>
+      <Comp247  />
+
+      <Container>
+        <MKBox
+          sx={{
+            width: '100%',
+            position: 'absolute',
+            bottom: '0px',
+          }}
+        >
+          <MKBox sx={{ width: '100%' }}>
+            <MKBox bgColor="#d6061e" sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+              <MKTypography color="white" variant="h6">
+                {t('recogida247')}
+              </MKTypography>
+            </MKBox>
+          </MKBox>
+        </MKBox>
+      </Container>
       <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '60px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 990 }}>
         <ResponsiveAppBar reservationDrawer={reservationDrawer} onCambio={manejarCambio} />
       </Box>
-  
-      <LazyBackgroundImage appBarHeight={appBarHeight} />
 
-       
-      {//</Box>
-      }
+      <LazyBackgroundImage reservationDrawer={reservationDrawer} appBarHeight={appBarHeight} />
+      <MKBox bgColor="#FFFFFF">
       <MKBox
-        bgColor="info"
+        bgColor="#1a1a1a"
         zIndex={2}
         textAlign="center"
         position="relative"
         display="flex"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "5vh", cursor: 'pointer' }}
-        onClick={handleScrollToWhyAinaCar}
+        style={{ minHeight: "5vh" }}
       >
-        <MKTypography style={{}} color="white" variant="h6">
-          {t('mas_info')}
+        <MKTypography color="white" variant="h6">
+          {//t('mas_info')
+          }
         </MKTypography>
         <IconButton variant="contained">
           <ExpandMoreIcon style={{ color: 'white' }} />
         </IconButton>
       </MKBox>
-      <Suspense fallback={<div>Loading...</div>}>
-        <WhyAinaCar_ refe={whyAinaCarRef} />
-      </Suspense>
+      <MKBox
+        zIndex={2}
+        textAlign="center"
+        position="relative"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "5vh", top: '-10vh'
+           }}
+      >
+        <Suspense fallback={<div>Loading...</div>}>
+          <WhyAinaCar_ refe={whyAinaCarRef} />
+        </Suspense>
+      </MKBox>
+      </MKBox>
       <MKBox bgColor="white" component="section">
-        <MKBox bgColor="white" p={0} pt={12} pb={8}>
+        <MKBox bgColor="white" p={0} pt={2} pb={8}>
           <Container bgColor="white">
             <Grid container item xs={12} lg={8} justifyContent="center" sx={{ mx: "auto", textAlign: "center" }}>
               <MKTypography variant="h2">{t('una_flota_variada')}</MKTypography>
@@ -157,48 +164,21 @@ function AinaHome() {
           </Container>
         </MKBox>
       </MKBox>
-      <MKBox>
-        <MKBox component="section" style={{ position: 'relative', overflow: 'hidden', color: 'transparent' }}>
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#FFFFFF',
-            zIndex: -1,
-            opacity: 0.05,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            whiteSpace: 'nowrap',
-            fontSize: '10vw',
-            color: 'red',
-            textAlign: 'center'
-          }}>
-            <MKTypography fontWeight="bold" sx={{ fontSize: '17.75rem', color: '#d6061e' }}>
-              AINACAR
-            </MKTypography>
-          </div>
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#FFFFFF',
-            zIndex: -2,
-            opacity: 1,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }} />
-          <Container>
-            <Suspense fallback={<div>Loading...</div>}>
-              <InstagramPosts accessToken={accessToken} />
-            </Suspense>
-          </Container>
-        </MKBox>
+      <MKBox bgColor="#FFFFFF" pt={8} pb={8}>
+      <MKBox
+        zIndex={2}
+        textAlign="center"
+        position="relative"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        style={{ minHeight: "5vh"
+           }}
+      >
+        <Suspense fallback={<div>Loading...</div>}>
+          <InstagramPosts accessToken={accessToken}/>
+        </Suspense>
+      </MKBox>
       </MKBox>
       <MKBox bgColor="white" sx={{ width: '100%' }}>
         <MKBox>
@@ -216,9 +196,9 @@ function AinaHome() {
           <Recogida />
         </Suspense>
       </MKBox>
-        <MKBox sx={{ width: '100%' }}>
-            <Footer pt={6} content={footerRoutes} />
-        </MKBox>
+      <MKBox sx={{ width: '100%' }}>
+        <Footer pt={6} content={footerRoutes} />
+      </MKBox>
     </>
   );
 }

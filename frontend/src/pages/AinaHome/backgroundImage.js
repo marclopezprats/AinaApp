@@ -8,6 +8,8 @@ import MKTypography from "components/MKTypography";
 import './Carousel.css';
 import bck from 'assets/images/backgroundAina22_comp.webp'
 import bck2 from 'assets/images/backgroundAina22_comp480.webp'
+import bcktest from 'assets/images/backgroundAina2test.webp'
+
 import bck3 from 'assets/images/backgroundAina22_comp800.webp'
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
@@ -18,16 +20,12 @@ import { useTranslation } from 'react-i18next';
 import 'flag-icons/css/flag-icons.min.css';
 
 
-const LazyBackgroundImage = ({ appBarHeight }) => {
+const LazyBackgroundImage = ({ appBarHeight, reservationDrawer}) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState('');
   const boxRef = useRef();
   const { t } = useTranslation();
 
-  const [isOpenReservation, setIsOpenReservation] = useState(false);
-  const reservationDrawer = () => {
-    setIsOpenReservation(!isOpenReservation);
-  };
 
   // Define diferentes resoluciones de imagen
   const images = {
@@ -70,11 +68,14 @@ const LazyBackgroundImage = ({ appBarHeight }) => {
   }, []);
 
   return (
+    
+
     <Box
       ref={boxRef}
       sx={{
-        minHeight: "90vh",
+        minHeight: "100vh",
         width: "100%",
+        //backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0), white), url(${backgroundImage})`,
         backgroundImage: isLoaded
           ? `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`
           : "none",
@@ -87,6 +88,7 @@ const LazyBackgroundImage = ({ appBarHeight }) => {
         transition: 'background-image 0.5s ease-in-out',
       }}
     >
+      
       <MKBox
         sx={{
           justifyContent: "bottom",
@@ -96,7 +98,7 @@ const LazyBackgroundImage = ({ appBarHeight }) => {
           padding: { xs: "20px 0", sm: "40px 0" }
         }}
       >
-        <Container>
+        <Container >
           <Grid
             sx={{ marginTop: { xs: `${appBarHeight * 2}px`, sm: `${appBarHeight * 2}px`, md: `${appBarHeight * 2}px`, lg: `${appBarHeight}px` } }}
             container

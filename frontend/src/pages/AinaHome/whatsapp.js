@@ -17,7 +17,7 @@ const Whatsapp = () => {
       sx={{
         width: {xs:40, md: 40, lg:55}, // Ancho del círculo
         height: {xs:40, md: 40, lg:55}, // Altura del círculo
-        borderRadius: '50%', // Esto hace que el Box sea circular
+        borderRadius: '30%', // Esto hace que el Box sea circular
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
