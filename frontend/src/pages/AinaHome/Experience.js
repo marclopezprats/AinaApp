@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Card, Container, Box, Grid } from '@mui/material';
 import MKTypography from "components/MKTypography";
@@ -14,7 +14,7 @@ const ExperiencePosts = ({ accessToken }) => {
 
   const obtenerReseñas = async () => {
     try {
-      const response = await axios.get('https://ainaapp.onrender.com/api/reseñas');
+      const response = await axios.get('/api/reseñas/');
       console.log('Respuesta del backend:', response.data);
 
       if (response.data && response.data.Reseñas) {

@@ -33,5 +33,6 @@
     "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4"
-  }
+  },
+  "proxy": "http://127.0.0.1:8000"
 }

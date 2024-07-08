@@ -17,13 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from backend.api.views import reseñas_list, set_cookie_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('', TemplateView.as_view(template_name='index.html')),
-    path('api/reseñas/', reseñas_list, name='obtener_reseñas'),
-    path('api/set-cookie/', set_cookie_view, name='set_cookie'),
-    path('api/', include('backend.api.urls')),
+    path('api/', include('backend.api.urls')),  # Incluye las rutas de la aplicación api
 ]
 
