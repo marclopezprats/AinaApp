@@ -20,11 +20,11 @@ function ResponsiveAppBar({ onCambio, reservationDrawer }) {
   const navigate = useNavigate();
 
   const pages = [
-    { name: t('nuestra_compania'), path: '/company' }, 
     { name: t('alquiler_vehiculos'), path: '/' }, 
-    { name: t('flota_vehiculos'), path: '/fleet' }, 
+    { name: t('venta_vehiculos'), path: 'https://www.coches.net/concesionario/kodecarsmarket/default/' },
+    { name: t('flota_vehiculos'), path: '/home' }, 
     { name: t('ainacar_protect'), path: '/protect' }, 
-    { name: t('venta_vehiculos'), path: 'https://www.coches.net/concesionario/kodecarsmarket/default/' }
+    { name: t('nuestra_compania'), path: '/company' },
   ];
 
   useEffect(() => {
@@ -63,6 +63,8 @@ function ResponsiveAppBar({ onCambio, reservationDrawer }) {
   const handleNavigation = (page) => {
     if (page.path === '/') {
       reservationDrawer();
+    } else if (page.name === t('venta_vehiculos')) {
+      window.location.href = page.path;
     } else {
       navigate(page.path);
     }

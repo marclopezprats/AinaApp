@@ -103,10 +103,8 @@ const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
       <Grid container spacing={2} sx={{ marginTop: '16px' }}>
         <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Typography variant="h4" color="#FFFFFF" align="center">
-            <span style={{ fontWeight: 'Regular' }}>¡Entra en la familia</span>
-            <span style={{ fontWeight: 'bold' }}> AinaCar</span>
-            <span style={{ fontWeight: 'Regular' }}> y recibe un </span>
-            <span style={{ fontWeight: 'bold' }}>10% en tu primer alquiler!</span>
+          <span style={{ fontWeight: 'Regular' }}>¡Entra a la familia Aina Car y recibe un 5% de descuento en tu primer alquiler reservando por la web!
+          </span>
           </Typography>
         </Grid>
         <Grid item xs={12} md={6}sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

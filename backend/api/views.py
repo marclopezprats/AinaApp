@@ -61,3 +61,6 @@ def set_cookie_view(request):
         samesite='Lax'
     )
     return response
+
+
+

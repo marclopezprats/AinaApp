@@ -44,7 +44,7 @@ const Footer = () => {
                 { text: "Términos y Condiciones Generales", href: "terminos-y-condiciones-generales" },
                 { text: "Política de privacidad", href: "politica-privacidad" },
                 { text: "Política de cookies", href: "politica-cookies" },
-                { text: "Condiciones generales de contratación", href: "terminos-y-condiciones-generales" },
+                //{ text: "Condiciones generales de contratación", href: "terminos-y-condiciones-generales" },
                 { text: "Información antes del alquiler", href: "informacion-antes-de-alquilar" }
               ].map((item, index) => (
                 <Link key={index} href={item.href} color="inherit" sx={{ display: 'block', color: '#FFFFFF', mb: 0 }}>

@@ -5,6 +5,7 @@ import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
 import MKBox from "components/MKBox";
 import { useTranslation } from 'react-i18next';
+import { FaInstagram, FaLinkedin, FaTiktok , FaFacebook} from 'react-icons/fa';
 
 const InstagramPosts = ({ accessToken }) => {
   const [posts, setPosts] = useState([]);
@@ -87,23 +88,49 @@ const InstagramPosts = ({ accessToken }) => {
                     </MKTypography>
                   </Box>
                   <Box marginTop={4} textAlign={isMobileDevice ? 'center' : 'left'}>
-                    <MKButton
-                      variant="contained"
-                      color="white"
-                      href="https://www.instagram.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {t('insta_ainacar_novedades_link')}
-                    </MKButton>
-                  </Box>
+      <MKButton variant="text"
+        sx={{  marginRight: '0rem' }}
+        href="https://www.instagram.com/ainacar_rentacar/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaInstagram size={25} />
+      </MKButton>
+      <MKButton
+        variant="text"
+        sx={{ marginRight: '0rem' }}
+        href="https://www.linkedin.com/company/alquiler-aina-car-sl/?originalSubdomain=es"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaLinkedin size={25} />
+      </MKButton>
+      <MKButton
+        variant="text"
+        sx={{ marginRight: '0rem' }}
+        href="https://www.tiktok.com/@ainacar.rentacar"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaTiktok size={25} />
+      </MKButton>
+      <MKButton
+        variant="text"
+        sx={{}}
+        href="https://www.facebook.com/AinaCar.LloguerVehicles/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FaFacebook size={25} />
+      </MKButton>
+    </Box>
                 </Box>
               </Grid>
               <Grid item xs={12} md={8}>
                 <Grid container spacing={2}>
                   {posts.map(post => (
                     <Grid item key={post.id} xs={12} sm={6} md={4}>
-                      <Card sx={{ padding: '0px', height: '100%', backgroundColor: 'transparent' }}>
+                      <Card sx={{  height: '100%', backgroundColor: 'transparent' }}>
                         <CardMedia
                           component={post.media_type === 'VIDEO' ? 'video' : 'img'}
                           src={post.media_url}

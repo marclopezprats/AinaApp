@@ -21,6 +21,10 @@ import Comp247 from './247';
 import LazyBackgroundImage from './backgroundImage';
 import Footer from './footer';
 import Karve02 from './karve02';
+import expocar01 from 'assets/images/ainacar-bola-remolque.png';
+import expocar02 from 'assets/images/ainacar-coches-monovolumenes.png';
+import expocar03 from 'assets/images/ainacar-coches-suv.png';
+import expocar04 from 'assets/images/ainacar-furgonetas-camiones (1).png';
 
 const InstagramPosts = lazy(() => import('./InstagramPosts'));
 const Recogida = lazy(() => import('./recogida'));
@@ -30,9 +34,11 @@ const WhyAinaCar_ = lazy(() => import('./PorQue'));
 function AinaHome() {
   const accessToken = process.env.REACT_APP_INSTA_ACCESS_TOKEN;
   const images = [
-    { id: 1, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png' },
-    { id: 2, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-monovolumenes.png' },
-    { id: 3, url: 'https://www.ainacar.cat/assets/images/carousel/ainacar-coches-suv.png' },
+    { id: 1, url: expocar01 },
+    { id: 2, url: expocar02 },
+    { id: 3, url: expocar03 },
+    { id: 4, url: expocar04 },
+
   ];
 
   const [isOpenReservation, setIsOpenReservation] = useState(false);
@@ -86,13 +92,7 @@ function AinaHome() {
             bottom: '0px',
           }}
         >
-          <MKBox sx={{ width: '100%' }}>
-            <MKBox bgColor="#d6061e" sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-              <MKTypography color="white" variant="h6">
-                {t('recogida247')}
-              </MKTypography>
-            </MKBox>
-          </MKBox>
+          
         </MKBox>
       </Container>
       <Box ref={appBarRef} style={{ position: 'sticky', top: valorHijo ? '15px' : '60px', transition: valorHijo ? 'top 1s ease-in' : 'top 0.0s ease-out', zIndex: 990 }}>
