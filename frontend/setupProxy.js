@@ -19,7 +19,7 @@ module.exports = function(app) {
                 '^/karve-proxy': '', // Reescribe la URL eliminando '/karve-proxy'
             },
             onProxyReq: (proxyReq, req, res) => {
-                proxyReq.setHeader('Origin', 'https://tu-dominio.com');
+                proxyReq.setHeader('Origin', 'https://ainaappfrontend.onrender.com');
             },
         })
     );
