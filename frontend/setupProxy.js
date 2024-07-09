@@ -8,4 +8,19 @@ module.exports = function(app) {
             changeOrigin: true,
         })
     );
+
+    // Proxy for Karve iframe requests
+    app.use(
+        '/karve-proxy',
+        createProxyMiddleware({
+            target: 'https://iframes.karveinformatica.com',
+            changeOrigin: true,
+            pathRewrite: {
+                '^/karve-proxy': '', // Reescribe la URL eliminando '/karve-proxy'
+            },
+            onProxyReq: (proxyReq, req, res) => {
+                proxyReq.setHeader('Origin', 'https://tu-dominio.com');
+            },
+        })
+    );
 };
