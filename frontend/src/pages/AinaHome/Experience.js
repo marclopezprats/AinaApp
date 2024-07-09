@@ -14,7 +14,7 @@ const ExperiencePosts = ({ accessToken }) => {
 
   const obtenerReseñas = async () => {
     try {
-      const response = await axios.get('/api/reseñas/');
+      const response = await axios.get('https://ainaapp.onrender.com/api/rese%C3%B1as/f');
       console.log('Respuesta del backend:', response.data);
 
       if (response.data && response.data.Reseñas) {

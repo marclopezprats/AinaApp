@@ -33,7 +33,7 @@ SECRET_KEY = env('SECRET_KEY_ENV')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG_ENV')
 
-ALLOWED_HOSTS = ['ainaapp.onrender.com', '127.0.0.1:8000', 'localhost', '127.0.0.1', 'localhost:3000']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ainaapp.onrender.com']
 
 
 # Application definition
@@ -54,6 +54,14 @@ INSTALLED_APPS = [
 
 CORS_ALLOW_ALL_ORIGINS = True 
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000"
+]
+
+
 CORS_ALLOW_METHODS = [
     'GET',
     'POST',
@@ -65,11 +73,6 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = [
     'content-type',
     'authorization'
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
 ]
 
 

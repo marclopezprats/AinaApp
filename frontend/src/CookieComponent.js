@@ -1,19 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
+import Button from '@mui/material/Button';
+import { useTranslation } from 'react-i18next';
 
 const CookieConsent = () => {
     const [showConsent, setShowConsent] = useState(false);
+    const [thirdPartyCookiesAccepted, setThirdPartyCookiesAccepted] = useState(false);
+    const { t, i18n } = useTranslation();
 
     useEffect(() => {
-        const consent = Cookies.get('cookie_consent');
-        if (!consent) {
+        const userConsent = Cookies.get('cookie_consent') || localStorage.getItem('cookie_consent');
+        const thirdPartyConsent = Cookies.get('thirdPartyCookiesAccepted') || localStorage.getItem('thirdPartyCookiesAccepted');
+
+        if (!userConsent) {
             setShowConsent(true);
+        }
+
+        if (thirdPartyConsent === 'true') {
+            setThirdPartyCookiesAccepted(true);
+            enableThirdPartyCookies();
         }
     }, []);
 
     const handleAccept = () => {
-        Cookies.set('cookie_consent', 'true', { expires: 365 });
+        Cookies.set('cookie_consent', 'true', { expires: 365, sameSite: 'None', secure: true });
+        Cookies.set('thirdPartyCookiesAccepted', 'true', { expires: 365, sameSite: 'None', secure: true });
+        
         setShowConsent(false);
+        setThirdPartyCookiesAccepted(true);
+        enableThirdPartyCookies();
+    };
+
+    const handleReject = () => {
+        Cookies.set('cookie_consent', 'true', { expires: 365, sameSite: 'None', secure: true });
+        Cookies.set('thirdPartyCookiesAccepted', 'false', { expires: 365, sameSite: 'None', secure: true });
+
+        setShowConsent(false);
+        setThirdPartyCookiesAccepted(false);
+        console.log("Cookies de terceros rechazadas");
+    };
+
+    const enableThirdPartyCookies = () => {
+        console.log("Cookies de terceros habilitadas");
+        // Aquí puedes incluir cualquier funcionalidad que dependa de cookies de terceros
     };
 
     if (!showConsent) {
@@ -22,19 +51,25 @@ const CookieConsent = () => {
 
     const styles = {
         container: {
-            position: 'fixed',
-            bottom: 0,
-            width: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            color: 'white',
-            textAlign: 'center',
-            padding: '1rem',
-            zIndex: 1000,
+          position: 'fixed',
+          bottom: '20px',
+          left: '10%',
+          width: '80%',
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          color: 'white',
+          textAlign: 'center',
+          padding: '4rem',
+          borderRadius: '10px',
+          zIndex: 1000,
         },
         button: {
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            border: 'none',
+          color: '#25D366',
+          padding: '0.5rem 1rem',
+          marginLeft: '1rem',
+          cursor: 'pointer',
+        },
+        button2: {
+            color: '#d32525',
             padding: '0.5rem 1rem',
             marginLeft: '1rem',
             cursor: 'pointer',
@@ -42,9 +77,10 @@ const CookieConsent = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <p>We use cookies to improve your experience. By using our site, you consent to cookies.</p>
-            <button style={styles.button} onClick={handleAccept}>Accept</button>
+        <div style={styles.container} role="dialog" aria-labelledby="cookieConsentTitle" aria-describedby="cookieConsentDescription">
+            <p id="cookieConsentDescription">{t('cookies')}</p>
+            <Button style={styles.button} onClick={handleAccept}>Aceptar</Button>
+            <Button style={styles.button2} onClick={handleReject}>Rechazar</Button>
         </div>
     );
 };

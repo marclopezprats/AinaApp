@@ -20,61 +20,8 @@ import DamagePolicy from "pages/AinaDanger";
 import LegalNotice from "pages/AinaLegal";
 import AinaFAQ from "pages/AinaFAQ";
 import NotFoundPage from "pages/AinaHome/404";
+import CookieConsent from "./CookieComponent";
 
-
-// Componente de Consentimiento de Cookies
-const CookieConsent = () => {
-  const [showConsent, setShowConsent] = useState(false);
-
-  useEffect(() => {
-    const consent = Cookies.get('cookie_consent');
-    if (!consent) {
-      setShowConsent(true);
-    }
-  }, []);
-
-  const handleAccept = () => {
-    Cookies.set('cookie_consent', 'true', { expires: 365 });
-    setShowConsent(false);
-  };
-
-  if (!showConsent) {
-    return null;
-  }
-
-  const styles = {
-    container: {
-      position: 'fixed',
-      bottom: '20px', // Separado del margen inferior
-      left: '10%',
-      width: '80%', // Ocupa el 80% del ancho
-      backgroundColor: 'rgba(0, 0, 0, 0.8)',
-      color: 'white',
-      textAlign: 'center',
-      padding: '2rem', // Altura doble al incrementar el padding
-      borderRadius: '10px', // Bordes redondeados
-      zIndex: 1000,
-    },
-    button: {
-    color:"#25D366",
-      padding: '0.5rem 1rem',
-      marginLeft: '1rem',
-      cursor: 'pointer',
-    },
-  };
-
-
-  return (
-    <Box sx={styles.container}>
-      <Typography mb={4} sx={{color: '#FFFFFF'}} variant="body1">
-        We use cookies to improve your experience. By using our site, you consent to cookies.
-      </Typography>
-      <Button sx={styles.button} variant="contained"  onClick={handleAccept}>
-        Accept
-      </Button>
-    </Box>
-  );
-};
 
 export default function App() {
   const { pathname } = useLocation();

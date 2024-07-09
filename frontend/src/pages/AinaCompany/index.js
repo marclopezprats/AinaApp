@@ -11,7 +11,7 @@ import AinaCarRentACAR from "assets/images/familia2.webp";
 import AinaCarRent1 from "assets/images/ainacar-rent-a-car.jpg";
 import Wash from "assets/images/wash-protect.png";
 import ubicacio from "assets/images/ubicacio.png";
-import ubicacioParets from "assets/images/img-4317-1080x825.jpeg";
+import ubicacioParets from "assets/images/sede parets.jpg";
 import instalacion1 from "assets/images/instalacio-1.png";
 import instalacion2 from "assets/images/instalacio-2.png";
 import instalacion3 from "assets/images/instalacio-3.png";

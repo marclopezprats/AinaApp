@@ -1,62 +1,314 @@
 {
-  "welcome": "Every good trip starts at AinaCar!",
-  "welcome2":"Your solutions on wheels",
+  "welcome": "Every great journey starts at AinaCar!",
+  "welcome2": "Your solutions on wheels",
   "recogida247": "24/7 PICKUP SERVICE",
-  "nuestra_compania":"Our Family",
-  "flota_vehiculos":"Vehicle Fleet",
-  "ainacar_protect":"AinaCar Protect",
-  "venta_vehiculos":"Vehicle Sales",
-  "otros":"Others",
-  "mas_info":"More Information",
-  "porque_ainacar":"WHY AINACAR?",
-  "porque_ainacar_elige":"Choose",
-  "porque_ainacar_elige_texto":"Choose the type and size of the Car, Van, or Truck you need.",
-  "porque_ainacar_recogida":"24/7 Pickup",
-  "porque_ainacar_recogida_texto":"Pick up and return your rental vehicle outside business hours by depositing the keys in our smart lockers.",
-  "porque_ainacar_empieza":"Start Your Journey",
-  "porque_ainacar_empieza_texto":"Check in online. No lines. No waiting. No additional costs. Just drive it.",
-  "una_flota_variada":"A VARIED AND RENEWED FLEET",
-  "una_flota_variada_texto": "Our vehicle offer gives you the possibility to choose the type and size of the Car, Van, or Truck you need. Check it out!",
+  "nuestra_compania": "Our Family",
+  "flota_vehiculos": "Fleet",
+  "ainacar_protect": "AinaCar Protect",
+  "venta_vehiculos": "Sales",
+  "alquiler_vehiculos": "Rentals",
+  "otros": "Others",
+  "mas_info": "More Information",
+  "porque_ainacar": "WHY AINACAR?",
+  "porque_ainacar_1": "Choose",
+  "porque_ainacar_texto_1": "Choose the type and size of the Car, Van, or Truck you need.",
+  "porque_ainacar_2": "Pick it up 24/7",
+  "porque_ainacar_texto_2": "Pick up and return your vehicle outside business hours using our smart lockers.",
+  "porque_ainacar_3": "Start your journey",
+  "porque_ainacar_texto_3": "Check-in online. No queues. No waiting. No additional costs. Just drive.",
+  "una_flota_variada": "A VARIED AND RENEWED FLEET",
+  "una_flota_variada_texto": "Our vehicle offer allows you to choose the type and size of the Car, Van, or Truck you need. Check it out!",
   "nuestras_redes": "OUR NETWORKS",
   "insta_ainacar_novedades": "Don't miss any news from ainacar!",
   "insta_ainacar_novedades_link": "GO TO INSTAGRAM",
   "experiencia_ainacar": "AINACAR EXPERIENCE",
-  "experiencia_ainacar_texto": "Our vehicle offer gives you the possibility to choose the type and size of the Car, Van, or Truck you need. Check it out!",
-  "experiencia_ainacar_reseña" : "LEAVE US YOUR REVIEW!",
+  "experiencia_ainacar_texto": "Our vehicle offer allows you to choose the type and size of the Car, Van, or Truck you need. Check it out!",
+  "experiencia_ainacar_reseña": "LEAVE US YOUR REVIEW!",
   "puntos_recogida": "AINACAR PICKUP AND RETURN POINTS",
   "puntos_recogida_texto": "We have 2 offices and 4 pickup points (Meet&Greet) in the province of Barcelona: Sabadell, Parets del Vallès, Sant Cugat, Josep Tarradellas Barcelona - El Prat Airport, and in Barcelona City.",
   "puntos_recogida_contactar": "CONTACT",
-  "puntos_recogida_maps": "SEE ON GOOGLE MAPS",
+  "puntos_recogida_maps": "VIEW ON GOOGLE MAPS",
   "familia_ainacar": "Welcome to the AinaCar family!",
   "familia_ainacar_subtitle": "Your solutions on wheels",
-  "ceo_ainacar_description":"Our experience is what makes the difference and is the result of years of service that encourages us to continue striving to offer a Quality, Professional, and Personalized rental service for our customers.",
-  "unidad_ainacar": "WELCOME TO THE AINACAR RENT A CAR UNIT",
-  "unidad_ainacar_description":"Since 1997, Aina Car - Vehicle Rental, a family business founded in Sabadell, has been offering an attentive, exclusive, and personalized rental service to the needs of all our customers. Our brand values? Quality and Commitment. During this time at Aina Car, we have worked together with our customers to meet their transportation and mobility needs. The result of these years of customer service has translated into the growth of rental demand, the opening of a second central office in Parets del Vallès, and new pickup and return points for our vehicles in the province of Barcelona: Barcelona city, Sant Cugat del Vallès, and the Airport (El Prat de Llobregat). And after many years of professional experience in the rental world, gaining experience day by day in the company and with our customers, suppliers, and partners; we are proud to say that we are more than a rental company. We are a group: Grupo Ainacar.",
+  "ceo_ainacar_description": "Our experience makes the difference and is the result of years of service, motivating us to continue striving to offer a Quality, Professional, and Personalized rental service to our customers.",
+  "unidad_ainacar": "WELCOME TO AINACAR RENT A CAR UNIT",
+  "unidad_ainacar_description": "Since 1997, Aina Car - Vehicle Rental, a family business founded in Sabadell, has been offering an attentive, exclusive, and personalized rental service tailored to the needs of all our customers. Our brand values? Quality and Commitment. Over the years, Aina Car has worked closely with our customers to meet their transportation and mobility needs. The result of these years of customer service has led to the growth in rental demand, the opening of a second central office in Parets del Vallès, and new pickup and return points for our vehicles in the province of Barcelona: Barcelona city, Sant Cugat del Vallès, and the Airport (El Prat de Llobregat). After many years of professional experience in the rental industry, gaining day-to-day experience in the company and alongside our customers, suppliers, and partners, we are proud to say that we are more than a vehicle rental company. We are a group: Grupo Ainacar.",
   "grupo_ainacar": "GRUPO AINA CAR",
-  "grupo_ainacar_description":"2020 allowed us to offer our clients our Hand Wash and disinfection service through the Aina Car Wash unit. A washing service that we had always applied to our rental vehicles and that we began to complement during the same year in the Aina Car Protect unit with the interior coating of the doors, floors, and windows of our vehicles and those of our customers with DM wood. Thus guaranteeing its quality and its long-term preservation both internally and externally.",
-  "carousel_instalaciones":"OUR FACILITIES",
-  "nuestras_oficinas":"OUR OFFICES",
-  "oficina":"Office",
-  "protect_claim_title_01":"We improve the safety of your commercial vehicle",
-  "protect_claim_title_02":"An added value",
-  "protect_claim_title_03":"Industrial vehicle protection",
-  "protect_claim_title_04":"Vehicle safety and preservation",
-  "protect_card_title_01":"INTEGRAL PROTECTION",
-  "protect_card_title_02":"TAILOR-MADE, HANDMADE",
-  "protect_card_title_03":"DURABILITY AND HARDNESS",
-  "protect_card_title_04":"GUARANTEED QUALITY",
-  "protect_claim_subtitle_01":"Installation of security locks: for freelancers, small and medium fleets, for delivery and courier services.",
-  "protect_claim_subtitle_02":"Gain added value during its use or in its resale due to its good preservation and the image of the interior and exterior of the vehicle.",
-  "protect_claim_subtitle_03":"Wall, door, and floor linings for industrial vehicles.",
-  "protect_claim_subtitle_04":"Lined with DM or Phenolic Wood in different thicknesses, preserving the original anchoring points.",
-  "protect_card_subtitle_01":"Wall, door, and floor linings for industrial vehicles.",
-  "protect_card_subtitle_02":"Each floor and lining is customized for each vehicle model.",
-  "protect_card_subtitle_03":"Lined with DM or Phenolic Wood in different thicknesses.",
-  "protect_card_subtitle_04":"Floors 10 mm. thick (minimum) Walls 5mm. thick (minimum)",
-  "protect_claim":"AINACAR PROTECT",
-  "protect_claim_description":"With the installation of CUSTOM-MADE floors and linings on the walls and doors, we GUARANTEE the SECURITY and PROTECTION of your vehicle and the transported cargo, preserving the original anchoring points with an unbeatable result. Let's improve the safety of your commercial vehicle together. Locks installable on the side sliding door or the rear door of the vehicle. Advantage of the double key output: you can activate and deactivate the security lock whenever you choose. Universal assembly: possibility of installation in all vans on the market.",
-  "protect_carousel":"OUR WORKS",
-  "cerrar":"Close",
-  "ver_tarifas":"See Rates",
-  "atras":"Back"
+  "grupo_ainacar_description": "In 2020, we launched our Hand Washing and Disinfection Service through the Aina Car Wash unit. A washing service we had always applied to our rental vehicles, which we started to complement during the same year with the Aina Car Protect unit by coating the interior doors, floors, and windows of our vehicles and those of our customers with MDF wood. Ensuring their quality and long-term preservation both inside and out.",
+  "carousel_instalaciones": "OUR FACILITIES",
+  "nuestras_oficinas": "OUR OFFICES",
+  "oficina": "Office",
+  "protect_claim_title_01": "Improving the safety of your commercial vehicle",
+  "protect_claim_title_02": "An added value",
+  "protect_claim_title_03": "Industrial vehicle protection",
+  "protect_claim_title_04": "Vehicle safety and preservation",
+  "protect_card_title_01": "INTEGRAL PROTECTION",
+  "protect_card_title_02": "CUSTOM-MADE, HANDMADE",
+  "protect_card_title_03": "DURABILITY and HARDNESS",
+  "protect_card_title_04": "GUARANTEED QUALITY",
+  "protect_claim_subtitle_01": "Installation of security locks: for freelancers, small and medium fleets, for delivery and courier services.",
+  "protect_claim_subtitle_02": "Gain added value during use or resale due to good preservation and the interior and exterior appearance of the vehicle.",
+  "protect_claim_subtitle_03": "Coatings for walls, doors, and floors for industrial vehicles.",
+  "protect_claim_subtitle_04": "Coated with MDF or Phenolic Wood in different thicknesses, preserving the original anchorage points.",
+  "protect_card_subtitle_01": "Coatings for walls, doors, and floors for industrial vehicles.",
+  "protect_card_subtitle_02": "Each floor and coating is customized for each vehicle model.",
+  "protect_card_subtitle_03": "Coated with MDF or Phenolic Wood in different thicknesses.",
+  "protect_card_subtitle_04": "Floors with a minimum thickness of 10 mm. Walls with a minimum thickness of 5 mm.",
+  "protect_claim": "AINACAR PROTECT",
+  "protect_claim_description": "By installing custom-made floors and coatings on the walls and doors, we GUARANTEE the SAFETY and PROTECTION of your vehicle and transported cargo, preserving the original anchorage points with an unbeatable result. Let's improve together the safety of your commercial vehicle. Locks can be installed on the side sliding door or the rear door of the vehicle. Benefit of the double key exit: you can activate and deactivate the security lock whenever you choose. Universal assembly: possibility of installation on all market vans.",
+  "protect_carousel": "OUR WORKS",
+  "cerrar": "Close",
+  "ver_tarifas": "View Rates",
+  "atras": "Back",
+  "info_antes_de_alquilar": "Information before renting",
+  "info_antes_de_alquilar_subtitle": "Guide to additional charges",
+  "condiciones_de_alquilar": "General rental terms and conditions",
+  "cookies": "We use cookies to improve your experience. By using our site, you consent to the use of cookies. If your browser is set to block third-party cookies, some features may not be available or may not function properly.",
+"introduccion": {
+        "titulo": "AINA CAR RENTAL, SL",
+        "contenido": "AINA CAR RENTAL, SL, hereinafter also referred to as 'Aina Car' or the 'LESSOR', DECLARES:"
+    },
+    "propiedad_de_vehiculos": {
+        "contenido": "That the vehicles subject to rental are owned by the holder of the circulation permit that accompanies them, which AINA CAR RENTAL, SL has rented from the owner or is the owner."
+    },
+    "facultad_arrendador": {
+        "contenido": "THE LESSOR is expressly authorized by the Owner to rent out their vehicles to third parties, as well as to claim for any incidents, damages, and losses caused to the vehicle."
+    },
+    "terminos_condiciones_generales": {
+        "contenido": "The GENERAL RENTAL TERMS AND CONDITIONS will apply to the person who signs the Rental Agreement, hereinafter defined as 'You' or the 'LESSEE', and who provides a credit card as a guarantee for the Vehicle. The person who signs the Rental Agreement (regardless of whether they are the driver of the Rented Vehicle) as well as any (other) driver expressly indicated in the Rental Agreement and therefore authorized to drive the Vehicle, will assume all costs associated with the Rental Agreement."
+    },
+    "responsabilidad_solidaria": {
+        "contenido": "All persons identified in the rental agreement will be jointly responsible for the payment of any amounts due under the agreement."
+    },
+    "reserva_pre_pago": {
+        "contenido": "In the event that the reservation was made and prepaid by a third party, different from the lessee (understood as the person who signs the Rental Agreement and is the holder of the credit card provided as a guarantee), and this third party subsequently rejects the charge made by Aina Car as a prepayment of the rental, Aina Car may demand payment of this amount directly from the LESSEE (and jointly from the authorized drivers listed in the Rental Agreement)."
+    },
+    "alquiler": {
+        "titulo": "1. Rental",
+        "contenido": "To rent a vehicle with Aina Car, the LESSEE must be a natural person legally capable of entering into a contract with Aina Car and be prepared to accept responsibility for the Vehicle during the Rental Period. They must also possess the accepted means of payment to pay for the Vehicle rental and associated costs as well as valid and current identification documents accepted by Aina Car (see the General Rental Information section)."
+    },
+    "conductor_autorizado": {
+        "contenido": "An authorized driver is any natural person expressly mentioned and fully identified in the Rental Agreement (it can also be the Lessee), who holds a valid identification document (Identity Card or Passport) and a valid driver's license with a minimum of 2 years of experience and is over 21 or 25 years old depending on the Vehicle category."
+    },
+    "conductor_no_autorizado": {
+        "contenido": "Unauthorized drivers are those who are not expressly mentioned/identified in the Rental Agreement and those who do not provide valid identification documents accepted by Aina Car."
+    },
+    "responsabilidad_conductor_no_autorizado": {
+        "contenido": "If You allow an unauthorized person to drive the Vehicle, this will be considered a breach of the GENERAL RENTAL TERMS AND CONDITIONS, and You will be responsible for the consequences that may arise from this action, including the possibility of being held accountable to Aina Car for damages caused by You and/or the unauthorized person. In such circumstances, neither You nor the unauthorized driver may be covered by protection products or insurance offered through Aina Car."
+    },
+    "seguro_obligatorio": {
+        "contenido": "In this case, the unauthorized driver will not be covered by any insurance or protection products offered by Aina Car except for the Mandatory Civil Liability Insurance which will apply in all cases."
+    },
+    "responsabilidad_empresa_arrendataria": {
+        "contenido": "Rental companies that do not communicate the name of the vehicle's driver expressly accept responsibility for any incidents, damages, and losses caused to the vehicle during the validity of this Rental Agreement."
+    },
+    "aceptacion_vehiculo": {
+        "contenido": "The LESSEE and/or DRIVER, whose personal details are stated in the Rental Agreement, accept and receive the vehicle and accessories indicated therein."
+    },
+    "duracion_alquiler": {
+        "contenido": "The rental duration is as agreed in the specific terms of the rental contract. The departure date and the scheduled return date are mandatory for both parties. If the lessee, by their own decision, starts late or ends the rental early, they will not be entitled to any refund."
+    },
+    "recogida_vehiculo": {
+        "contenido": "When picking up the Vehicle from Aina Car, you will be asked to sign, among other things, a section of the Rental Agreement (Vehicle Inspection Form) describing the condition of the Vehicle at that specific moment. You acknowledge that you receive the VEHICLE in perfect working order. The five tires are in good condition and it comes with all the standard accessories and those required for its circulation in compliance with the Traffic Code."
+    },
+    "responsabilidad_deterioro": {
+        "contenido": "In the event of deterioration due to loss, theft, or misuse of accessories, tools, spare tires, battery,... and especially the tires, You agree to replace it immediately at your expense with a tire of identical characteristics and usage condition. Damage to rims, wheel covers, and the vehicle's interior will be at the lessee's expense. The odometer must not be tampered with. If it is not functioning correctly due to failure or tampering, it must be reported immediately for repair. Otherwise, the LESSOR is authorized to charge You for 1,000 kilometers per day of rental according to the price reflected in the tariff and additional charges guide."
+    },
+    "inspeccion_vehiculo": {
+        "contenido": "If you detect any visible damage or defects in the vehicle that are not described in the Rental Agreement and/or the inspection form when picking up the vehicle, you must ensure that these damages or defects are added and that both you and the agent designated by AinaCar sign this modification of the vehicle inspection form before removing the vehicle from the AinaCar office or the designated pickup/drop-off point. If you do not request this modification as indicated, Aina Car will be entitled to assume that you have accepted the Vehicle in the condition described in the rental contract and its inspection form, and therefore, to charge and bill you for all damages detected in the Vehicle, by you and by the agent designated by Aina Car, at the time of its return."
+    },
+    "prorroga_alquiler": {
+        "titulo": "2. Extension of the Rental Contract",
+        "contenido": "If the LESSEE and/or DRIVER decide to extend the Rental Contract, they must follow these steps:\n\n· Call the rental office phone number printed on your rental contract.\n\n· Visit an Aina Car office.\n\n· Perform a Vehicle inspection with an agent designated by Aina Car.\n\n· Pay the rental and additional charges.\n\n· Sign a new Rental Agreement or an addendum to the initial contract.\n\nIf you do not proceed as indicated and do not return the vehicle on the agreed date and time, the provisions in the 'Vehicle Return' section will apply.\n\nOnce the scheduled return date has arrived, the contract is considered expired, with the inherent responsibilities. Under no circumstances may the deposit be used for the extension of the Rental."
+    },
+    "devolucion_vehiculo": {
+        "titulo": "3. Vehicle Return",
+        "secciones": {
+            "devolucion_horas_apertura": {
+                "contenido": "a) Vehicle Return During Aina Car Office Hours\n\nThe Lessee must return the Vehicle to the Aina Car office or return point indicated in the Rental Agreement, on the date and time specified in the mentioned Agreement. If desired, the Vehicle can be returned to a different Aina Car office from where it was picked up, if the service that allows this ONE WAY option is subscribed to, and the corresponding amount is paid according to the service/extras tariffs available at the offices and/or the Aina Car website. Any modification of the initial contract requires the express authorization of Aina Car through a written document signed by both Aina Car and the lessee.\n\nThe Rental Period will end when you return the Vehicle to the Aina Car office and hand over the keys and documentation of the Vehicle to an Aina Car agent or representative. No refund will be given if you return the Vehicle before the agreed date and time in the Rental Agreement.\n\nWhen returning the Vehicle to Aina Car, you must inspect it with the agent designated by Aina Car and sign a report on the condition of the Vehicle at the time of return. Aina Car will provide you with a signed document confirming the return of the Vehicle.\n\nAina Car is not responsible for any properties and/or objects that may have been left inside the Vehicle."
+            },
+            "devolucion_fuera_hora": {
+                "contenido": "b) 'After Hours Return' Service\n\nAina Car recommends returning the Vehicle during its office hours. However, to meet the specific needs of some of our customers, Aina Car offers an additional 'After Hours Return' service at certain stations.\n\nIf you choose to use this 'After Hours Return' service, you agree that the Vehicle condition report may be prepared by an Aina Car agent without your presence and after the return of the keys.\n\nYou must declare any incident and/or damage affecting the Vehicle's condition on the document provided to you for this purpose when you picked up the Vehicle. This document, along with the completed accident report if applicable, and the keys should be returned in the designated 'key drop box'.\n\nPlease note that the Rental Agreement does not automatically terminate when you return the keys: the Vehicle will remain parked in the parking space until the Aina Car station opens and inspects the Vehicle to close your Rental Agreement. Therefore, Aina Car reminds you to park the Vehicle in the designated area and comply with applicable regulations, ensuring the Vehicle does not pose a danger to others or obstruct traffic. You must also leave the Vehicle's documentation in the glove compartment.\n\nSince the Vehicle will be inspected later during station opening hours, Aina Car recommends taking photographs/videos of the Vehicle to have evidence of its condition upon return before returning the keys.\n\nAfter the inspection, and if there is no damage, Aina Car will send you a signed document stating that the vehicle was returned without damage.\n\nAina Car is not responsible for any properties and/or objects that may have been left inside the Vehicle."
+            },
+            "retorno_sin_presencia": {
+                "contenido": "c) Vehicle Return Without Your Presence During Aina Car Office Hours\n\nIf you are unable or refuse to inspect the Vehicle with the Aina Car agent or its representative, Aina Car is authorized to inspect the Vehicle on its own, without your presence, and record your refusal to review the vehicle. The previously described procedure will apply (see section b))."
+            },
+            "devolucion_retraso": {
+                "contenido": "d) Late Vehicle Return\n\nUnauthorized delays in return, not caused by justifiable force majeure, will incur additional rental charges. A rental day is defined as the period between 8:00 a.m. and 7:00 p.m. on the same day. If the Vehicle is not returned on the date specified in the Rental Agreement and after 24 hours without any communication from you, Aina Car may consider the Vehicle misappropriated and report it to the local authorities.\n\nIn such a case, Aina Car has the right to claim all damages and losses caused to Aina Car, including the Vehicle's value, as well as all fines, tolls, penalties, or sanctions imposed on the rented Vehicle due to public administration requests to identify the offender or clarify circumstances related to possible infractions or crimes. Aina Car also has the right to initiate legal proceedings to claim the immediate return of the Vehicle. In this case, protections and other additional contractual services will have no effect."
+            }
+        }
+    },
+    "cargos_adicionales": {
+        "titulo": "4. Additional Charges",
+        "contenido": "Any additional charges will be billed upon returning the Vehicle (if they can be calculated at that time).\n\nAina Car may also charge for various services provided directly or through third parties related to incidents that may have occurred during the Rental Period and/or related to the vehicle's use. The prices (including VAT) for these charges and costs are specified in the Additional Charges Guide, available on our website (if the reservation was made online) and at any Aina Car office, and in the terms section of our websites www.ainacar.cat, www.ainacar.com, and www.ainacar.es.\n\nThese charges or costs include, but are not limited to:\n\n· Administrative charges for handling fines or tolls and the amount claimed by the issuing entity. Please note that these administrative costs are paid in addition to the fine or fee associated with them, for which you are fully responsible.\n\n· Cleaning charges for a Vehicle returned in an unacceptable state of cleanliness (beyond ordinary use).\n\n· Charges for the loss or theft of keys.\n\n· 'Damage' or losses caused to the vehicle during the rental not covered by the protections you may have purchased.\n\n· Administrative charge for managing the mentioned damages.\n\n· Fuel used during the Rental Period.\n\n· Kilometers exceeding the mileage included in the rental rate.\n\n· Charges associated with rentals made at airport offices, authorized pickup/return points, or home delivery services.\n\n· Additional charges and costs arising from other incidents that may occur during your rental.\n\nIn these cases, Aina Car will charge the additional amounts at a later date, when Aina Car becomes aware of them and after the Rental Period has ended.\n\nYou will have fourteen (14) days from the date of the billing notification (by email or regular mail) to contest and justify that you are not responsible for those amounts.\n\nIf no objection or justification is communicated within the specified period, the mentioned amounts will be billed.\n\nThe liability/deposit set in the Rental Agreement will be returned to the LESSEE and/or DRIVER upon contract completion, after the vehicle inspection. If the vehicle suffers any damage not covered by insurance, the amount will be deducted from the liability/deposit, and the remaining amounts will be owed by the LESSEE and/or DRIVER to the LESSOR within a maximum of 10 calendar days."
+    },
+    "uso_obligaciones": {
+        "titulo": "5. Vehicle Use and Obligations",
+        "contenido": "When renting a Vehicle from Aina Car, You and/or any authorized Driver must comply with the following obligations:\n\nYou must return the Vehicle and its keys, accessories, and documentation to the Aina Car station mentioned in the Rental Agreement, on the expiration date and time specified in the Agreement (there is a 59-minute grace period). If you do not return the Vehicle within the indicated terms, Aina Car may take all necessary measures described in these clauses, particularly in the Vehicle Return section.\n\nNeither You nor any authorized Driver may drive the Vehicle outside the National Territory. If You and/or the Driver drive the Vehicle outside the National Territory, you must obtain prior written consent from Aina Car. Additionally, you must ensure upon picking up the Vehicle that it has the correct equipment to comply with the local traffic regulations of the country where You and/or the Driver will drive.\n\nIf using the vehicle to transport persons of 135 cm or shorter, You must inform Aina Car to provide, if available and not installed in the vehicle, the corresponding approved mandatory restraint device according to the child's or person's weight and height, along with the manufacturer's detailed instructions for correctly installing the seat and child or person using it. Aina Car is not obligated to install the mandatory restraint device in the vehicle, only to fulfill the delivery obligation upon your notification. Check the price of this accessory in the tariffs, accessories, and additional charges guide.\n\nIn any case, Aina Car is free from any liability for personal or material damages resulting from your failure to communicate the mentioned obligation, non-use of the mandatory restraint device, incorrect installation or use, and any manufacturing defect of the mentioned mandatory restraint device.\n\nYou must ensure that all luggage or goods transported in the Vehicle are secured so they do not cause damage to the Vehicle or pose risks to passengers.\n\nYou and/or the driver agree to guard the Vehicle with utmost care, diligence like that of a prudent parent, ensuring it is locked and protected by anti-theft devices and not parked in unauthorized spaces and left unattended.\n\nYou and any authorized Driver commit never to drive the Vehicle or allow it to be used under the influence of alcohol, hallucinogenic drugs, narcotics, barbiturates, other illegal substances, or any other substance (legal or illegal) that may impair your driving ability or that of the Driver.\n\nYou and/or the Driver must refuel the vehicle with the correct type of fuel. If incorrect fuel is used, and unless you prove the error is attributable to a third party, You will be responsible for the costs of towing the Vehicle and/or repairing the damage caused, calculated according to the rules described in the following section called Vehicle Damage.\n\nNeither You nor the Driver may use the vehicle or allow it to be used to:\n\nRe-rent, mortgage, pawn, sell or otherwise offer as collateral the Vehicle or any part of it, the Rental Agreement, keys, documentation, equipment, tools, and/or any accessories.\n\nTransport passengers for profit unless expressly authorized by Aina Car and the LESSEE has the pertinent authorization.\n\nCarry a number of people exceeding that specified in the Vehicle's Circulation Permit and/or Technical Inspection Card.\n\nTransport flammable and/or dangerous goods, toxic, harmful and/or radioactive products, or those infringing current legal provisions, (provided this exclusion does not prevent meeting daily needs that do not infringe applicable regulations and correspond to normal and ordinary vehicle use).\n\nTransport goods with weight, quantity, and/or volume exceeding that authorized in the Vehicle's Circulation Permit and/or Technical Inspection Card.\n\nRaces, off-road driving, reliability or material resistance tests, speed tests, or participation in rallies, competitions, or trials, regardless of the location, official or not.\n\nTransport live animals, except for pets and/or domestic animals, subject to Aina Car's express authorization. They must always travel in an approved transport system for animal transport and anchored in the vehicle's trunk, if allowed. Under no circumstances may they travel in seats intended for people.\n\nGive driving lessons.\n\nPush or tow another vehicle or trailer, except when expressly authorized by Aina Car, if the rented vehicle is already equipped with a trailer hitch with the specified load maximum and the lessee holds the necessary driving permits.\n\nDrive on gravel roads or unsuitable motor vehicle paths or surfaces that pose risks to tires or the vehicle's underbody, such as beaches, unsuitable roads, forest tracks, mountains, etc., that are not authorized, and unpaved roads unless expressly authorized in writing by Aina Car.\n\nCommit intentional crimes.\n\nTransport it on any type of boat, train, truck, or plane unless Aina Car has given express authorization.\n\nWithin ports, airports, and/or aerodromes and/or similar or analogous facilities not accessible to public traffic, or in a refinery and oil company installations or premises, without Aina Car's express written authorization. If Aina Car consents to the above, Aina Car will inform you of the applicable third-party liability insurance coverage, which may vary depending on the circumstances.\n\nYou may be held liable to Aina Car for any adverse consequences resulting from non-compliance with the above obligations. Note that failure to comply may limit your right to claim damages. In this case, Aina Car reserves the right to demand the immediate return of the Vehicle."
+    },
+    "accidente_averia_robo": {
+        "titulo": "6. Accident, Mechanical Breakdown, or Vehicle Theft",
+        "contenido": "In case of mechanical breakdown or accident that prevents you from continuing your journey and/or forces you to stop the Vehicle to avoid causing damage, a roadside assistance service is available, included in your rental price. To use this service, call the phone number indicated in the vehicle's documentation.\n\nIn case of an accident, you must report it within 24/48 hours from the time of the collision or traffic accident and, in any case, before the end of your rental period. You must also provide us with a fully completed accident report form and any other documents deemed useful to supplement your statement. If the LESSEE fails to notify the LESSOR of any accident or breakdown involving the rented vehicle, they will be solely responsible for any damages and losses incurred.\n\nIn case of contract termination due to LESSEE's breach, accident, or breakdown, the LESSEE expressly authorizes the LESSOR to remove the vehicle from its location, with the LESSEE bearing the associated costs. The LESSOR must notify the LESSEE of the day and time the vehicle entered the base and, if applicable, the workshop location, so the LESSEE can conduct necessary inspections.\n\nIn case of partial or total vehicle theft or burglary, appropriate measures will be taken to protect and safeguard it. The rental office nearest to the incident must be informed, providing the original theft report within 24 hours of its filing, unless due to force majeure, and in any case before the end of the agreed rental period, along with the Vehicle's original keys. The lessee authorizes Aina Car to terminate the contract and demand the Vehicle's immediate return. Aina Car may then consider the obligation overdue and require immediate payment of the total outstanding debt, regardless of previously agreed payment terms.\n\nThe replacement vehicle service, when included in the Rental Agreement, only covers warranty repairs or periodic maintenance services.\n\nTHE LESSEE and THE DRIVER agree to:\n\na) Notify the LESSOR within 24 hours of any accident, breakdown, theft, or fire, and the police of any bodily injury or theft. You will find the contact details and channels in the rental agreement and on our website.\n\nb) Include in your statement the circumstances of the location, date, and time of the accident, the name, phone number, and address of witnesses, the name, phone number, and address of the owner of the other vehicle, its license plate number, and Insurance Company, as well as the policy number.\n\nc) Attach to this statement any police, Civil Guard, or Court report if applicable.\n\nd) Never discuss responsibility or compromise with third parties regarding the accident."
+    },
+    "seguros": {
+        "titulo": "7. Insurance",
+        "contenido": "The insurance/PROTECTION for the rented vehicle includes Compulsory Civil Liability Insurance according to current legal provisions and Complementary Civil Liability Insurance of Mandatory Subscription with a maximum insured sum of up to 50 Million EUR exceeding the limits of mandatory subscription liability insurance and is limited to Europe. The insurance is only valid for the duration specified in this rental contract. After this period, the lessor disclaims any responsibility for accidents and damages that the LESSEE and THE DRIVER may cause, of which they will be solely responsible. The importance of this section is linked to section 3 of the clauses.\n\nThe insurance only covers authorized drivers who are at least 21 years old and hold a valid and current driver's license with a minimum of 2 years of experience. For those under 26 years old, the deductible may be up to three times the normal amount and includes additional charges. When the driver acts in bad faith or is not in normal conditions due to alcohol, drugs, or any cause, the LESSEE and THE DRIVER will be solely responsible for any damages caused to third parties, the vehicle, and the LESSOR. For more information on Insurance and Coverage, see the General Rental Information section.\n\nThe insurance does not cover damages caused to the vehicle by violations of the Traffic Code and Municipal Ordinances. The LESSEE will pay any fines imposed by the competent authorities for the aforementioned violations. A charge of 30€+VAT will be made for each fine/sanction attributed to the lessee."
+    },
+    "protecciones_contra_danos": {
+        "titulo": "8. Collision and Theft Damage Protections",
+        "contenido": "CDW (Basic Damage Protection): CDW is an optional service provided directly by Aina Car that exempts the lessee (except for the deductible amount) by contracting it from economic liability only for damages caused to the Vehicle while driving due to a collision with other vehicles or fixed or moving objects, excluding those caused by acts of vandalism unless they occur while using the Vehicle. Damages to the vehicle's underbody and/or roof, windows, rims, and/or tires are excluded.\n\nSCDW (Super Damage Protection): Reduces the deductible amount for the lessee not covered by CDW for vehicle damage. SCDW are optional services provided directly by Aina Car and are specifically offered by it only for certain customer groups and/or vehicles, which, by contracting them, partially exempt (SCDW) the lessee from paying the minimum amount (deductible) not covered by CDW.\n\nThe deductible amount is set in the Current General Tariff or the contracted tariff and its specific conditions and may appear in the Rental Agreement regardless of whether SCDW has been contracted.\n\nCDW and SCDW coverages only apply if you properly complete the accident report form, clearly stating the details of the vehicles and drivers involved in the accident and the conditions and circumstances under which it occurred.\n\nTP (Basic Vehicle Theft Protection): Exemption (except for the deductible amount) from liability in case of total or partial vehicle theft and damages caused by vandalism during parking when not in use.\n\nTP is an optional service provided directly by Aina Car that exempts the lessee (except for the corresponding deductible amount) by contracting it from economic liability only for total or partial Vehicle theft and damages caused by these events and/or acts of vandalism during parking when not in use.\n\nUnder no circumstances are TP-covered the total or partial theft and damages to the windows, mirrors, rims, and tires of the rented vehicle when occurring under circumstances different from those described above.\n\nTP coverage only applies if you provide the lessor with the original set of keys for the rented vehicle, given to you at the time of contract formalization without any tampering, along with the original theft report filed with the relevant authorities.\n\nWWI (Windshield, Glass, and Tire Protection): WWI is an optional service provided directly by Aina Car and is specifically offered for certain customer groups and/or vehicles, providing the following protections:\n\nExemption from payment for damages and/or losses caused exclusively to windshields, windows, and mirrors of the rented vehicle due to stone impacts and/or other objects.\n\nExemption from payment for damages and/or losses caused to rims and tires of the rented vehicle, including the spare tire, when caused by punctures or impacts against curbs during parking maneuvers.\n\nIf WWI is contracted as an individual product or part of a protection combination package, no deductible applies to the damages caused to the mentioned elements and circumstances, provided the conditions and circumstances described above are met.\n\nIf WWI is contracted and the conditions and circumstances described above are not met, the described damages are subject to the partial deductible applied in the Current General Tariff or the contracted tariff.\n\nIn any case, the deductible amount may appear in the Rental Agreement regardless of whether WWI has been contracted individually or as part of a protection combination package.\n\nPAI (Personal Accident Insurance): PAI provides personal protection in case of accidents, guaranteeing both the driver and Vehicle passengers a compensation in case of death and/or permanent disability and limited reimbursement of medical expenses incurred due to a collision or traffic accident during the rental.\n\nGIT (Goods Protection for Cargo Vans): GIT provides protection exclusively for rentals of Industrial Vehicles and cargo vans, guaranteeing compensation for damages or losses to the goods transported by you in the Vehicle due to a collision, traffic accident, or theft.\n\nPAI, GIT, and the Compulsory Third-Party Liability Insurance coverages for damages caused to third parties are guaranteed by the insurer with whom the Lessor or the Vehicle owner has a policy in each case, subject to the general and specific terms of the insurer's policy (a copy of which can be consulted at all Aina Car offices) and the law."
+    },
+    "mantenimiento_vehiculo": {
+        "titulo": "9. Vehicle Maintenance",
+        "contenido": "Normal mechanical wear and tear of the vehicle and maintenance are assumed by the LESSOR. During the rental, according to the mileage covered, the LESSEE and the DRIVER will be responsible for routine maintenance resulting from normal Vehicle use. Therefore, you must carry out regular checks on water and oil levels and tire pressure. You must take all necessary measures to keep the Vehicle in good working condition.\n\nYou must remain alert to the warning lights and/or sounds from the vehicle's instrument panel and take all necessary measures to protect the Vehicle's engine and the Vehicle as a whole.\n\nUnless previously authorized in writing by Aina Car, any modification or mechanical intervention on the Vehicle, its keys, equipment, tools, and accessories is prohibited. If you fail to comply, you must bear the costs, duly justified, of restoring the Vehicle to its condition at the time of pickup and pay compensation for the Vehicle's immobilization, calculated according to the established repair and replacement price list.\n\nThe LESSEE and the DRIVER will be liable to Aina Car for any adverse consequences resulting from non-compliance with the aforementioned maintenance obligations.\n\nIf the vehicle is immobilized for any reason, the LESSEE and/or DRIVER cannot claim damages for vehicle delivery delays, rental cancellation, or immobilization due to repairs during the rental period. The LESSOR is not obligated to replace the affected vehicle and will not be liable for bodily injuries or material damages caused by construction defects or previous repairs.\n\nProven mechanical misuse of the vehicle, once verified by a competent expert, will result in the LESSOR initiating judicial and extrajudicial proceedings to claim damages caused to the VEHICLE or third parties directly against You."
+    },
+    "politica_combustible": {
+        "titulo": "10. Fuel Policy",
+        "contenido": "Fuel is at the LESSEE's expense. Vehicles are generally delivered with a full tank. In exceptional cases, such as fuel shortages at the pickup office, the fuel tank level may be below maximum. In any case, the vehicle must be returned with the fuel tank at the same level as at pickup. The LESSOR will not refund unused fuel.\n\nIf the vehicle is not returned with a full tank, the cost of the missing fuel plus a refueling service charge established in the Tariff Guide and available at Aina Car offices and on the Aina Car website will be charged."
+    },
+    "ley_aplicable": {
+        "titulo": "11. Applicable Law",
+        "contenido": "In case of a dispute between You and Aina Car regarding your rental, the applicable law will be Spanish law."
+    },
+    "atencion_cliente": {
+        "titulo": "Customer Service",
+        "contenido": "You can direct your inquiries to the customer service department of your country of residence, which will contact the country where the rental took place on your behalf and try to resolve your query. You can contact our Customer Service at the following address and phone number: Joaquín Costa, 50 08206 Sabadell; tel: +34 937 273 907; Email: atenció.alclient@ainacar.cat"
+    },
+    "notificaciones": {
+        "titulo": "Notifications",
+        "contenido": "All notifications related to the Rental Agreement will be sent to the addresses indicated in it. Any notification made to the mentioned addresses will have full contractual effect unless a new address has been previously notified in writing to the other party."
+    },
+    "jurisdiccion": {
+        "titulo": "Jurisdiction",
+        "contenido": "All issues arising between the LESSEE and/or driver and Aina Car as a result of this Contract, the parties, waiving their own jurisdiction, submit to the jurisdiction of the Courts and Tribunals of Sabadell."
+    },
+    "documentos_contractuales": {
+        "titulo": "Contractual Documents",
+        "contenido": "The binding documents between the LESSEE and/or driver and Aina Car are, in order of priority, as follows:\n\n· The Rental Agreement and its conditions,\n\n· The General Conditions included in the Insurance, Coverage, and Exclusions Information,\n\n· The Tariff and Additional Charges Guide,\n\n· The confirmation email you will receive upon booking the Vehicle,\n\n· These GENERAL RENTAL TERMS AND CONDITIONS, which will apply to the previous documents."
+    },
+    "aceptacion_terminos": {
+        "titulo": "Acceptance Of The General Rental Terms And Conditions",
+        "contenido": "The LESSEE, by signing the rental agreement, is informed in writing of the existence and acceptance of the GENERAL RENTAL TERMS AND CONDITIONS available on our website www.ainacar.cat. The lessee also acknowledges and declares to have read and fully understood the previous clauses and, finding them in conformity, ACCEPTS them."
+    },
+    "informacion_seguros": {
+        "titulo": "INSURANCE, COVERAGE, AND EXCLUSIONS INFORMATION",
+        "contenido": "The Basic protection for the rented vehicle includes third-party coverage, extended coverage for vehicle damage with a deductible, and roadside assistance.\n\nBasic Protection\n\nThe Basic Protection package is already included in your rental, as well as roadside assistance from km. 0.\n\nIt reduces the liability of the LESSEE and DRIVER in case of vehicle damage due to a collision, acts of vandalism, or theft or attempted theft.\n\nIn these cases, the LESSEE and DRIVER will be responsible up to a variable maximum amount (deductible) depending on the selected vehicle.\n\nComplete Protection\n\nThe Complete Protection coverage, in addition to all the advantages of basic coverage, includes a reduction of the deductible amount (up to 80% reduction), personal accident insurance providing coverage in case of injury or death of the driver and/or passengers during the rental due to a collision or traffic accident (civil liability insurance with a maximum insured sum for personal injuries and damages up to €15,000).\n\nThis package also includes additional protection for windshields, windows, and tires, as well as a reduction of the deductible amount in case of vehicle damage due to a collision, acts of vandalism, or theft or attempted theft.\n\nIn these cases, the LESSEE and DRIVER will be responsible up to a variable maximum amount (REDUCED deductible) depending on the selected vehicle.\n\nThe Complete Coverage package must be expressly selected if not included in your rate.\n\nWhat Is The Deductible?\n\nThe Deductible is the maximum amount that can be charged to the customer in case of vehicle theft or damage at the end of the rental and varies depending on the vehicle category and the selected rate. This amount will be deposited upon vehicle pickup. As the credit card is the only payment method, this system is valid as a guarantee and security to cover the deductible amount if charged to the customer.\n\nExclusions\n\nThe use of vehicles for transporting hazardous materials is excluded from the insurance. Any protection coverage arranged within the rental contract framework is invalid if the vehicle is used by an unauthorized driver or if the driver does not have the required driving license when the insured contingency occurs.\n\nAlso, damages due to intentional acts by the customer, malicious acts, abnormal vehicle use, or lack of due diligence (such as refueling the vehicle with inappropriate fuel) or loss of keys.\n\nThe right to benefit from the agreed Complete Protection coverage (including anti-theft protection) may be reduced or eliminated if the damages are intentional or caused by gross negligence.\n\nIf no Complete Protection coverage (including anti-theft protection) is agreed upon, the lessee and the driver will be responsible for all damages to the rental car that cannot be proven to be caused by third parties and will bear the full vehicle value.\n\nFor more information, including other applicable exclusions, you can contact our Customer Service at the following address and phone number: Joaquín Costa, 50 08206 Sabadell; tel: +34 937 273 907; Email: atenció.alclient@ainacar.cat"
+    },
+    "cookies_policy": {
+    "title": "COOKIES POLICY",
+    "sections": {
+      "introduction": {
+        "title": "INTRODUCTION",
+        "content": "The website of ALQUILER AINA CAR, S.L. uses its own and third-party cookies. A cookie is a file that is downloaded to your computer when you access certain web pages. Cookies allow a web page, among other purposes, to ensure the proper functioning of the page, allow the User faster access to the selected services, store and retrieve information about a user's or their device's browsing habits, and depending on the information they contain and how they use their device, they can be used to recognize the user. Cookies are associated only with an anonymous user and their computer or device and do not provide references that allow personal data to be known, except with the user's express permission."
+      },
+      "accept_reject": {
+        "title": "ACCEPTANCE OR REJECTION OF COOKIES",
+        "content": "The user can, at any time, accept or reject the cookies installed that are not strictly necessary for the correct functioning of the web and the User's access to its services, through the cookie adjustment panel provided on our website. You can also configure your browser at any time without affecting the possibility of the User accessing the content. However, we inform you that rejecting cookies may decrease the proper functioning of the website."
+      },
+      "affected_cookies": {
+        "title": "COOKIES AFFECTED BY REGULATIONS AND EXEMPT COOKIES",
+        "content": "According to the EU directive, cookies that require the user's informed consent are analytics, advertising, and affiliation cookies, excluding technical cookies and those necessary for the website's operation or to provide services expressly requested by the user."
+      },
+      "cookie_types": {
+        "title": "COOKIE TYPES",
+        "subsections": {
+          "by_entity": {
+            "title": "a) By entity that manages them",
+            "content": "Own cookies (those sent to the user's terminal from a device or domain managed by the editor and from which the requested service is provided) and third-party cookies (those sent to the user's terminal from a device or domain not managed by the editor, but by another entity that processes the data obtained through cookies)."
+          },
+          "by_time": {
+            "title": "b) By duration of active status",
+            "content": "Session cookies (designed to collect and store data while the user accesses a web page) and persistent cookies (where data is stored in the terminal and can be accessed and processed for a period defined by the cookie controller - from a few minutes to several years)."
+          },
+          "by_purpose": {
+            "title": "c) By purpose of data collected",
+            "content": "Technical cookies (necessary for website use and the contracted service), Personalization cookies (allow the user to access the service with predefined characteristics, such as language, browser type, regional settings, etc.), Analytics cookies (collect information on the use of the website), Advertising cookies (collect information on users' preferences and personal choices), Affiliate cookies (allow tracking visits from other websites with which the website establishes an affiliation contract)."
+          }
+        }
+      },
+      "cookies_used": {
+        "title": "TYPES OF COOKIES USED ON THIS WEBSITE",
+        "content": "While browsing our website, cookies from our social networks may be stored in your browser. Below are the links to the cookie policies of the social networks we use on this website:",
+        "social_media_cookies": {
+          "facebook": "Facebook cookies, see more information in their cookie policy",
+          "twitter": "Twitter cookies, see more information in their cookie policy",
+          "instagram": "Instagram cookies, see more information in their cookie policy",
+          "linkedin": "LinkedIn cookies, see more information in their cookie policy",
+          "pinterest": "Pinterest cookies, see more information in their cookie policy",
+          "youtube": "YouTube cookies, see more information in their cookie policy"
+        }
+      },
+      "revocation": {
+        "title": "REVOCATION",
+        "content": "At any time, you can access your browser settings to accept or reject all cookies, or select those you wish to allow and those you do not, following one of the procedures below, depending on the browser you use:",
+        "browsers": {
+          "chrome": {
+            "title": "Google Chrome (in the Tools Menu)",
+            "content": "Settings> Show advanced options> Privacy (Content settings)> Cookies",
+            "link": "https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=en"
+          },
+          "ie": {
+            "title": "Microsoft Internet Explorer (in the Tools Menu)",
+            "content": "Internet Options> Privacy> Advanced",
+            "link": "https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies"
+          },
+          "firefox": {
+            "title": "Firefox",
+            "content": "Options> Privacy> Cookies",
+            "link": "https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"
+          },
+          "safari": {
+            "title": "Safari, iPad, and iPhone",
+            "content": "Preferences> Privacy",
+            "link": "https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
+          },
+          "opera": {
+            "title": "Opera",
+            "content": "Settings> Options> Advanced> Cookies",
+            "link": "https://help.opera.com/en/latest/web-preferences/#cookies"
+          }
+        }
+      },
+      "policy_changes": {
+        "title": "CHANGES TO THIS COOKIE POLICY",
+        "content": "ALQUILER AINA CAR, S.L. reserves the right to modify this policy to adapt it to legislative or jurisprudential changes."
+      },
+      "disable_cookies": {
+        "title": "DISABLING / ENABLING AND DELETING COOKIES",
+        "content": "To restrict or block cookies, you do so through the browser settings. If you do not want websites to place any cookies on your device, you can adjust your browser settings to be notified before any cookie is placed. Likewise, you can adjust the settings so that the browser rejects all cookies, or only third-party cookies. You can also delete any cookies already on your device. Remember that you must adjust the settings separately for each browser and device you use. Remember that if you do not wish to receive cookies, we can no longer guarantee that our website will function correctly. Some site functions may be lost, and you may not be able to view certain websites. Rejecting cookies does not mean you will no longer see online advertising. It simply means that the advertisements you see will not be tailored to your interests and will be repeated more frequently."
+      },
+      "additional_info": {
+        "title": "ADDITIONAL INFORMATION",
+        "content": "Each browser has a different method for adjusting settings. If necessary, consult the browser's help function to set the correct settings. To disable cookies on your mobile phone, consult the device's manual for more information. You can find more information about cookies on the Internet at http://www.aboutcookies.org/. Considering how the Internet and websites work, we do not always have information on cookies placed by third parties through our website. This applies especially to cases where the website contains what are known as embedded elements: texts, documents, images, or short films that are stored elsewhere but displayed on our website or through it. Therefore, if you encounter such cookies on this website and they are not listed above, please let us know. Alternatively, contact the third party directly to ask for information about the cookies it places, the purpose, and the duration of the cookie, and how it has ensured your privacy."
+      },
+      "data_treatment": {
+        "title": "INFORMATION RELATED TO THE PROCESSING OF PERSONAL DATA (ART.13 GDPR)",
+        "content": "Who is responsible for processing your personal data? ALQUILER AINA CAR, S.L. is responsible for processing the personal data you provide, located at C/ Joaquín Costa, 50, 08206, Sabadell, Barcelona, and with CIF B61556817. Phone 937 273 907 and contact email atenció.alclient@ainacar.cat."
+      },
+      "use_personal_data": {
+        "title": "What do we use your personal data for?",
+        "content": "The information collected through own cookies (session cookies and user input cookies) is typically used to track user actions when filling out online forms on multiple pages, or as a shopping cart to track the items the user has selected by clicking a button, or to customize the user interface when visiting the website. The information collected through third-party cookies includes: Through analytical cookies, your browsing habits are analyzed to improve the services provided; through behavioral cookies, information is collected about user preferences to manage advertising spaces in the most effective way; and through advertising cookies, ad performance is measured, and product recommendations are provided based on statistical data. To see exactly how cookies are used, see the table on cookie use on this website."
+      },
+      "legal_basis": {
+        "title": "What is the legal basis for processing your personal data?",
+        "content": "The legal basis for processing your personal data is your consent, given when you contact us, for the use of analytical, behavioral, and advertising cookies; for session or personalization cookies, the legal basis for processing is the legitimate interest of the provider (data controller)."
+      },
+      "data_communication": {
+        "title": "To whom do we communicate your data?",
+        "content": "Data will not be transferred or communicated to third parties, except by legal obligation or to third parties indicated in the case of cookies managed by them."
+      },
+      "data_retention": {
+        "title": "What is the data retention period?",
+        "content": "The retention period for the collected data is indicated in the table on cookie use on this website."
+      },
+      "rights": {
+        "title": "What are your rights?",
+        "content": "The rights that protect the user are those of access, rectification, deletion, portability, withdrawal of consent (without affecting the lawfulness of processing based on consent prior to its withdrawal), opposition to processing, limitation (in certain circumstances), and to file a complaint with the supervisory authority (the Spanish Data Protection Agency, www.aepd.es)."
+      }
+    }
+  }
+
+
+
+
 }
