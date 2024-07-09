@@ -71,7 +71,6 @@ const ReservationWidget = ({ margin }) => {
         src={`https://iframes.karveinformatica.com/AinacarIframe/views/home.php?lang=${i18n.language}`}
         data-src-loading="https://iframes.karveinformatica.com/AinacarIframe/views/loading.php"
         onLoad={() => setIframeLoaded(true)}
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
       ></iframe>
       {!iframeLoaded && <div>Loading...</div>}
     </div>
