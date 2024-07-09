@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.use(
         '/api',
         createProxyMiddleware({
-            target: 'http://localhost:8000',
+            target: 'http://localhost:3000',
             changeOrigin: true,
         })
     );
@@ -19,7 +19,7 @@ module.exports = function(app) {
                 '^/karve-proxy': '', // Reescribe la URL eliminando '/karve-proxy'
             },
             onProxyReq: (proxyReq, req, res) => {
-                proxyReq.setHeader('Origin', 'https://ainaappfrontend.onrender.com');
+                proxyReq.setHeader('Origin', 'http://localhost:3000');
             },
         })
     );

@@ -29,7 +29,7 @@ const ReservationWidget = ({ margin }) => {
       }
     };
 
-    const communicationScriptSrc = '/karve-proxy/AinacarIframe/js/iframe-comunication-parent.js';
+    const communicationScriptSrc = 'https://iframes.karveinformatica.com/AinacarIframe/js/iframe-comunication-parent.js';
 
     const init = async () => {
       try {
@@ -68,9 +68,10 @@ const ReservationWidget = ({ margin }) => {
         width="100%"
         frameBorder="0"
         scrolling="no"
-        src={`/karve-proxy/AinacarIframe/views/home.php?lang=${i18n.language}`}
-        data-src-loading="/karve-proxy/AinacarIframe/views/loading.php"
+        src={`https://iframes.karveinformatica.com/AinacarIframe/views/home.php?lang=${i18n.language}`}
+        data-src-loading="https://iframes.karveinformatica.com/AinacarIframe/views/loading.php"
         onLoad={() => setIframeLoaded(true)}
+       
       ></iframe>
       {!iframeLoaded && <div>Loading...</div>}
     </div>
