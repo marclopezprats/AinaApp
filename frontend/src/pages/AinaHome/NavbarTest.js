@@ -23,7 +23,7 @@ function ResponsiveAppBar({ onCambio, reservationDrawer }) {
     { name: t('alquiler_vehiculos'), path: '/' }, 
     { name: t('venta_vehiculos'), path: 'https://www.coches.net/concesionario/kodecarsmarket/default/' },
     { name: t('flota_vehiculos'), path: '/home' }, 
-    { name: t('ainacar_protect'), path: '/protect' }, 
+    { name: t('ainacar_protect'), path: '/aviso-legal' }, 
     { name: t('nuestra_compania'), path: '/company' },
   ];
 
