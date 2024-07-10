@@ -43,6 +43,7 @@ const CookieConsent = () => {
     const enableThirdPartyCookies = () => {
         console.log("Cookies de terceros habilitadas");
         // Aquí puedes incluir cualquier funcionalidad que dependa de cookies de terceros
+        // Puede ser la carga de algún script o la activación de un iframe
     };
 
     if (!showConsent) {

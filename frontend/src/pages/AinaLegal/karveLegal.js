@@ -2,12 +2,12 @@ import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import MKBox from "components/MKBox";
 import MKButton from "components/MKButton";
 import { useNavigate } from 'react-router-dom';
-import KarveIframe from '../AinaHome/ReservationWidget';
+import ReservationWidgetTest from '../AinaHome/ReservationWidget2';
 import { Card, CardContent, Typography, Grid, TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 
-const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
+const KarveLegal = ({ isOpenReservation, reservationDrawer }) => {
   const navigate = useNavigate();
   const buttonRef = useRef(null);
   const [buttonHeight, setButtonHeight] = useState(0);
@@ -94,7 +94,7 @@ const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
           <Grid container spacing={0} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width: '100%' }}>
             <Grid item xs={12} sm={12} md={12} xl={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', width: '100%',height:'100%' }}>
               <Suspense fallback={<div>Loading...</div>}>
-                {<KarveIframe />}
+                {<ReservationWidgetTest />}
               </Suspense>
             </Grid>
             <Grid item xs={12} sx={{ width: '100%', height: '100%', padding: '0 16px' }}>
@@ -138,4 +138,4 @@ const KarveCompany = ({ isOpenReservation, reservationDrawer }) => {
   );
 };
 
-export default KarveCompany;
+export default KarveLegal;

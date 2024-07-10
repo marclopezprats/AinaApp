@@ -10,7 +10,7 @@ import AinaCarRentACAR from "assets/images/atencion.webp";
 import footerRoutes from "footer.routes";
 import Container from '@mui/material/Container';
 import Whatsapp from '../AinaHome/whatsapp';
-import KarveCompany from './karveCompany';
+import KarveLegal from './karveLegal';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
 import Footer from '../AinaHome/footer';
@@ -165,7 +165,7 @@ function LegalNotice() {
 
   return (
     <>
-      <KarveCompany isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer} />
+      <KarveLegal isOpenReservation={isOpenReservation} reservationDrawer={reservationDrawer} />
 
       <Box sx={{ backgroundColor: '#FFFFFF', minHeight: '100vh' }}>
         <Whatsapp />
