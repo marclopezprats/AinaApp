@@ -1,13 +1,15 @@
+import environ
 from django.http import JsonResponse
 from serpapi import GoogleSearch
 from rest_framework.decorators import api_view
-import environ
 
+# Initialize environment variables
 env = environ.Env()
 environ.Env.read_env()
 
 @api_view(['GET'])
 def reseñas_list(request):
+    # Define search parameters for Google Maps place search
     search_params = {
         "engine": "google_maps",
         "q": "Aina Car - Alquiler de Coches, Furgonetas, Camiones en Sabadell - Barcelona",
@@ -16,6 +18,7 @@ def reseñas_list(request):
         "api_key": env('SERPAPI_KEY')
     }
 
+    # Perform the search for the place
     try:
         search = GoogleSearch(search_params)
         results = search.get_dict()
@@ -25,6 +28,7 @@ def reseñas_list(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
 
+    # Define parameters for fetching reviews
     review_params = {
         "engine": "google_maps_reviews",
         "data_id": local_results,
@@ -32,6 +36,7 @@ def reseñas_list(request):
         "api_key": env('SERPAPI_KEY')
     }
 
+    # Fetch the reviews
     try:
         review_search = GoogleSearch(review_params)
         review_results = review_search.get_dict()
@@ -41,7 +46,9 @@ def reseñas_list(request):
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
 
+    # Return reviews as JSON response
     return JsonResponse({'Reseñas': reviews})
+
 
 def set_cookie_view(request):
     response = JsonResponse({"message": "Cookie has been set"})
@@ -54,6 +61,3 @@ def set_cookie_view(request):
         samesite='Lax'
     )
     return response
-
-
-

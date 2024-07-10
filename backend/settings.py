@@ -21,8 +21,44 @@ from pathlib import Path
 import dj_database_url  # Asegúrate de tener dj-database-url instalado
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+#BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/django.log'),
+            'formatter': 'verbose'
+        },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/django_error.log'),
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'error_file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -33,7 +69,7 @@ SECRET_KEY = env('SECRET_KEY_ENV')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG_ENV')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ainaapp.onrender.com']
+ALLOWED_HOSTS = ['https://www.ainacar.cat','https://www.ainacar.com','ainacar.cat','ainacar.com','ainaapp.onrender.com', '127.0.0.1:8000', 'localhost', '127.0.0.1', 'localhost:3000']
 
 
 # Application definition
@@ -49,18 +85,10 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
-
+    'django_extensions',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True 
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://127.0.0.1:8000",
-    "http://localhost:8000"
-]
-
 
 CORS_ALLOW_METHODS = [
     'GET',
@@ -75,6 +103,9 @@ CORS_ALLOW_HEADERS = [
     'authorization'
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    env('CORS_ALLOWED_ORIGINS'),
+]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -109,7 +140,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'frontend/build'),
+            os.path.join(BASE_DIR, 'static/build'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -180,7 +211,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static'),
+    os.path.join(BASE_DIR, 'static/build/static'),
 ]
 
 # MEDIA FILES
